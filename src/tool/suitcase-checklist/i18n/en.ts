@@ -221,8 +221,8 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
     { question: "Is the tool free?", answer: "Yes, our luggage checklist generator is 100% free and requires no registration or additional app downloads." }
   ],
   bibliography: [
-    { name: "KonMari - How to Pack Using the KonMari Method", url: "https://konmari.com/how-to-pack-using-the-konmari-method/" },
-    { name: "Gentleman's Gazette - How To Pack A Suitcase For Men", url: "https://www.gentlemansgazette.com/how-to-pack-a-suitcase/" }
+    { name: "KonMari - How to KonMari a Suitcase", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
+    { name: "Eagle Creek - What to Pack: Ultimate Travel Packing Checklist", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
   ],
   howTo: [
     { name: "Define your trip", text: "Select the climate, reason, and duration of your getaway." },

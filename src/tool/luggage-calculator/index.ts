@@ -1,10 +1,11 @@
-import type { TravelToolEntry, ToolDefinition } from '../../types';
+import type { TravelToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
 import LuggageCalculator from './component.astro';
 import LuggageCalculatorSEO from './seo.astro';
 import LuggageCalculatorBibliography from './bibliography.astro';
 
 export interface LuggageCalculatorUI {
-  [key: string]: string | any;
+  [key: string]: any;
+  title: string;
   searchLabel: string;
   searchPlaceholder: string;
   personalItemTitle: string;
@@ -15,7 +16,7 @@ export interface LuggageCalculatorUI {
   modalNoteText: string;
   personalItemDetail: string;
   cabinBagDetail: string;
-  airlines: any[];
+  airlines: unknown[];
 }
 
 export type LuggageCalculatorLocaleContent = ToolLocaleContent<LuggageCalculatorUI>;
@@ -29,6 +30,7 @@ export const luggageCalculator: TravelToolEntry<LuggageCalculatorUI> = {
   i18n: {
     es: () => import('./i18n/es').then((m) => m.content),
     en: () => import('./i18n/en').then((m) => m.content),
+    fr: () => import('./i18n/fr').then((m) => m.content),
   },
 };
 

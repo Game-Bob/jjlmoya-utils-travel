@@ -13,7 +13,6 @@ const { ui } = Astro.props;
 
 <div class="optimal-routes">
     <div class="or-container">
-        {/* SIDEBAR */}
         <div class="or-sidebar">
             <header class="or-sidebar-header">
                 <h3>{ui.sidebar.title}</h3>
@@ -46,7 +45,6 @@ const { ui } = Astro.props;
             </footer>
         </div>
 
-        {/* MAP */}
         <div class="or-map-wrapper">
             <div id="or-map" class="or-map-el">
                 <div class="or-map-loader">
@@ -61,138 +59,125 @@ const { ui } = Astro.props;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-VP/K7V41mX7K3o5u4p0p5U4y2N8hUf6f0f5j9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script is:inline define:vars={{ ui }}>
-    // We'll use a dynamic import for the manager logic to keep it SOLID but functional in Astro script
-    // For simplicity in this demo, I'll paste the logic or use a global-ready version
-    
-    window.addEventListener('load', () => {
-        if (!window.L) return;
+    class SimpleRouteManager extends EventTarget {
+        constructor(L) {
+            super();
+            this.L = L;
+            this.points = [];
+            this.routeLine = null;
+        }
 
-        // Minimal logic for the demo, mirroring RouteManager.ts but adapted for direct script use
-        class SimpleRouteManager extends EventTarget {
-            constructor(L) {
-                super();
-                this.L = L;
-                this.points = [];
-                this.routeLine = null;
-            }
+        initMap(id) {
+            this.map = this.L.map(id).setView([40.4167, -3.7038], 6);
+            this.L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(this.map);
+            this.map.on('click', e => this.addPoint(e.latlng.lat, e.latlng.lng));
+        }
 
-            initMap(id) {
-                this.map = this.L.map(id).setView([40.4167, -3.7038], 6);
-                this.L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(this.map);
-                this.map.on('click', e => this.addPoint(e.latlng.lat, e.latlng.lng));
-            }
+        getNumberedIcon(n) {
+            return this.L.divIcon({
+                className: 'or-marker-icon',
+                html: `<div class="or-marker-num">${n}</div>`,
+                iconSize: [30, 30],
+                iconAnchor: [15, 30]
+            });
+        }
 
-            getNumberedIcon(n) {
-                return this.L.divIcon({
-                    className: 'or-marker-icon',
-                    html: `<div class="or-marker-num">${n}</div>`,
-                    iconSize: [30, 30],
-                    iconAnchor: [15, 30]
-                });
-            }
+        async addPoint(lat, lng) {
+            const id = Date.now();
+            const marker = this.L.marker([lat, lng], {
+                draggable: true,
+                icon: this.getNumberedIcon(this.points.length + 1)
+            }).addTo(this.map);
 
-            async addPoint(lat, lng) {
-                const id = Date.now();
-                const marker = this.L.marker([lat, lng], {
-                    draggable: true,
-                    icon: this.getNumberedIcon(this.points.length + 1)
-                }).addTo(this.map);
+            const point = { id, lat, lng, marker, name: `Punto` };
+            this.points.push(point);
+            this.notify();
 
-                const point = { id, lat, lng, marker, name: `Punto` };
-                this.points.push(point);
+            marker.on('dragend', () => {
+                const pos = marker.getLatLng();
+                point.lat = pos.lat;
+                point.lng = pos.lng;
                 this.notify();
+            });
 
-                marker.on('dragend', () => {
-                    const pos = marker.getLatLng();
-                    point.lat = pos.lat;
-                    point.lng = pos.lng;
-                    this.notify();
-                });
+            try {
+                const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+                const data = await res.json();
+                point.name = data.display_name.split(',')[0] || 'Punto';
+                this.notify();
+            } catch {}
+        }
 
-                // Geocode
-                try {
-                    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
-                    const data = await res.json();
-                    point.name = data.display_name.split(',')[0] || 'Punto';
-                    this.notify();
-                } catch(e) {}
-            }
-
-            deletePoint(id) {
-                const idx = this.points.findIndex(p => p.id === id);
-                if (idx !== -1) {
-                    this.map.removeLayer(this.points[idx].marker);
-                    this.points.splice(idx, 1);
-                    this.points.forEach((p, i) => p.marker.setIcon(this.getNumberedIcon(i+1)));
-                    this.notify();
-                }
-            }
-
-            notify() { this.dispatchEvent(new CustomEvent('update', { detail: this.points })); }
-
-            async optimize() {
-                if (this.points.length < 2) return;
-                this.dispatchEvent(new CustomEvent('loading', { detail: true }));
-
-                try {
-                    const coords = this.points.map(p => `${p.lng},${p.lat}`).join(';');
-                    const res = await fetch(`https://router.project-osrm.org/trip/v1/driving/${coords}?roundtrip=true&geometries=geojson&overview=full`);
-                    const data = await res.json();
-                    const waypoints = data.waypoints;
-                    const loop = waypoints.map(wp => this.points[wp.waypoint_index]);
-                    
-                    // Simple reorder starting from first point to keep it linear if roundtrip is off, 
-                    // but OSRM trip is inherently a loop. We'll just show the path.
-                    this.points = loop;
-                    this.points.forEach((p, i) => p.marker.setIcon(this.getNumberedIcon(i+1)));
-                    this.notify();
-
-                    if (this.routeLine) this.map.removeLayer(this.routeLine);
-                    this.routeLine = this.L.geoJSON(data.trips[0].geometry, {
-                        style: { color: '#0891b2', weight: 5 }
-                    }).addTo(this.map);
-                    this.map.fitBounds(this.routeLine.getBounds(), { padding: [50, 50] });
-                    
-                    document.getElementById('or-total-dist').textContent = `${(data.trips[0].distance / 1000).toFixed(2)} km`;
-                    document.getElementById('or-stats-panel').classList.remove('hidden');
-                } catch(e) {
-                } finally {
-                    this.dispatchEvent(new CustomEvent('loading', { detail: false }));
-                }
+        deletePoint(id) {
+            const idx = this.points.findIndex(p => p.id === id);
+            if (idx !== -1) {
+                this.map.removeLayer(this.points[idx].marker);
+                this.points.splice(idx, 1);
+                this.points.forEach((p, i) => p.marker.setIcon(this.getNumberedIcon(i+1)));
+                this.notify();
             }
         }
 
-        const manager = new SimpleRouteManager(window.L);
-        manager.initMap('or-map');
+        notify() { this.dispatchEvent(new CustomEvent('update', { detail: this.points })); }
 
-        const btnOpt = document.getElementById('or-optimize-btn');
-        const listEl = document.getElementById('or-points-list');
-        const emptyEl = document.getElementById('or-empty-state');
+        async optimize() {
+            if (this.points.length < 2) return;
+            this.dispatchEvent(new CustomEvent('loading', { detail: true }));
 
+            try {
+                const coords = this.points.map(p => `${p.lng},${p.lat}`).join(';');
+                const res = await fetch(`https://router.project-osrm.org/trip/v1/driving/${coords}?roundtrip=true&geometries=geojson&overview=full`);
+                const data = await res.json();
+                const waypoints = data.waypoints;
+                const loop = waypoints.map(wp => this.points[wp.waypoint_index]);
+
+                this.points = loop;
+                this.points.forEach((p, i) => p.marker.setIcon(this.getNumberedIcon(i+1)));
+                this.notify();
+
+                if (this.routeLine) this.map.removeLayer(this.routeLine);
+                this.routeLine = this.L.geoJSON(data.trips[0].geometry, {
+                    style: { color: '#0891b2', weight: 5 }
+                }).addTo(this.map);
+                this.map.fitBounds(this.routeLine.getBounds(), { padding: [50, 50] });
+
+                document.getElementById('or-total-dist').textContent = `${(data.trips[0].distance / 1000).toFixed(2)} km`;
+                document.getElementById('or-stats-panel').classList.remove('hidden');
+            } catch {
+            } finally {
+                this.dispatchEvent(new CustomEvent('loading', { detail: false }));
+            }
+        }
+    }
+
+    function setupUpdateListener(manager, btnOpt, listEl, emptyEl) {
         manager.addEventListener('update', e => {
             const points = e.detail;
             btnOpt.disabled = points.length < 2;
             emptyEl.style.display = points.length > 0 ? 'none' : 'flex';
-            
             listEl.innerHTML = '';
             points.forEach((p, i) => {
                 const li = document.createElement('li');
                 li.className = 'or-li';
-                li.innerHTML = `
-                    <span class="or-li-num">${i+1}</span>
-                    <span class="or-li-name">${p.name}</span>
-                    <button class="or-li-del" data-id="${p.id}">&times;</button>
-                `;
+                li.innerHTML = `<span class="or-li-num">${i+1}</span><span class="or-li-name">${p.name}</span><button class="or-li-del" data-id="${p.id}">&times;</button>`;
                 li.querySelector('.or-li-del').onclick = () => manager.deletePoint(p.id);
                 listEl.appendChild(li);
             });
         });
+    }
 
+    function setupRouteManager() {
+        if (!window.L) return;
+        const manager = new SimpleRouteManager(window.L);
+        manager.initMap('or-map');
+        const btnOpt = document.getElementById('or-optimize-btn');
+        const listEl = document.getElementById('or-points-list');
+        const emptyEl = document.getElementById('or-empty-state');
+        setupUpdateListener(manager, btnOpt, listEl, emptyEl);
         manager.addEventListener('loading', e => {
             btnOpt.classList.toggle('loading', e.detail);
             btnOpt.querySelector('span').textContent = e.detail ? ui.labels.loading : ui.sidebar.optimizeBtn;
         });
-
         btnOpt.onclick = () => manager.optimize();
         document.getElementById('or-clear-btn').onclick = () => {
             manager.points.forEach(p => manager.map.removeLayer(p.marker));
@@ -201,14 +186,20 @@ const { ui } = Astro.props;
             document.getElementById('or-stats-panel').classList.add('hidden');
             manager.notify();
         };
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupRouteManager);
+    } else {
+        setupRouteManager();
+    }
 </script>
 
 <style>
 .optimal-routes {
     --or-primary: #0891b2;
     --or-bg: #f8fafc;
-    --or-sidebar-bg: #ffffff;
+    --or-sidebar-bg: #fff;
     --or-text: #1e293b;
     --or-border: #e2e8f0;
     --or-accent: #06b6d4;
@@ -219,14 +210,6 @@ const { ui } = Astro.props;
     --or-sidebar-bg: #1e293b;
     --or-text: #f1f5f9;
     --or-border: #334155;
-}
-
-.optimal-routes {
-    height: 600px;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    border: 1px solid var(--or-border);
-    background: var(--or-bg);
 }
 
 .or-container {
@@ -250,7 +233,12 @@ const { ui } = Astro.props;
     align-items: center;
 }
 
-.or-sidebar-header h3 { margin: 0; font-size: 1.25rem; font-weight: 800; color: var(--or-text); }
+.or-sidebar-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--or-text);
+}
 
 .or-btn-clear {
     background: transparent;
@@ -261,7 +249,9 @@ const { ui } = Astro.props;
     padding: 0.5rem;
     border-radius: 0.5rem;
 }
-.or-btn-clear:hover { background: #fee2e2; }
+.or-btn-clear:hover {
+    background: #fee2e2;
+}
 
 .or-points-container {
     flex: 1;
@@ -272,7 +262,14 @@ const { ui } = Astro.props;
     gap: 1rem;
 }
 
-.or-instructions { font-size: 0.75rem; color: #64748b; margin: 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+.or-instructions {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
 
 .or-empty {
     flex: 1;
@@ -284,9 +281,19 @@ const { ui } = Astro.props;
     gap: 1rem;
     color: #94a3b8;
 }
-.or-empty svg { font-size: 3rem; opacity: 0.5; }
+.or-empty svg {
+    font-size: 3rem;
+    opacity: 0.5;
+}
 
-.or-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.or-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
 .or-li {
     background: var(--or-bg);
@@ -299,16 +306,54 @@ const { ui } = Astro.props;
     font-size: 0.85rem;
     transition: 0.2s;
 }
-.or-li-num { width: 24px; height: 24px; background: var(--or-accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.7rem; }
-.or-li-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.or-li-del { background: transparent; border: none; font-size: 1.2rem; color: #94a3b8; cursor: pointer; }
-.or-li-del:hover { color: #ef4444; }
+.or-li-num {
+    width: 24px;
+    height: 24px;
+    background: var(--or-accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.7rem;
+}
+.or-li-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.or-li-del {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    cursor: pointer;
+}
+.or-li-del:hover {
+    color: #ef4444;
+}
 
-.or-stats { padding: 1rem; background: #ecfeff; border-top: 1px solid #cffafe; }
-:global(.theme-dark) .or-stats { background: #083344; border-top-color: #164e63; }
-.or-stat-item { display: flex; justify-content: space-between; font-size: 0.85rem; }
+.or-stats {
+    padding: 1rem;
+    background: #ecfeff;
+    border-top: 1px solid #cffafe;
+}
+:global(.theme-dark) .or-stats {
+    background: #083344;
+    border-top-color: #164e63;
+}
+.or-stat-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
 
-.or-sidebar-footer { padding: 1rem; border-top: 1px solid var(--or-border); }
+.or-sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--or-border);
+}
 
 .or-btn-primary {
     width: 100%;
@@ -324,11 +369,24 @@ const { ui } = Astro.props;
     justify-content: center;
     gap: 0.5rem;
 }
-:global(.theme-dark) .or-btn-primary { background: white; color: black; }
-.or-btn-primary[disabled] { opacity: 0.5; cursor: not-allowed; }
+:global(.theme-dark) .or-btn-primary {
+    background: white;
+    color: black;
+}
+.or-btn-primary[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
-.or-map-wrapper { flex: 1; position: relative; }
-.or-map-el { width: 100%; height: 100%; z-index: 10; }
+.or-map-wrapper {
+    flex: 1;
+    position: relative;
+}
+.or-map-el {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
 
 .or-map-loader {
     position: absolute;
@@ -345,7 +403,6 @@ const { ui } = Astro.props;
 
 .hidden { display: none; }
 
-/* MAP MARKERS (GLOBAL because Leaflet creates them) */
 :global(.or-marker-icon) {
     display: flex;
     align-items: center;
@@ -362,12 +419,21 @@ const { ui } = Astro.props;
     justify-content: center;
     font-weight: 900;
     border: 3px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
-    .or-container { flex-direction: column; }
-    .or-sidebar { width: 100%; height: 300px; order: 2; }
-    .or-map-wrapper { height: 300px; order: 1; }
+    .or-container {
+        flex-direction: column;
+    }
+    .or-sidebar {
+        width: 100%;
+        height: 300px;
+        order: 2;
+    }
+    .or-map-wrapper {
+        height: 300px;
+        order: 1;
+    }
 }
 </style>

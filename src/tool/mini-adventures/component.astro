@@ -13,7 +13,6 @@ const { ui } = Astro.props;
     <div class="ma-card" id="ma-card">
         <div class="ma-bg-glow"></div>
 
-        {/* HOME VIEW */}
         <div id="ma-home-view" class="ma-view ma-home">
             <div class="ma-icon-circle">
                 <Icon name="mdi:compass-outline" class="ma-pulse" />
@@ -27,7 +26,6 @@ const { ui } = Astro.props;
             </button>
         </div>
 
-        {/* ADVENTURE VIEW */}
         <div id="ma-adventure-view" class="ma-view ma-adventure hidden">
             <header class="ma-header">
                 <div id="ma-category-badge" class="ma-badge"></div>
@@ -60,7 +58,6 @@ const { ui } = Astro.props;
         </div>
     </div>
 
-    {/* STATS & PROGRESS */}
     <div class="ma-stats-section">
         <div class="ma-stats-grid">
             <div class="ma-stat-card">
@@ -128,6 +125,30 @@ const { ui } = Astro.props;
         "mdi:spa": "M12,21C12,21 12,13 7,10C3,7.6 2,5 2,5C2,5 3.5,7 6,7C9,7 12,11 12,11C12,11 15,7 18,7C20.5,7 22,5 22,5C22,5 21,7.6 17,10C12,13 12,21 12,21Z"
     };
 
+    function createBadgeHTML(ach, val, catColor) {
+        return `
+            <svg viewBox="0 0 24 24"><path d="${ICON_PATHS[ach.icon] || ""}"></path></svg>
+            <div class="ma-tooltip">
+                <div class="flex items-center gap-2 mb-2">
+                    <div class="w-6 h-6 rounded-full flex items-center justify-center" style="background: ${catColor}20; color: ${catColor}">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4"><path fill="currentColor" d="${ICON_PATHS[ach.icon] || ""}"></path></svg>
+                    </div>
+                    <strong class="!m-0">${ach.label}</strong>
+                </div>
+                <p>${ach.description}</p>
+                <div class="ma-bar-mini">
+                    <div style="width:${Math.min(100, (val/ach.milestone)*100)}%; background:${catColor}"></div>
+                </div>
+            </div>
+        `;
+    }
+
+    function getBadgeColor(ach) {
+        const globalColors = { "g1": "#6366f1", "g10": "#0ea5e9", "g50": "#10b981", "g150": "#f59e0b", "g300": "#f43f5e" };
+        if (ach.categoryId === 'global') return globalColors[ach.id] || "#6366f1";
+        return ui.categories[ach.categoryId]?.color || "#6366f1";
+    }
+
     function renderAchievements(history) {
         if (!achievementsContainer) return;
         achievementsContainer.innerHTML = "";
@@ -138,47 +159,15 @@ const { ui } = Astro.props;
             if (adv) counts[adv.categoryId] = (counts[adv.categoryId] || 0) + 1;
         });
 
-        // Vibrant distinct colors for global achievements
-        const globalColors = {
-            "g1": "#6366f1",   // Indigo
-            "g10": "#0ea5e9",  // Sky
-            "g50": "#10b981",  // Emerald
-            "g150": "#f59e0b", // Amber
-            "g300": "#f43f5e"  // Rose
-        };
-
         ui.achievements.forEach(ach => {
             const val = ach.categoryId === 'global' ? history.length : counts[ach.categoryId] || 0;
             const isEarned = val >= ach.milestone;
-            
-            let catColor = "#6366f1";
-            if (ach.categoryId === 'global') {
-                catColor = globalColors[ach.id] || "#6366f1";
-            } else {
-                catColor = ui.categories[ach.categoryId]?.color || "#6366f1";
-            }
+            const catColor = getBadgeColor(ach);
 
             const badge = document.createElement("div");
             badge.className = `ma-badge-item ${isEarned ? 'earned' : 'locked'}`;
-            if (isEarned) {
-                badge.style.color = catColor;
-            }
-
-            badge.innerHTML = `
-                <svg viewBox="0 0 24 24"><path d="${ICON_PATHS[ach.icon] || ""}"></path></svg>
-                <div class="ma-tooltip">
-                    <div class="flex items-center gap-2 mb-2">
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center" style="background: ${catColor}20; color: ${catColor}">
-                            <svg viewBox="0 0 24 24" class="w-4 h-4"><path fill="currentColor" d="${ICON_PATHS[ach.icon] || ""}"></path></svg>
-                        </div>
-                        <strong class="!m-0">${ach.label}</strong>
-                    </div>
-                    <p>${ach.description}</p>
-                    <div class="ma-bar-mini">
-                        <div style="width:${Math.min(100, (val/ach.milestone)*100)}%; background:${catColor}"></div>
-                    </div>
-                </div>
-            `;
+            if (isEarned) badge.style.color = catColor;
+            badge.innerHTML = createBadgeHTML(ach, val, catColor);
             achievementsContainer.appendChild(badge);
         });
 
@@ -241,7 +230,7 @@ const { ui } = Astro.props;
 .mini-adventures {
     --ma-primary: #6366f1;
     --ma-bg: #f8fafc;
-    --ma-card-bg: #ffffff;
+    --ma-card-bg: #fff;
     --ma-text: #1e293b;
     --ma-text-muted: #64748b;
     --ma-border: #e2e8f0;
@@ -255,12 +244,6 @@ const { ui } = Astro.props;
     --ma-text-muted: #94a3b8;
     --ma-border: #334155;
     --ma-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-}
-
-.mini-adventures {
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--ma-text);
 }
 
 .ma-card {
@@ -304,17 +287,41 @@ const { ui } = Astro.props;
     border: 1px solid var(--ma-border);
 }
 
-.ma-icon-circle svg { font-size: 2.5rem; color: var(--ma-primary); }
-
-.ma-pulse { animation: ma-pulse 2s infinite; }
-@keyframes ma-pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
+.ma-icon-circle svg {
+    font-size: 2.5rem;
+    color: var(--ma-primary);
 }
 
-.ma-hero h3 { font-size: 2rem; font-weight: 900; margin: 0 0 0.5rem; }
-.ma-hero p { font-size: 1.1rem; color: var(--ma-text-muted); margin: 0; line-height: 1.5; }
+.ma-pulse {
+    animation: ma-pulse 2s infinite;
+}
+
+@keyframes ma-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.ma-hero h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem;
+}
+.ma-hero p {
+    font-size: 1.1rem;
+    color: var(--ma-text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
 
 .ma-btn-main {
     padding: 1.25rem 2.5rem;
@@ -328,34 +335,136 @@ const { ui } = Astro.props;
     transition: 0.2s;
 }
 
-:global(.theme-dark) .ma-btn-main { background: white; color: black; }
+:global(.theme-dark) .ma-btn-main {
+    background: white;
+    color: black;
+}
 
-.ma-btn-main:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.ma-btn-main:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
-/* ADVENTURE */
-.ma-adventure { justify-content: space-between; gap: 1rem; width: 100%; }
+.ma-adventure {
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
 
-.ma-header { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-.ma-badge { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.4rem 1rem; border-radius: 2rem; border: 1px solid; }
+.ma-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-.ma-close { background: transparent; border: none; color: var(--ma-text-muted); cursor: pointer; padding: 0.5rem; }
-.ma-close svg { font-size: 1.5rem; }
+.ma-badge {
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    border: 1px solid;
+}
 
-.ma-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
-.ma-adventure-icon { width: 80px; height: 80px; border-radius: 1.5rem; display: flex; align-items: center; justify-content: center; }
-.ma-adventure-icon svg { font-size: 2.5rem; }
+.ma-close {
+    background: transparent;
+    border: none;
+    color: var(--ma-text-muted);
+    cursor: pointer;
+    padding: 0.5rem;
+}
 
-#ma-adventure-text { font-size: 1.75rem; font-weight: 800; line-height: 1.2; margin: 0; }
+.ma-close svg {
+    font-size: 1.5rem;
+}
 
-.ma-footer { width: 100%; display: flex; flex-direction: column; gap: 1rem; }
-.ma-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.ma-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
 
-.ma-btn-emerald { background: #10b981; color: white; border: none; padding: 1rem; border-radius: 1rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-.ma-btn-outline { background: var(--ma-bg); border: 1px solid var(--ma-border); color: var(--ma-text); padding: 1rem; border-radius: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-.ma-btn-share { background: transparent; border: 1px solid var(--ma-border); color: var(--ma-text-muted); padding: 0.75rem; border-radius: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.8rem; }
+.ma-adventure-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-/* STATS */
-/* --- PREMIUM REDESIGN --- */
+.ma-adventure-icon svg {
+    font-size: 2.5rem;
+}
+
+#ma-adventure-text {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.ma-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ma-btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.ma-btn-emerald {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.ma-btn-outline {
+    background: var(--ma-bg);
+    border: 1px solid var(--ma-border);
+    color: var(--ma-text);
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.ma-btn-share {
+    background: transparent;
+    border: 1px solid var(--ma-border);
+    color: var(--ma-text-muted);
+    padding: 0.75rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+}
+
 .ma-stats-section {
     margin-top: 3rem;
     display: grid;
@@ -380,12 +489,13 @@ const { ui } = Astro.props;
     transition: transform 0.3s;
 }
 
-.ma-stat-card:hover { transform: translateY(-5px); }
+.ma-stat-card:hover {
+    transform: translateY(-5px);
+}
 
 .ma-stat-num {
     font-size: 2.5rem;
     font-weight: 900;
-    font-family: 'Outfit', sans-serif;
     background: linear-gradient(to bottom, var(--ma-text), var(--ma-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -433,7 +543,6 @@ const { ui } = Astro.props;
     font-size: 3rem;
     font-weight: 950;
     color: var(--ma-primary);
-    font-family: 'Outfit', sans-serif;
     text-shadow: 0 0 20px var(--ma-primary-soft);
 }
 
@@ -445,7 +554,6 @@ const { ui } = Astro.props;
     z-index: 1;
 }
 
-/* --- DYNAMIC BADGE STYLES --- */
 .ma-achievements-list :global(.ma-badge-item) {
     aspect-ratio: 1;
     border-radius: 1.25rem;
@@ -462,7 +570,7 @@ const { ui } = Astro.props;
 .ma-achievements-list :global(.ma-badge-item svg) {
     width: 32px;
     height: 32px;
-    fill: currentColor;
+    fill: currentcolor;
     transition: all 0.3s;
 }
 
@@ -473,7 +581,7 @@ const { ui } = Astro.props;
 
 .ma-achievements-list :global(.ma-badge-item.earned) {
     background: var(--ma-card-bg);
-    border-color: currentColor;
+    border-color: currentcolor;
     box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), inset 0 0 10px rgba(255,255,255,0.5);
 }
 
@@ -482,7 +590,7 @@ const { ui } = Astro.props;
     position: absolute;
     inset: -2px;
     border-radius: 1.4rem;
-    background: currentColor;
+    background: currentcolor;
     opacity: 0.15;
     z-index: -1;
     filter: blur(8px);
@@ -495,10 +603,9 @@ const { ui } = Astro.props;
 
 .ma-achievements-list :global(.ma-badge-item.earned:hover svg) {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 8px currentColor);
+    filter: drop-shadow(0 0 8px currentcolor);
 }
 
-/* Tooltip Premium */
 .ma-achievements-list :global(.ma-tooltip) {
     position: absolute;
     bottom: 120%;
@@ -545,8 +652,14 @@ const { ui } = Astro.props;
 }
 
 @media (max-width: 640px) {
-    .ma-achievements-list { grid-template-columns: repeat(4, 1fr); }
-    .ma-progress-card { padding: 2rem; }
-    .ma-total-perc { font-size: 2rem; }
+    .ma-achievements-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .ma-progress-card {
+        padding: 2rem;
+    }
+    .ma-total-perc {
+        font-size: 2rem;
+    }
 }
 </style>

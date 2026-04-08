@@ -221,9 +221,8 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
     { question: "¿Tiene la herramienta algún costo?", answer: "No, nuestro generador de listas de equipaje es 100% gratuito y no requiere ningún registro o descarga de aplicación adicional." }
   ],
   bibliography: [
-    { name: "KonMari - How to Pack Using the KonMari Method", url: "https://konmari.com/how-to-pack-using-the-konmari-method/" },
-    { name: "Gentleman's Gazette - How To Pack A Suitcase For Men", url: "https://www.gentlemansgazette.com/how-to-pack-a-suitcase/" },
-    { name: "Eagle Creek - Ultimate Packing List", url: "https://www.eaglecreek.com/blogs/articles/ultimate-packing-list" }
+    { name: "KonMari - How to KonMari a Suitcase", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
+    { name: "Eagle Creek - What to Pack: Ultimate Travel Packing Checklist", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
   ],
   howTo: [
     { name: "Define tu viaje", text: "Selecciona el clima, el motivo y la duración de tu escapada." },

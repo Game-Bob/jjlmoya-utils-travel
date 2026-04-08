@@ -293,8 +293,8 @@ export const content: ToolLocaleContent<TipCalculatorUI> = {
         url: "https://www.lonelyplanet.com/articles/tipping-customs-europe",
     },
     {
-        name: "Western Union: Global Gratuity Guide",
-        url: "https://www.westernunion.com/blog/global-gratuity-guide/",
+        name: "Western Union: Global Tipping Guide",
+        url: "https://www.westernunion.com/blog/en/global-tipping-guide/",
     },
   ],
   howTo: [

@@ -354,7 +354,7 @@ export const content: ToolLocaleContent<MiniAdventuresUI> = {
       progress: "Your Progress",
       trophies: "Trophy Collection"
     },
-    shareTemplate: "I just got a Mini Adventure! 🗺️\n\n\"{text}\"\n\nDo you dare? Generate yours here: {url}"
+    shareTemplate: "I just got a Mini Adventure!\n\n\"{text}\"\n\nDo you dare? Generate yours here: {url}"
   },
   seo: [
     { type: "title", text: "Mini Adventures: The Art of the Everyday", level: 2 },
@@ -381,8 +381,8 @@ export const content: ToolLocaleContent<MiniAdventuresUI> = {
     { question: "Can I propose new adventures?", answer: "Of course! The code for this tool is open. If you have ideas for fun challenges that don't require much budget or time, you can suggest them through the repository on GitHub." }
   ],
   bibliography: [
-    { name: "Microadventures: Local Discoveries for Great Escapes", url: "https://alastairhumphreys.com/books/microadventures/" },
-    { name: "The Art of Noticing", url: "https://robwalker.net/art-of-noticing/" }
+    { name: "Alastair Humphreys: Microadventures", url: "https://alastairhumphreys.com/blog/microadventures-3/" },
+    { name: "Rob Walker: The Art of Noticing", url: "https://www.goodreads.com/es/book/show/41552704-the-art-of-noticing" }
   ],
   howTo: [
     { name: "Generate", text: "Press the generate button to receive a random challenge." },

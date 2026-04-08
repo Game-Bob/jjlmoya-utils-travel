@@ -6,6 +6,7 @@ const title = 'Calculadora de Equipaje de Mano: Medidas por Aerolínea 2026';
 const description = 'Consulta las medidas y el peso permitido para el equipaje de mano y el bulto personal de las principales aerolíneas. Evita sorpresas y recargos de última hora en el aeropuerto.';
 
 const ui: LuggageCalculatorUI = {
+  title: "Medidas por Aerolínea",
   searchLabel: 'Busca tu aerolínea',
   searchPlaceholder: 'Busca tu aerolínea...',
   personalItemTitle: 'Bulto Personal',
@@ -144,16 +145,16 @@ const howTo: LuggageCalculatorLocaleContent['howTo'] = [
 
 const bibliography: LuggageCalculatorLocaleContent['bibliography'] = [
   {
-    name: "AENA: Equipaje de Mano y Facturado",
-    url: "https://www.aena.es/es/pasajeros/equipajes/equipaje-mano.html",
+    name: "AENA: Pasajeros y Equipajes",
+    url: "https://www.aena.es/es/pasajeros/pasajeros.html",
   },
   {
-    name: "EASA: Air Passenger Rights & Safety Rules",
-    url: "https://www.easa.europa.eu/en/light/topics/passenger-rights",
+    name: "Derechos de los Pasajeros Aéreos - UE",
+    url: "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_es.htm",
   },
   {
-    name: "IATA: Passenger Baggage Information",
-    url: "https://www.iata.org/en/programs/ops-infra/baggage/check-bag-rules/",
+    name: "IATA: Passenger Baggage Rules",
+    url: "https://www.iata.org/en/programs/ops-infra/baggage/passenger-baggage-rules/",
   },
 ];
 

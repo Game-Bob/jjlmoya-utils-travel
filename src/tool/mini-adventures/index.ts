@@ -27,6 +27,7 @@ export interface Achievement {
 }
 
 export interface MiniAdventuresUI {
+  [key: string]: unknown;
   title: string;
   homeTitle: string;
   homeDesc: string;
@@ -55,6 +56,7 @@ export const miniAdventures: TravelToolEntry<MiniAdventuresUI> = {
   i18n: {
     es: () => import('./i18n/es').then((m) => m.content),
     en: () => import('./i18n/en').then((m) => m.content),
+    fr: () => import('./i18n/fr').then((m) => m.content),
   },
 };
 

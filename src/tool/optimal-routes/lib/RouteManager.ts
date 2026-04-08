@@ -2,18 +2,18 @@ export interface RoutePoint {
     id: number;
     lat: number;
     lng: number;
-    marker: any;
+    marker: unknown;
     name: string;
     address?: string;
 }
 
 export class RouteManager extends EventTarget {
-    private map: any = null;
+    private map: unknown = null;
     private points: RoutePoint[] = [];
-    private routeLine: any = null;
-    private L: any = null;
+    private routeLine: unknown = null;
+    private L: unknown = null;
 
-    constructor(L: any) {
+    constructor(L: unknown) {
         super();
         this.L = L;
     }
@@ -30,7 +30,7 @@ export class RouteManager extends EventTarget {
             maxZoom: 20,
         }).addTo(this.map);
 
-        this.map.on("click", (e: any) => {
+        this.map.on("click", (e: unknown) => {
             this.addPoint(e.latlng.lat, e.latlng.lng);
         });
 
@@ -86,7 +86,7 @@ export class RouteManager extends EventTarget {
             point.address = data.display_name.split(",")[0] || "Punto";
             point.name = point.address as string;
             this.notifyUpdate();
-        } catch (e) {
+        } catch {
             point.address = "Desconocido";
         }
     }
@@ -106,6 +106,15 @@ export class RouteManager extends EventTarget {
         this.points.forEach((p, i) => {
             p.marker.setIcon(this.getNumberedIcon(i + 1));
         });
+    }
+
+    private findLongestLegIndex(legs: unknown[]): number {
+        let maxIdx = -1;
+        let maxDist = -1;
+        (legs as Array<{ distance: number }>).forEach((l, i) => {
+            if (l.distance > maxDist) { maxDist = l.distance; maxIdx = i; }
+        });
+        return maxIdx;
     }
 
     clearAll() {
@@ -134,15 +143,10 @@ export class RouteManager extends EventTarget {
             if (data.code !== "Ok") throw new Error();
 
             const waypoints = data.waypoints;
-            const loopPoints = waypoints.map((wp: any) => this.points[wp.waypoint_index]);
+            const loopPoints = waypoints.map((wp: unknown) => this.points[wp.waypoint_index]);
 
             const legs = data.trips[0].legs;
-            let maxIdx = -1;
-            let maxDist = -1;
-            legs.forEach((l: any, i: number) => {
-                if (l.distance > maxDist) { maxDist = l.distance; maxIdx = i; }
-            });
-
+            const maxIdx = this.findLongestLegIndex(legs);
             const startIdx = (maxIdx + 1) % loopPoints.length;
             this.points = [...loopPoints.slice(startIdx), ...loopPoints.slice(0, startIdx)];
             
@@ -159,7 +163,7 @@ export class RouteManager extends EventTarget {
 
             this.map?.fitBounds(this.routeLine.getBounds(), { padding: [50, 50] });
             this.dispatchEvent(new CustomEvent("done", { detail: routeData.routes[0] }));
-        } catch (e) {
+        } catch {
             this.dispatchEvent(new CustomEvent("error"));
         } finally {
             this.dispatchEvent(new CustomEvent("loading", { detail: false }));

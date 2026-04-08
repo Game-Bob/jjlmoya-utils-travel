@@ -169,29 +169,23 @@ const { ui } = Astro.props;
 
     function loadState() {
         const saved = localStorage.getItem("tip_calculator_state");
-        if (saved) {
-            try {
-                const state = JSON.parse(saved);
-                billInput.value = state.bill || "";
-                currentSplit = typeof state.split === 'number' ? state.split : 4;
-                currentPerc = typeof state.percentage === 'number' ? state.percentage : 10;
-                activeCountryId = state.countryId;
-
-                splitDisplay.textContent = currentSplit;
-                percLabel.textContent = currentPerc;
-
-                percBtns.forEach((btn) => {
-                    btn.classList.toggle("active", parseInt(btn.dataset.value) === currentPerc);
-                });
-
-                if (activeCountryId) {
-                    const item = Array.from(dropdownItems).find(
-                        (i) => i.dataset.id === activeCountryId
-                    );
-                    if (item) updateCountry(item, false);
-                }
-            } catch (e) {}
-        }
+        if (!saved) { updateUI(); return; }
+        try {
+            const state = JSON.parse(saved);
+            billInput.value = state.bill || "";
+            currentSplit = typeof state.split === 'number' ? state.split : 4;
+            currentPerc = typeof state.percentage === 'number' ? state.percentage : 10;
+            activeCountryId = state.countryId;
+            splitDisplay.textContent = currentSplit;
+            percLabel.textContent = currentPerc;
+            percBtns.forEach((btn) => {
+                btn.classList.toggle("active", parseInt(btn.dataset.value) === currentPerc);
+            });
+            if (activeCountryId) {
+                const item = Array.from(dropdownItems).find((i) => i.dataset.id === activeCountryId);
+                if (item) updateCountry(item, false);
+            }
+        } catch {}
         updateUI();
     }
 
@@ -221,8 +215,7 @@ const { ui } = Astro.props;
             if (updatePerc) {
                 currentPerc = country.default;
                 percLabel.textContent = currentPerc;
-                
-                // Update pills
+
                 percBtns.forEach((btn) => {
                     const btnVal = parseInt(btn.dataset.value);
                     if (btnVal === currentPerc) {
@@ -300,11 +293,11 @@ const { ui } = Astro.props;
 .tip-calculator {
     --tc-primary: #10b981;
     --tc-primary-soft: rgba(16, 185, 129, 0.1);
-    --tc-bg: #ffffff;
+    --tc-bg: #fff;
     --tc-border: #e2e8f0;
     --tc-text: #1e293b;
     --tc-text-muted: #64748b;
-    --tc-card-bg: #ffffff;
+    --tc-card-bg: #fff;
     --tc-input-bg: #f8fafc;
     --tc-item-bg: #f8fafc;
     --tc-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -321,12 +314,6 @@ const { ui } = Astro.props;
     --tc-primary: #34d399;
     --tc-primary-soft: rgba(52, 211, 153, 0.1);
     --tc-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-}
-
-.tip-calculator {
-    max-width: 900px;
-    margin: 0 auto;
-    color: var(--tc-text);
 }
 
 .tc-main-card {
@@ -432,7 +419,6 @@ const { ui } = Astro.props;
     box-shadow: 0 0 0 4px var(--tc-primary-soft);
 }
 
-/* Dropdown Styles */
 .tc-dropdown {
     position: relative;
 }
@@ -526,7 +512,6 @@ const { ui } = Astro.props;
     color: white;
 }
 
-/* Percentage Pills */
 .tc-label-with-value {
     display: flex;
     justify-content: space-between;
@@ -566,7 +551,6 @@ const { ui } = Astro.props;
     color: white;
 }
 
-/* Split Control */
 .tc-split-control {
     display: flex;
     align-items: center;
@@ -610,12 +594,11 @@ const { ui } = Astro.props;
     color: var(--tc-primary);
 }
 
-/* Summary Styles */
 .tc-summary-card {
     background: linear-gradient(135deg, var(--tc-primary) 0%, #059669 100%);
     border-radius: 2rem;
     padding: 2.5rem;
-    color: #ffffff;
+    color: #fff;
     box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
 }
 

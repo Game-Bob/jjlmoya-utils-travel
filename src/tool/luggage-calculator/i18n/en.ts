@@ -6,6 +6,7 @@ const title = 'Carry-on Luggage Calculator: Airline Measurements 2026';
 const description = 'Check the dimensions and weight allowed for your carry-on suitcase and personal item on Ryanair, Vueling, Iberia, and +20 airlines. Avoid surcharges!';
 
 const ui: LuggageCalculatorUI = {
+  title: "Carry-on Luggage Calculator",
   searchLabel: 'Search your airline',
   searchPlaceholder: 'Search your airline...',
   personalItemTitle: 'Personal Item',
@@ -144,16 +145,16 @@ const howTo: LuggageCalculatorLocaleContent['howTo'] = [
 
 const bibliography: LuggageCalculatorLocaleContent['bibliography'] = [
   {
-    name: "AENA: Hand and Checked Luggage",
-    url: "https://www.aena.es/es/pasajeros/equipajes/equipaje-mano.html",
+    name: "AENA: Passengers and Baggage",
+    url: "https://www.aena.es/es/pasajeros/pasajeros.html",
   },
   {
-    name: "EASA: Air Passenger Rights & Safety Rules",
-    url: "https://www.easa.europa.eu/en/light/topics/passenger-rights",
+    name: "Air Passenger Rights - EU",
+    url: "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_es.htm",
   },
   {
-    name: "IATA: Passenger Baggage Information",
-    url: "https://www.iata.org/en/programs/ops-infra/baggage/check-bag-rules/",
+    name: "IATA: Passenger Baggage Rules",
+    url: "https://www.iata.org/en/programs/ops-infra/baggage/passenger-baggage-rules/",
   },
 ];
 
