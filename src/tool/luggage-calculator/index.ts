@@ -3,8 +3,17 @@ import LuggageCalculator from './component.astro';
 import LuggageCalculatorSEO from './seo.astro';
 import LuggageCalculatorBibliography from './bibliography.astro';
 
+export interface Airline {
+  name: string;
+  personal: string;
+  personalWeight: string;
+  cabin: string;
+  cabinWeight: string;
+  icon: string;
+}
+
 export interface LuggageCalculatorUI {
-  [key: string]: any;
+  [key: string]: unknown;
   title: string;
   searchLabel: string;
   searchPlaceholder: string;
@@ -16,7 +25,7 @@ export interface LuggageCalculatorUI {
   modalNoteText: string;
   personalItemDetail: string;
   cabinBagDetail: string;
-  airlines: unknown[];
+  airlines: Airline[];
 }
 
 export type LuggageCalculatorLocaleContent = ToolLocaleContent<LuggageCalculatorUI>;

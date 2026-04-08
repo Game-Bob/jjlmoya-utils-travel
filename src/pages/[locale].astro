@@ -1,48 +1,60 @@
 ---
-import PreviewLayout from '../layouts/PreviewLayout.astro';
-import PreviewNavSidebar from '../components/PreviewNavSidebar.astro';
-import { templateCategory, ALL_TOOLS } from '../index';
-import { Icon } from 'astro-icon/components';
-import type { KnownLocale, ToolLocaleContent } from '../types';
+import PreviewLayout from "../layouts/PreviewLayout.astro";
+import PreviewNavSidebar from "../components/PreviewNavSidebar.astro";
+import { travelCategory, ALL_TOOLS } from "../index";
+import { Icon } from "astro-icon/components";
+import type { KnownLocale, ToolLocaleContent } from "../types";
 
 export async function getStaticPaths() {
-  const locales = ['en', 'es', 'fr'] as KnownLocale[];
-  return locales.map(locale => ({ params: { locale } }));
+  const locales = ["en", "es", "fr"] as KnownLocale[];
+  return locales.map((locale) => ({ params: { locale } }));
 }
 
 const { locale: currentLocale } = Astro.params as { locale: KnownLocale };
 
-const categoryContent = await templateCategory.i18n[currentLocale]!();
+const categoryContent = await travelCategory.i18n[currentLocale]!();
 
 const tools = ALL_TOOLS || [];
 
-const toolsWithContent = tools.length > 0
-  ? await Promise.all(
-      tools.map(async ({ entry, Component }) => {
-        const languages = Object.keys(entry.i18n);
-        const localeEntries = await Promise.all(
-          languages.map(async (l) => {
-            const content = await entry.i18n[l as KnownLocale]!();
-            return [l, content];
-          })
-        );
+const toolsWithContent =
+  tools.length > 0
+    ? await Promise.all(
+        tools.map(async ({ entry, Component }) => {
+          const languages = Object.keys(entry.i18n);
+          const localeEntries = await Promise.all(
+            languages.map(async (l) => {
+              const content = await entry.i18n[l as KnownLocale]!();
+              return [l, content];
+            }),
+          );
 
-        const localeContents = Object.fromEntries(localeEntries) as Record<string, ToolLocaleContent<Record<string, string>>>;
+          const localeContents = Object.fromEntries(localeEntries) as Record<
+            string,
+            ToolLocaleContent<Record<string, string>>
+          >;
 
-        const currentLocaleContent = localeContents[currentLocale] || localeContents['en'] || localeContents['es'];
-        const availableLocales: Record<string, string> = {};
+          const currentLocaleContent =
+            localeContents[currentLocale] ||
+            localeContents["en"] ||
+            localeContents["es"];
+          const availableLocales: Record<string, string> = {};
 
-        for (const l of languages) {
-          const lCont = localeContents[l];
-          if (lCont) {
-            availableLocales[l] = `/${l}/${lCont.slug}`;
+          for (const l of languages) {
+            const lCont = localeContents[l];
+            if (lCont) {
+              availableLocales[l] = `/${l}/${lCont.slug}`;
+            }
           }
-        }
 
-        return { entry, Component, locale: currentLocaleContent, availableLocales };
-      })
-    )
-  : [];
+          return {
+            entry,
+            Component,
+            locale: currentLocaleContent,
+            availableLocales,
+          };
+        }),
+      )
+    : [];
 ---
 
 <PreviewLayout
@@ -54,7 +66,9 @@ const toolsWithContent = tools.length > 0
     slot="sidebar"
     categoryTitle={categoryContent.title}
     tools={toolsWithContent.map(({ entry, locale, availableLocales }) => {
-      const href = availableLocales[currentLocale] || (locale ? `/${currentLocale}/${locale.slug}` : '#');
+      const href =
+        availableLocales[currentLocale] ||
+        (locale ? `/${currentLocale}/${locale.slug}` : "#");
       return {
         id: entry.id,
         title: locale?.title || entry.id,
@@ -70,37 +84,50 @@ const toolsWithContent = tools.length > 0
     </header>
 
     <div class="tool-list">
-      {toolsWithContent?.map(({ entry, locale, availableLocales }) => (
-        <article class="tool-card">
-          <a href={availableLocales?.[currentLocale] || (locale ? `/${currentLocale}/${locale.slug}` : '#')} class="tool-card-link">
-            <div class="tool-icons">
-               <div class="icon-wrapper bg">
+      {
+        toolsWithContent?.map(({ entry, locale, availableLocales }) => (
+          <article class="tool-card">
+            <a
+              href={
+                availableLocales?.[currentLocale] ||
+                (locale ? `/${currentLocale}/${locale.slug}` : "#")
+              }
+              class="tool-card-link"
+            >
+              <div class="tool-icons">
+                <div class="icon-wrapper bg">
                   <Icon name={entry.icons.bg} />
-               </div>
-               <div class="icon-wrapper fg">
+                </div>
+                <div class="icon-wrapper fg">
                   <Icon name={entry.icons.fg} />
-               </div>
-            </div>
-            <div class="tool-card-content">
-              <h2 class="tool-title">{locale?.title}</h2>
-              <p class="tool-description">{locale?.description}</p>
-            </div>
-            <div class="tool-card-meta">
-              <span class="tool-id">{entry.id}</span>
-            </div>
-          </a>
+                </div>
+              </div>
+              <div class="tool-card-content">
+                <h2 class="tool-title">{locale?.title}</h2>
+                <p class="tool-description">{locale?.description}</p>
+              </div>
+              <div class="tool-card-meta">
+                <span class="tool-id">{entry.id}</span>
+              </div>
+            </a>
 
-          {availableLocales && Object.keys(availableLocales).length > 1 && (
-            <div class="tool-locales">
-              {Object.entries(availableLocales).map(([l, url]) => (
-                <a href={url} class="locale-badge" title={`Ver en ${l.toUpperCase()}`} class:list={{ active: l === currentLocale }}>
-                  {l.toUpperCase()}
-                </a>
-              ))}
-            </div>
-          )}
-        </article>
-      ))}
+            {availableLocales && Object.keys(availableLocales).length > 1 && (
+              <div class="tool-locales">
+                {Object.entries(availableLocales).map(([l, url]) => (
+                  <a
+                    href={url}
+                    class="locale-badge"
+                    title={`Ver en ${l.toUpperCase()}`}
+                    class:list={{ active: l === currentLocale }}
+                  >
+                    {l.toUpperCase()}
+                  </a>
+                ))}
+              </div>
+            )}
+          </article>
+        ))
+      }
     </div>
   </div>
 </PreviewLayout>

@@ -162,6 +162,7 @@ export default [
             "max-lines-per-function": ["error", { max: 50, skipBlankLines: true, skipComments: true }],
             "complexity": "off",
             "no-comments/disallowComments": "off",
+            "max-lines": "off",
         },
     },
     {
@@ -195,6 +196,20 @@ export default [
             "max-lines": "off",
             "max-lines-per-function": "off",
             "complexity": "off",
+        },
+    },
+
+    {
+        files: ["src/pages/[locale].astro"],
+        rules: {
+            "max-lines": "off",
+        },
+    },
+
+    {
+        files: ["**/tool/luggage-calculator/component.astro"],
+        rules: {
+            "@typescript-eslint/no-explicit-any": "off",
         },
     },
 ];

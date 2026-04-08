@@ -1,12 +1,35 @@
 ---
 import { Icon } from "astro-icon/components";
 
+interface Airline {
+    name: string;
+    icon: string;
+    personal: string;
+    personalWeight: string;
+    cabin: string;
+    cabinWeight: string;
+}
+
+interface UIConfig {
+    title: string;
+    searchPlaceholder: string;
+    personalItemTitle: string;
+    cabinBagTitle: string;
+    noResults: string;
+    personalItemDetail: string;
+    cabinBagDetail: string;
+    weightLabel: string;
+    modalNoteTitle: string;
+    modalNoteText: string;
+    airlines?: Airline[];
+}
+
 interface Props {
-    ui: any;
+    ui: UIConfig;
 }
 
 const { ui } = Astro.props;
-const airlinesToMap = (ui && (ui as any).airlines) ? (ui.airlines as any[]) : [];
+const airlinesToMap = ui?.airlines ?? [];
 ---
 
 <div class="luggage-calculator">
@@ -30,7 +53,7 @@ const airlinesToMap = (ui && (ui as any).airlines) ? (ui.airlines as any[]) : []
 
     <div id="results-container" class="results-grid">
         {
-            airlinesToMap.map((airline: unknown) => (
+            airlinesToMap.map((airline: Airline) => (
                 <div
                     data-airline={airline.name}
                     data-airline-json={JSON.stringify(airline)}
@@ -160,10 +183,10 @@ const airlinesToMap = (ui && (ui as any).airlines) ? (ui.airlines as any[]) : []
     --lc-border: #e2e8f0;
     --lc-text: #1e293b;
     --lc-text-muted: #64748b;
-    --lc-card-bg: #ffffff;
+    --lc-card-bg: #fff;
     --lc-input-bg: #f8fafc;
     --lc-item-bg: #f1f5f9;
-    --lc-modal-bg: #ffffff;
+    --lc-modal-bg: #fff;
     --lc-note-bg: #eff6ff;
     --lc-note-border: #dbeafe;
     --lc-note-text: #1d4ed8;

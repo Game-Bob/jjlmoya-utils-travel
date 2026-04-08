@@ -1,8 +1,9 @@
+import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
 const slug = 'calculateur-bagages-cabine';
 const title = 'Calculateur de Bagages Cabine : Mesures par Compagnie 2026';
-const description = 'Consultez les dimensions et le poids autorisés pour votre bagage cabine et votre accessoire personnel sur toutes les compagnies aériennes.';
+const description = 'Consultez les dimensions et le poids autorisés pour votre bagage cabine et votre accessoire personnel sur toutes les compagnies aériennes. Évitez les surtaxes à l\'aéroport.';
 
 const ui: LuggageCalculatorUI = {
   title: "Mesures par Compagnie",
@@ -10,7 +11,7 @@ const ui: LuggageCalculatorUI = {
   searchPlaceholder: 'Recherchez votre compagnie...',
   personalItemTitle: 'Petit Sac',
   cabinBagTitle: 'Valise Cabine',
-  weightLabel: 'Poids',
+  weightLabel: 'Poids Max',
   noResults: 'Nous n\'avons pas trouvé cette compagnie. Essayez la recherche globale.',
   modalNoteTitle: 'Note importante :',
   modalNoteText: 'Certaines compagnies low-cost n\'autorisent la valise cabine que sous le siège si le service "Priorité" n\'a pas été souscrit.',
@@ -34,7 +35,7 @@ const ui: LuggageCalculatorUI = {
       icon: "mdi:airplane",
     },
     {
-      name: "Iberia",
+      name: "Iberia / Air Nostrum",
       personal: "40 x 30 x 15 cm",
       personalWeight: "Sans limite",
       cabin: "56 x 40 x 25 cm",
@@ -47,6 +48,14 @@ const ui: LuggageCalculatorUI = {
       personalWeight: "15 kg",
       cabin: "56 x 45 x 25 cm",
       cabinWeight: "15 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Air Europa",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "10 kg",
       icon: "mdi:airplane",
     },
     {
@@ -74,14 +83,295 @@ const ui: LuggageCalculatorUI = {
       icon: "mdi:airplane",
     },
     {
+      name: "KLM",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "12 kg (total)",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "12 kg (total)",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Swiss",
+      personal: "40 x 30 x 10 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 40 x 23 cm",
+      cabinWeight: "8 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Norwegian",
+      personal: "30 x 20 x 38 cm",
+      personalWeight: "10 kg (total)",
+      cabin: "55 x 40 x 23 cm",
+      cabinWeight: "10 kg (total)",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "TAP Air Portugal",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "2 kg",
+      cabin: "55 x 40 x 20 cm",
+      cabinWeight: "8 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Volotea",
+      personal: "40 x 30 x 20 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 40 x 20 cm",
+      cabinWeight: "10 kg (total)",
+      icon: "mdi:airplane",
+    },
+    {
       name: "Emirates",
-      personal: "Inclus en cabine",
+      personal: "En cabine",
       personalWeight: "-",
       cabin: "55 x 38 x 20 cm",
       cabinWeight: "7 kg",
       icon: "mdi:airplane",
     },
+    {
+      name: "Qatar Airways",
+      personal: "En cabine",
+      personalWeight: "-",
+      cabin: "50 x 37 x 25 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Turkish Airlines",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "4 kg",
+      cabin: "55 x 40 x 23 cm",
+      cabinWeight: "8 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "American Airlines",
+      personal: "45 x 35 x 20 cm",
+      personalWeight: "Sans limite",
+      cabin: "56 x 36 x 23 cm",
+      cabinWeight: "Sans limite",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Delta Air Lines",
+      personal: "Sous le siège",
+      personalWeight: "-",
+      cabin: "56 x 35 x 23 cm",
+      cabinWeight: "Sans limite",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "United Airlines",
+      personal: "43 x 25 x 22 cm",
+      personalWeight: "Sans limite",
+      cabin: "56 x 35 x 22 cm",
+      cabinWeight: "Sans limite",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Southwest Airlines",
+      personal: "47 x 34 x 21 cm",
+      personalWeight: "Sans limite",
+      cabin: "61 x 40 x 25 cm",
+      cabinWeight: "Sans limite",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "JetBlue",
+      personal: "43 x 33 x 20 cm",
+      personalWeight: "Sans limite",
+      cabin: "56 x 35 x 23 cm",
+      cabinWeight: "Sans limite",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Air Canada",
+      personal: "43 x 33 x 16 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 40 x 23 cm",
+      cabinWeight: "10 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Avianca",
+      personal: "45 x 35 x 25 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "10 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "LATAM",
+      personal: "45 x 35 x 20 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "10 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Aerolineas Argentinas",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "8 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Japan Airlines (JAL)",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 40 x 25 cm",
+      cabinWeight: "10 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Singapore Airlines",
+      personal: "Sous le siège",
+      personalWeight: "Sans limite",
+      cabin: "55 x 40 x 20 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Qantas",
+      personal: "Sous le siège",
+      personalWeight: "Sans limite",
+      cabin: "56 x 36 x 23 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Finnair",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 40 x 23 cm",
+      cabinWeight: "8 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "ITA Airways",
+      personal: "45 x 36 x 20 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "8 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Air New Zealand",
+      personal: "Sous le siège",
+      personalWeight: "-",
+      cabin: "56 x 36 x 23 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Cathay Pacific",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "Sans limite",
+      cabin: "56 x 36 x 23 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Eva Air",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "Sans limite",
+      cabin: "56 x 36 x 23 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Thai Airways",
+      personal: "Sous le siège",
+      personalWeight: "-",
+      cabin: "56 x 45 x 25 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "ANA (All Nippon Airways)",
+      personal: "Sous le siège",
+      personalWeight: "-",
+      cabin: "55 x 40 x 25 cm",
+      cabinWeight: "10 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Korean Air",
+      personal: "40 x 30 x 15 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 40 x 20 cm",
+      cabinWeight: "10 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Aeroméxico",
+      personal: "45 x 35 x 20 cm",
+      personalWeight: "Sans limite",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "10 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Copa Airlines",
+      personal: "43 x 25 x 22 cm",
+      personalWeight: "Sans limite",
+      cabin: "56 x 36 x 23 cm",
+      cabinWeight: "10 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Air India",
+      personal: "Dimensions personnelles",
+      personalWeight: "-",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "8 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Ethiopian Airlines",
+      personal: "Sous le siège",
+      personalWeight: "-",
+      cabin: "55 x 40 x 23 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Kenya Airways",
+      personal: "Sous le siège",
+      personalWeight: "-",
+      cabin: "55 x 35 x 25 cm",
+      cabinWeight: "12 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Jetstar",
+      personal: "Sous le siège",
+      personalWeight: "7 kg (total)",
+      cabin: "56 x 36 x 23 cm",
+      cabinWeight: "7 kg (total)",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "Lion Air",
+      personal: "Dimensions réduites",
+      personalWeight: "-",
+      cabin: "40 x 30 x 20 cm",
+      cabinWeight: "7 kg",
+      icon: "mdi:airplane",
+    },
+    {
+      name: "China Southern Airlines",
+      personal: "Sous le siège",
+      personalWeight: "-",
+      cabin: "55 x 40 x 20 cm",
+      cabinWeight: "5 kg",
+      icon: "mdi:airplane",
+    },
   ],
+
 };
 
 const faq: LuggageCalculatorLocaleContent['faq'] = [
@@ -104,11 +394,11 @@ const howTo: LuggageCalculatorLocaleContent['howTo'] = [
 
 const bibliography: LuggageCalculatorLocaleContent['bibliography'] = [
   {
-    name: "AENA: Passengers and Baggage",
+    name: "AENA: Pasajeros y Equipajes",
     url: "https://www.aena.es/es/pasajeros/pasajeros.html",
   },
   {
-    name: "Air Passenger Rights - EU",
+    name: "Droits des Passagers Aériens - UE",
     url: "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_es.htm",
   },
   {
@@ -117,12 +407,7 @@ const bibliography: LuggageCalculatorLocaleContent['bibliography'] = [
   },
 ];
 
-export const content: LuggageCalculatorLocaleContent = {
-  slug,
-  title,
-  description,
-  ui,
-  seo: [
+const seo: LuggageCalculatorLocaleContent['seo'] = [
     {
         type: "title",
         text: "Guide Complet des Dimensions des Bagages Cabine 2026",
@@ -188,11 +473,15 @@ export const content: LuggageCalculatorLocaleContent = {
         type: "table",
         headers: ["Compagnie", "Petit Sac (Sous le siège)", "Bagage Cabine (Main)"],
         rows: [
-            ["<strong>Air France</strong>", "40 x 30 x 15 cm", "55 x 35 x 25 cm (Inclus)"],
             ["<strong>Ryanair</strong>", "40 x 20 x 25 cm", "55 x 40 x 20 cm (Payant)"],
             ["<strong>Vueling</strong>", "40 x 20 x 30 cm", "55 x 40 x 20 cm (Payant)"],
-            ["<strong>Iberia</strong>", "40 x 30 x 15 cm", "56 x 40 x 25 cm (Inclus)"],
-            ["<strong>Lufthansa</strong>", "40 x 30 x 10 cm", "55 x 40 x 23 cm (Inclus)"],
+            ["<strong>Iberia</strong>", "40 x 30 x 15 cm", "56 x 40 x 25 cm (Gratuit)"],
+            ["<strong>Air France</strong>", "40 x 30 x 15 cm", "55 x 35 x 25 cm (Gratuit)"],
+            ["<strong>EasyJet</strong>", "45 x 36 x 20 cm", "56 x 45 x 25 cm (Priorité)"],
+            ["<strong>Lufthansa</strong>", "40 x 30 x 10 cm", "55 x 40 x 23 cm (Gratuit)"],
+            ["<strong>American Airlines</strong>", "45 x 35 x 20 cm", "56 x 36 x 23 cm (Gratuit)"],
+            ["<strong>Emirates</strong>", "40 x 30 x 15 cm", "55 x 38 x 20 cm (Gratuit)"],
+            ["<strong>Qatar Airways</strong>", "Sous le siège", "50 x 37 x 25 cm (Gratuit)"],
         ],
     },
     {
@@ -209,9 +498,49 @@ export const content: LuggageCalculatorLocaleContent = {
         type: "paragraph",
         html: "Vérifier les mesures de vos bagages avant de partir pour l'aéroport vous fera économiser non seulement de l'argent (les frais de porte dépassent souvent 50€), mais aussi le stress de commencer vos vacances par une dispute au comptoir.",
     },
-  ],
+];
+
+const faqSchema: WithContext<FAQPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item: any) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+
+const howToSchema: WithContext<HowTo> = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: title,
+  description,
+  step: howTo.map((step: any) => ({
+    '@type': 'HowToStep',
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+const appSchema: WithContext<SoftwareApplication> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  inLanguage: 'fr',
+};
+
+export const content: LuggageCalculatorLocaleContent = {
+  slug,
+  title,
+  description,
+  ui,
+  seo,
   faq,
   bibliography,
   howTo,
-  schemas: [],
+  schemas: [faqSchema, howToSchema, appSchema],
 };
