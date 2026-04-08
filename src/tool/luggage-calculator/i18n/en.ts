@@ -608,7 +608,10 @@ export const content: LuggageCalculatorLocaleContent = {
   ui,
   seo,
   faq,
+  faqTitle: "Frequently Asked Questions",
   bibliography,
+  bibliographyTitle: "Sources and References",
   howTo,
+  howToTitle: "How to use the calculator",
   schemas: [faqSchema, howToSchema, appSchema],
 };

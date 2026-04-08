@@ -540,7 +540,10 @@ export const content: LuggageCalculatorLocaleContent = {
   ui,
   seo,
   faq,
+  faqTitle: "Questions Fréquentes",
   bibliography,
+  bibliographyTitle: "Sources et Références",
   howTo,
+  howToTitle: "Comment utiliser le calculateur",
   schemas: [faqSchema, howToSchema, appSchema],
 };
