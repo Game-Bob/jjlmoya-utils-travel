@@ -1,0 +1,463 @@
+---
+import { Icon } from "astro-icon/components";
+import type { LuggageCalculatorUI } from "./index";
+
+interface Props {
+    ui: LuggageCalculatorUI;
+}
+
+const { ui } = Astro.props;
+const airlinesToMap = (ui && (ui as any).airlines) ? (ui as any).airlines : [];
+---
+
+<div class="luggage-calculator">
+    <div class="search-section">
+        <div class="search-container">
+            <Icon name="mdi:magnify" class="search-icon" />
+            <input
+                type="text"
+                id="airline-search"
+                placeholder={ui.searchPlaceholder}
+                class="search-input"
+            />
+        </div>
+    </div>
+
+    <div id="results-container" class="results-grid">
+        {
+            airlinesToMap.map((airline: any) => (
+                <div
+                    data-airline={airline.name}
+                    data-airline-json={JSON.stringify(airline)}
+                    class="airline-card"
+                    onclick={`window.openDetail('${airline.name.replace(/'/g, "\\'")}')`}
+                >
+                    <div class="airline-header">
+                        <Icon name={airline.icon} class="airline-icon" />
+                        <span class="airline-name">{airline.name}</span>
+                    </div>
+                    <div class="luggage-types">
+                        <div class="luggage-item">
+                            <Icon name="mdi:bag-personal" class="luggage-icon" />
+                            <div class="luggage-info">
+                                <span class="luggage-label">{ui.personalItemTitle}</span>
+                                <span class="luggage-measure">{airline.personal}</span>
+                                <span class="luggage-weight">{airline.personalWeight}</span>
+                            </div>
+                        </div>
+                        <div class="luggage-item">
+                            <Icon name="mdi:bag-suitcase" class="luggage-icon" />
+                            <div class="luggage-info">
+                                <span class="luggage-label">{ui.cabinBagTitle}</span>
+                                <span class="luggage-measure">{airline.cabin}</span>
+                                <span class="luggage-weight">{airline.cabinWeight}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+
+    <div id="no-results" class="no-results" style="display: none;">
+        {ui.noResults}
+    </div>
+
+    <div id="detail-overlay" class="detail-overlay">
+        <div class="detail-modal">
+            <button id="close-detail" class="close-btn">
+                <Icon name="mdi:close" />
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+</div>
+
+<script define:vars={{ ui }}>
+    const searchInput = document.getElementById("airline-search");
+    const resultsContainer = document.getElementById("results-container");
+    const noResults = document.getElementById("no-results");
+    const detailOverlay = document.getElementById("detail-overlay");
+    const closeDetail = document.getElementById("close-detail");
+    const modalContent = document.getElementById("modal-content");
+
+    if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+            const value = e.target.value.toLowerCase();
+            let found = 0;
+            const cards = document.querySelectorAll(".airline-card");
+            cards.forEach((card) => {
+                const name = (card.getAttribute("data-airline") ?? "").toLowerCase();
+                if (name.includes(value)) {
+                    card.style.display = "block";
+                    found++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (found === 0) {
+                if (noResults) noResults.style.display = "block";
+                if (resultsContainer) resultsContainer.style.display = "none";
+            } else {
+                if (noResults) noResults.style.display = "none";
+                if (resultsContainer) resultsContainer.style.display = "grid";
+            }
+        });
+    }
+
+    window.openDetail = (name) => {
+        const el = document.querySelector(`[data-airline="${name}"]`);
+        if (!el || !modalContent || !detailOverlay) return;
+        const airline = JSON.parse(el.getAttribute("data-airline-json") || "{}");
+        if (!airline.name) return;
+
+        modalContent.innerHTML = `
+            <h2 class="modal-title">${airline.name}</h2>
+            <div class="detail-props">
+                <div class="prop-card">
+                    <span class="prop-label">${ui.personalItemDetail}</span>
+                    <span class="prop-value">${airline.personal}</span>
+                    <p class="luggage-weight-detail">${ui.weightLabel}: ${airline.personalWeight}</p>
+                </div>
+                <div class="prop-card">
+                    <span class="prop-label">${ui.cabinBagDetail}</span>
+                    <span class="prop-value">${airline.cabin}</span>
+                    <p class="luggage-weight-detail">${ui.weightLabel}: ${airline.cabinWeight}</p>
+                </div>
+            </div>
+            <div class="modal-note">
+                <p class="modal-note-text">
+                    <strong class="modal-note-strong">${ui.modalNoteTitle}</strong> ${ui.modalNoteText}
+                </p>
+            </div>
+        `;
+        detailOverlay.classList.add("active");
+    };
+
+    if (closeDetail && detailOverlay) {
+        closeDetail.addEventListener("click", () => {
+            detailOverlay.classList.remove("active");
+        });
+
+        detailOverlay.addEventListener("click", (e) => {
+            if (e.target === detailOverlay) {
+                detailOverlay.classList.remove("active");
+            }
+        });
+    }
+</script>
+
+<style>
+.luggage-calculator {
+    --lc-primary: #3b82f6;
+    --lc-bg: #ffffff;
+    --lc-border: #e2e8f0;
+    --lc-text: #1e293b;
+    --lc-text-muted: #64748b;
+    --lc-card-bg: #ffffff;
+    --lc-input-bg: #f8fafc;
+    --lc-item-bg: #f8fafc;
+    --lc-modal-bg: #ffffff;
+    --lc-note-bg: rgba(59, 130, 246, 0.1);
+    --lc-note-border: rgba(59, 130, 246, 0.2);
+    --lc-note-text: #2563eb;
+    --lc-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.theme-dark) .luggage-calculator {
+    --lc-bg: #0f172a;
+    --lc-border: #334155;
+    --lc-text: #f1f5f9;
+    --lc-text-muted: #94a3b8;
+    --lc-card-bg: #1e293b;
+    --lc-input-bg: #0f172a;
+    --lc-item-bg: #0f172a;
+    --lc-modal-bg: #1e293b;
+    --lc-note-bg: rgba(59, 130, 246, 0.15);
+    --lc-note-border: rgba(59, 130, 246, 0.3);
+    --lc-note-text: #93c5fd;
+    --lc-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --lc-primary: #60a5fa;
+}
+
+.luggage-calculator {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--lc-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--lc-border);
+    border-radius: 2rem;
+    box-shadow: var(--lc-shadow);
+    color: var(--lc-text);
+}
+.search-section {
+    margin-bottom: 2.5rem;
+}
+
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1.25rem 1.5rem 1.25rem 3.5rem;
+    background: var(--lc-input-bg);
+    border: 2px solid var(--lc-border);
+    border-radius: 1.25rem;
+    font-size: 1.1rem;
+    color: var(--lc-text);
+    transition: all 0.2s;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--lc-primary);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--lc-text-muted);
+    width: 20px;
+    height: 20px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.airline-card {
+    background: var(--lc-card-bg);
+    border: 1px solid var(--lc-border);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.airline-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--lc-primary);
+    box-shadow: var(--shadow-lg, 0 12px 24px rgba(0, 0, 0, 0.08));
+}
+
+.airline-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.airline-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--lc-primary);
+}
+
+.airline-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--lc-text);
+}
+
+.luggage-types {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.luggage-item {
+    padding: 1rem;
+    background: var(--lc-item-bg);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.luggage-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--lc-primary);
+    flex-shrink: 0;
+}
+
+.luggage-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.luggage-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--lc-text-muted);
+    text-transform: uppercase;
+}
+
+.luggage-measure {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--lc-text);
+}
+
+.luggage-weight {
+    font-size: 0.85rem;
+    color: var(--lc-primary);
+    font-weight: 600;
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: var(--lc-text-muted);
+    font-weight: 600;
+}
+
+.detail-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.detail-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.detail-modal {
+    background: var(--lc-modal-bg);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 2rem;
+    padding: 2.5rem;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+    color: var(--lc-text);
+}
+
+.detail-overlay.active .detail-modal {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: var(--lc-input-bg);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lc-text-muted);
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background: var(--lc-border);
+    color: var(--lc-text);
+}
+
+.modal-title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    color: var(--lc-text);
+}
+
+.detail-props {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.prop-card {
+    background: var(--lc-item-bg);
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+}
+
+.prop-label {
+    font-size: 0.8rem;
+    color: var(--lc-text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.prop-value {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--lc-text);
+}
+
+.luggage-weight-detail {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: var(--lc-text-muted);
+    font-weight: 600;
+}
+
+.modal-note {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: var(--lc-note-bg);
+    border-radius: 1rem;
+    border: 1px solid var(--lc-note-border);
+}
+
+.modal-note-text {
+    font-size: 0.9rem;
+    color: var(--lc-note-text);
+    line-height: 1.6;
+}
+
+.modal-note-strong {
+    font-weight: 800;
+}
+
+@media (max-width: 640px) {
+    .luggage-calculator {
+        padding: 1rem;
+        border-radius: 1.5rem;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-props {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

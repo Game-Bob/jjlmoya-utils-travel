@@ -1,24 +1,187 @@
 import type { CategoryLocaleContent } from '../../types';
 
 export const content: CategoryLocaleContent = {
-  slug: 'categoria-template',
-  title: 'Categoría Template',
-  description: 'Descripción de la categoría.',
+  slug: 'viajes',
+  title: 'Herramientas y Calculadoras para Viajeros y Aventureros',
+  description: 'Planifica tu próximo viaje con herramientas gratuitas online. Calculadoras de equipaje de aerolíneas, guías de propinas internacionales, checklists de maleta y generadores de retos diarios.',
   seo: [
     {
-      type: 'summary',
-      title: 'Resumen',
-      items: ['Punto 1', 'Punto 2', 'Punto 3'],
-    },
-    {
       type: 'title',
-      text: 'Título de sección',
+      text: 'Logística de Viaje y Exploración Local: Planifica con Inteligencia',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Contenido SEO de la categoría.',
+      html: 'Viajar en 2026 es una mezcla de descubrimiento y gestión técnica. En esta sección, ofrecemos una suite de <strong>herramientas gratuitas online</strong> diseñadas para nómadas digitales, viajeros frecuentes y aventureros urbanos que buscan reducir el estrés de la planificación. La logística de un viaje no debería ser un obstáculo para la aventura, sino el mapa que la hace posible.',
+    },
+    {
+      type: 'paragraph',
+      html: 'Desde el cumplimiento de las normativas de las aerolíneas hasta la etiqueta cultural internacional y la gamificación de tu entorno cercano, nuestras utilidades te ayudan a ser un viajero más consciente, eficiente y curioso.',
+    },
+    {
+      type: 'title',
+      text: 'Logística Aérea: Calculadora de Equipaje y Medidas',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'Evitar las sorpresas y cargos extra en el mostrador de facturación es vital. Nuestra <strong>calculadora de equipaje</strong> integra las medidas y pesos permitidos de más de 20 aerolíneas líderes (incluyendo low-cost como Ryanair, EasyJet o Vueling). Verifica al instante si tu maleta de mano cumple con los requisitos específicos de tu próximo vuelo.',
+    },
+    {
+      type: 'title',
+      text: 'Etiqueta Internacional: Guía y Calculadora de Propinas',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'La propina no es solo una transacción; es una norma cultural que varía drásticamente. Nuestra calculatora de <strong>propinas internacional</strong> te ofrece porcentajes recomendados y etiqueta de propina para más de 50 países, ayudándote a ser un viajero respetuoso con las costumbres locales desde Japón hasta Estados Unidos.',
+    },
+    {
+      type: 'title',
+      text: 'Organización Eficiente: Generador de Checklist de Maleta',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: '¿Alguna vez has llegado a tu destino y te has dado cuenta de que olvidaste lo más importante? Basándonos en la duración de tu estancia, el clima de tu destino y el motivo de tu viaje, nuestro <strong>checklist interactivo</strong> genera una lista personalizada de equipaje para que no dejes nada al azar.',
+    },
+    {
+      type: 'title',
+      text: 'Exploración de Entorno: Generador de Mini Aventuras',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'La aventura no solo está en el otro lado del mundo; a menudo está a la vuelta de la esquina. Nuestro generador de <strong>Mini Aventuras</strong> utiliza algoritmos de azar para proponerte retos diarios que te obligan a interactuar con tu entorno cercano de forma creativa y diferente. Rompe la rutina y redescubre tu propia ciudad.',
+    },
+    {
+      type: 'list',
+      items: [
+        '<strong>Ahorro en Vuelo:</strong> Evita cargos extra por exceso de equipaje o maletas fuera de medidas mediante una planificación técnica.',
+        '<strong>Consciencia Cultural:</strong> Navega entornos internacionales con la confianza de conocer las normas de etiqueta locales.',
+        '<strong>Viajes Seguros:</strong> Checklists que aseguran que llevas toda tu documentación y medicación necesaria.',
+        '<strong>Gamificación de la Exploración:</strong> Transforma tus desplazamientos diarios en pequeñas expediciones de descubrimiento.',
+      ],
+    },
+    {
+      type: 'tip',
+      title: 'Tip de Viajero Experto',
+      html: '<p><strong>Cuidado de Documentación:</strong> Siempre lleva una copia digital cifrada de tus documentos (pasaporte, seguros) en la nube y una copia física oculta en tu equipaje. Nuestra herramienta de checklist te recordará incluir este paso vital antes de salir de casa.</p>',
+    },
+    {
+      type: 'title',
+      text: 'Planificación Financiera: Presupuesto y Control de Gastos',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'Un viaje sin presupuesto es un viaje que se controla a sí mismo en lugar del revés. Antes de partir, establece un presupuesto realista desglosado por categorías: alojamiento (40%), alimentación (25%), actividades (20%), transporte local (10%), emergencias (5%). Esta estructura te evita sorpresas desagradables y maximiza el valor de cada euro invertido.',
+    },
+    {
+      type: 'paragraph',
+      html: 'Herramientas de control de gastos como conversores de moneda locales y calculadoras de presupuesto diario te ayudan a ajustar tu velocidad de gasto según el costo de vida del lugar. Un viajero inteligente sabe cuánto cuesta un café en Bangkok versus un café en París, y ajusta sus actividades en consecuencia.',
+    },
+    {
+      type: 'title',
+      text: 'Salud y Documentación Médica en Viajes Internacionales',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'La medicina viaja contigo. Antes de partir a cualquier destino internacional, verifica qué vacunas se recomiendan (fiebre amarilla, hepatitis, tétanos). Lleva tu historial médico digitalizado, recetas de medicamentos en inglés (no confíes en prescripciones locales sin verificación) y un seguro de viaje que cubra evacuación médica si es necesario. Algunos países exigen pruebas de vacunación específicas; ignorar esto puede costarte la entrada a un país o, peor, una hospitalización sin cobertura.',
+    },
+    {
+      type: 'title',
+      text: 'Experiencias Auténticas: Turismo Responsable versus Explotación',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'No todos los tours son iguales. Un tour "exótico" que promociona "encuentro con tribus locales" a menudo es explotación turística. La diferencia está en: ¿Los lugareños consienten voluntariamente? ¿Reciben compensación justa? ¿Se respeta su privacidad y cultura? Viajes responsables significan investigación previa, respeto por los límites locales, y apoyo económico directo a comunidades, no a intermediarios. Esto amplía tu experiencia y crea impacto positivo real.',
+    },
+    {
+      type: 'title',
+      text: 'Logística de Alojamiento y Reservas Inteligentes',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'Encontrar alojamiento es una de las decisiones más importantes del viaje. Nuestro <strong>comparador de alojamiento</strong> agrega precios de múltiples plataformas (Airbnb, Booking, hostales locales) en tiempo real, permitiéndote evaluar no solo precio sino también reviews verificados, ubicación estratégica (distancia a transporte público, seguridad del barrio) y amenidades críticas. Un viajero inteligente no solo busca el más barato; busca el mejor valor por euro gastado.',
+    },
+    {
+      type: 'title',
+      text: 'Conversión de Monedas y Análisis de Tasa de Cambio Histórica',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'El tipo de cambio no es constante. Cambias dinero a una tasa peor en el aeropuerto que en casa. Nuestro <strong>rastreador de cambio de monedas</strong> te muestra tasas históricas para que puedas planificar cuándo cambiar dinero de forma óptima. Algunos viajeros esperan a llegar al destino para cambiar (a veces es mejor, a veces peor). El análisis histórico muestra patrones: el euro tiende a debilitarse en invierno, el dólar se fortalece en crisis. Ser un viajero inteligente significa entender mercados de divisas como un pequeño trader.',
+    },
+    {
+      type: 'title',
+      text: 'Gestión de Jet Lag y Adaptación Horaria Científica',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'El cambio de zona horaria afecta profundamente tu ritmo circadiano. Nuestro <strong>planificador de jet lag</strong> basado en el principio de "bright light therapy" sugiere cuándo exponerte a luz solar según tu destino y hora de viaje. Viajar hacia el este es más difícil (acortas el día) que hacia el oeste. Cambiar 3 horas necesita 1-2 días; cambiar 9 horas puede necesitar una semana. Estrategias simples como ajustar tu sueño 2-3 días antes del viaje pueden reducir dramáticamente el jet lag.',
+    },
+    {
+      type: 'title',
+      text: 'Rutas Optimizadas: Algoritmo del Viajante de Comercio Aplicado a Turismo',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'Si visitas 10 atracciones turísticas, hay 3.6 millones de rutas posibles. El <strong>optimizador de ruta turística</strong> aplica el algoritmo del viajante de comercio (TSP) para encontrar la secuencia más eficiente. No es solo sobre distancia; es sobre tiempo de permanencia, horarios de apertura y transporte público disponible. Un viajero inteligente gasta más tiempo en lugares de interés y menos en desplazamientos. Herramientas así multiplican tu experiencia en la misma cantidad de horas.',
+    },
+    {
+      type: 'title',
+      text: 'Regulaciones de Viaje: Visas, Vacunas y Documentación Requerida',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'Cada país tiene sus requisitos únicos. El <strong>auditor de requisitos de viaje</strong> verifica tu nacionalidad, destino y fechas de viaje para informarte exactamente qué documentos necesitas: ¿visa previa? ¿Vacunas obligatorias? ¿Certificados de salud? ¿Límites de moneda para importar? Ignorar esto puede significar ser deportado en la frontera o multado. Nuestra herramienta centraliza información dispersa en 50+ portales oficiales diferentes.',
+    },
+    {
+      type: 'title',
+      text: 'Transportes Locales: Mapas de Metro y Sistemas de Transporte Global',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'Llegar es más de la mitad del viaje. Nuestro <strong>navegador de transporte público</strong> integra sistemas de metro, autobús y tranvía para 100+ ciudades globales. Planifica rutas exactas, tiempos de espera reales, precios de billetes. En algunas ciudades, los taxis son predatorios; en otras, son baratos. El conocimiento de transporte público transforma tu experiencia de "turista perdido" a "viajero local". Una ruta bien planificada a través de metro de Tokio es diferente a la de Nueva York, pero ambas requieren el mismo rigor técnico.',
+    },
+    {
+      type: 'title',
+      text: 'Seguros de Viaje y Cobertura de Emergencias Médicas',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'Un accidente requiere hospitalización en un país extranjero puede costar €50,000. El <strong>comparador de seguros de viaje</strong> te permite evaluar cobertura de evacuación médica, cuidado dental, reembolso de equipaje. Algunos seguros cubren deportes de riesgo; otros no. Algunos cubren viajes de negocios; otros solo recreativos. Leer letra pequeña es tedioso pero crítico. Un viajero inteligente invierte €15 en seguro para proteger un viaje de €1,500.',
+    },
+    {
+      type: 'title',
+      text: 'El futuro del turismo consciente 2026',
+      level: 2,
+    },
+    {
+      type: 'paragraph',
+      html: 'En 2026, el <strong>Slow Travel</strong> y el turismo regenerativo son fundamentales. Se trata de viajar menos, pero mejor. Estas herramientas te empoderan para gestionar tu autonomía como viajero, reduciendo el ruido logístico para que puedas centrarte en lo que realmente importa: la experiencia y la conexión con el lugar. Un viaje bien planificado no es aburrido—es liberador.',
+    },
+    {
+      type: 'stats',
+      columns: 2,
+      items: [
+        { label: 'Equipaje', value: '20+ Aerolíneas', icon: 'mdi:airplane' },
+        { label: 'Checklist', value: 'Smart-Adapt', icon: 'mdi:clipboard-check' },
+        { label: 'Propinas', value: '50+ Países', icon: 'mdi:cash-multiple' },
+        { label: 'Aventura', value: 'Bio-Daily', icon: 'mdi:compass' },
+      ],
     },
   ],
 };
+
 

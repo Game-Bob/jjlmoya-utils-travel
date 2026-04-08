@@ -1,0 +1,552 @@
+---
+import { Icon } from "astro-icon/components";
+import type { MiniAdventuresUI } from "./index";
+
+interface Props {
+  ui: MiniAdventuresUI;
+}
+
+const { ui } = Astro.props;
+---
+
+<div class="mini-adventures">
+    <div class="ma-card" id="ma-card">
+        <div class="ma-bg-glow"></div>
+
+        {/* HOME VIEW */}
+        <div id="ma-home-view" class="ma-view ma-home">
+            <div class="ma-icon-circle">
+                <Icon name="mdi:compass-outline" class="ma-pulse" />
+            </div>
+            <div class="ma-hero">
+                <h3>{ui.homeTitle}</h3>
+                <p>{ui.homeDesc}</p>
+            </div>
+            <button id="ma-generate-btn" class="ma-btn-main">
+                {ui.generateBtn}
+            </button>
+        </div>
+
+        {/* ADVENTURE VIEW */}
+        <div id="ma-adventure-view" class="ma-view ma-adventure hidden">
+            <header class="ma-header">
+                <div id="ma-category-badge" class="ma-badge"></div>
+                <button id="ma-close-btn" class="ma-close"><Icon name="mdi:close" /></button>
+            </header>
+
+            <div class="ma-content">
+                <div id="ma-icon-container" class="ma-adventure-icon">
+                   <Icon name="mdi:map" id="ma-curr-icon" />
+                </div>
+                <h2 id="ma-adventure-text"></h2>
+            </div>
+
+            <footer class="ma-footer">
+                <div class="ma-btn-grid">
+                    <button id="ma-done-btn" class="ma-btn-emerald">
+                        <Icon name="mdi:check-bold" />
+                        {ui.doneBtn}
+                    </button>
+                    <button id="ma-another-btn" class="ma-btn-outline">
+                        <Icon name="mdi:refresh" />
+                        {ui.anotherBtn}
+                    </button>
+                </div>
+                <button id="ma-share-btn" class="ma-btn-share">
+                    <Icon name="mdi:share-variant" />
+                    {ui.shareBtn}
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    {/* STATS & PROGRESS */}
+    <div class="ma-stats-section">
+        <div class="ma-stats-grid">
+            <div class="ma-stat-card">
+                <span class="ma-stat-num" id="ma-stat-completed">0</span>
+                <span class="ma-stat-label">{ui.stats.adventures}</span>
+            </div>
+            <div class="ma-stat-card">
+                <span class="ma-stat-num" id="ma-stat-achievements">0</span>
+                <span class="ma-stat-label">{ui.stats.badges}</span>
+            </div>
+        </div>
+
+        <div class="ma-progress-card">
+            <div class="ma-progress-header">
+                <div>
+                    <span class="ma-progress-label">{ui.stats.progress}</span>
+                    <h4>{ui.stats.trophies}</h4>
+                </div>
+                <span class="ma-total-perc" id="ma-total-progress">0%</span>
+            </div>
+            <div class="ma-achievements-list" id="ma-achievements-container"></div>
+        </div>
+    </div>
+</div>
+
+<script is:inline define:vars={{ ui }}>
+    const homeView = document.getElementById("ma-home-view");
+    const adventureView = document.getElementById("ma-adventure-view");
+    const generateBtn = document.getElementById("ma-generate-btn");
+    const anotherBtn = document.getElementById("ma-another-btn");
+    const doneBtn = document.getElementById("ma-done-btn");
+    const closeBtn = document.getElementById("ma-close-btn");
+    const shareBtn = document.getElementById("ma-share-btn");
+
+    const textEl = document.getElementById("ma-adventure-text");
+    const badgeEl = document.getElementById("ma-category-badge");
+    const iconContainer = document.getElementById("ma-icon-container");
+    const iconEl = document.getElementById("ma-curr-icon");
+    const statCompleted = document.getElementById("ma-stat-completed");
+    const statAchievements = document.getElementById("ma-stat-achievements");
+    const achievementsContainer = document.getElementById("ma-achievements-container");
+    const totalProgressEl = document.getElementById("ma-total-progress");
+
+    let currentAdventure = null;
+
+    const ICON_PATHS = {
+        "mdi:footprint": "M11,2C10.5,2 10.1,2.4 10.1,2.9V11.1H8.9C8.4,11.1 8,11.5 8,12V21.1C8,21.6 8.4,22 8.9,22H15.1C15.6,22 16,21.6 16,21.1V12C16,11.5 15.6,11.1 15.1,11.1H13.9V2.9C13.9,2.4 13.5,2 13,2H11Z",
+        "mdi:sparkles": "M10,21V19H12V21H10M14,14L10,18L7,15L8.4,13.6L10,15.2L12.6,12.6L14,14M21,11A2,2 0 0,0 19,9H12V3H10V9H3A2,2 0 0,0 1,11V19A2,2 0 0,0 3,21H5V23H7V21H17V23H19V21H21A2,2 0 0,0 23,19V11A2,2 0 0,0 21,11Z",
+        "mdi:calendar-star": "M19,19V8H5V19H19M16,1H18V3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1M11,10.5L12,9L13,10.5L14.7,10.7L13.5,11.9L13.8,13.6L12.3,12.8L10.8,13.6L11.1,11.9L9.9,10.7L11,10.5Z",
+        "mdi:trophy-variant": "M18,2H6V5H18V2M18,7H6V9H18V7M12,13L8,9V11C8,13.21 9.79,15 12,15C14.21,15 16,13.21 16,11V9L12,13M12,17C9.24,17 7,14.76 7,12H5V19H19V12H17C17,14.76 14.76,17 12,17M9,21V23H15V21H9Z",
+        "mdi:ghost": "M12,2A9,9 0 0,0 3,11V22L6,19L9,22L12,19L15,22L18,19L21,22V11A9,9 0 0,0 12,2M9,8A2,2 0 0,1 11,10A2,2 0 0,1 9,12A2,2 0 0,1 7,10A2,2 0 0,1 9,8M15,8A2,2 0 0,1 17,10A2,2 0 0,1 15,12A2,2 0 0,1 13,10A2,2 0 0,1 15,8Z",
+        "mdi:map-marker-outline": "M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2M12,4A5,5 0 0,1 17,9C17,12.42 12,18.05 12,18.05C12,18.05 7,12.42 7,9A5,5 0 0,1 12,4M12,6A3,3 0 0,0 9,9A3,3 0 0,0 12,12A3,3 0 0,0 15,9A3,3 0 0,0 12,6Z",
+        "mdi:map-check": "M20,15.5H22V17.5H20V15.5M20,19.5H22V21.5H20V19.5M3,3V19H12.35L11,17H5V5H19V11.23L21,13.23V3H3M20,14L15.3,18.7L13,16.4L11.5,17.9L15.3,21.7L21.4,15.4L20,14Z",
+        "mdi:silverware-clean": "M10,21V11.5C10,10.67 9.33,10 8.5,10H7.5V3H6.5V10H5.5C4.67,10 4,10.67 4,11.5V21H5V11H6V21H7V11H8V21H10M14.5,18V21H13V18H14.5M19.5,18V21H18V18H19.5M16,21V7.5C16,4.46 18.46,2 21.5,2V21H16Z",
+        "mdi:silverware-variant": "M10,21V11.5C10,10.67 9.33,10 8.5,10H7.5V3H6.5V10H5.5C4.67,10 4,10.67 4,11.5V21H5V11H6V21H7V11H8V21H10M14.5,18V21H13V18H14.5M19.5,18V21H18V18H19.5M16,21V7.5C16,4.46 18.46,2 21.5,2V21H16Z",
+        "mdi:book-open-page-variant": "M20,3H4A2,2 0 0,0 2,5V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V5A2,2 0 0,0 20,3M20,19H13V5H20V19M11,19H4V5H11V19Z",
+        "mdi:head-cog": "M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M13,22H11V20H13V22M10.12,19.37L9.06,18.31L10.47,16.9L11.53,17.96L10.12,19.37M14.94,18.31L13.88,19.37L12.47,17.96L13.53,16.9L14.94,18.31Z",
+        "mdi:palette-outline": "M12,22C6.48,22 2,17.52 2,12C2,6.48 6.48,2 12,2C17.52,2 22,6.48 22,12C22,13.1 21.1,14 20,14H18.4C17.85,14 17.4,14.45 17.4,15C17.4,15.27 17.5,15.5 17.7,15.7C18.1,16.1 18.3,16.6 18.3,17.1C18.3,18.15 17.5,19 16.4,19H14.4C14.4,20.66 13.06,22 11.4,22H12M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C12,20 12,20 12.1,20C12,20 12,20 12,20H14V17H16.4C16.95,17 17.4,16.55 17.4,16C17.4,15.73 17.3,15.5 17.1,15.3C16.7,14.9 16.5,14.4 16.5,13.9C16.5,12.85 17.35,12 18.4,12H20C20,12 20,12 20,11.9C20,7.54 16.41,4 12,4Z",
+        "mdi:palette-swatch": "M2,13C2,13 2,13 2,13V4C2,2.9 2.9,2 4,2H16C17.1,2 18,2.9 18,4V5H20C21.1,5 22,5.9 22,7V20C22,21.1 21.1,22 20,22H6C4.9,22 4,21.1 4,20V19H4C2.9,19 2,18.1 2,17V13M4,13V17H16V13H4M4,12H16V5C16,4.45 15.55,4 15,4H4V12Z",
+        "mdi:account-voice": "M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15.11 17,16.5V19H22V16.5C22,14.28 18.44,13.17 16,13M8,13C5.56,13 2,14.12 2,16.34V19H14V16.34C14,14.12 10.44,13 8,13M8,7A4,4 0 0,0 4,11A4,4 0 0,0 8,15A4,4 0 0,0 12,11A4,4 0 0,0 8,7M16,7A4,4 0 0,0 12,11A4,4 0 0,0 16,15A4,4 0 0,0 20,11A4,4 0 0,0 16,7Z",
+        "mdi:account-group": "M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15.11 17,16.5V19H22V16.5C22,14.28 18.44,13.17 16,13M8,13C5.56,13 2,14.12 2,16.34V19H14V16.34C14,14.12 10.44,13 8,13M8,7A4,4 0 0,0 4,11A4,4 0 0,0 8,15A4,4 0 0,0 12,11A4,4 0 0,0 8,7M16,7A4,4 0 0,0 12,11A4,4 0 0,0 16,15A4,4 0 0,0 20,11A4,4 0 0,0 16,7Z",
+        "mdi:magnify": "M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5A4.5,4.5 0 0,0 5,9.5A4.5,4.5 0 0,0 9.5,14A4.5,4.5 0 0,0 14,9.5A4.5,4.5 0 0,0 9.5,5Z",
+        "mdi:telescope": "M1,14L2.2,12.8C2.6,12.4 3.2,12.4 3.6,12.8L5.4,14.6C5.8,15 5.8,15.6 5.4,16L4.2,17.2C3.8,17.6 3.2,17.6 2.8,17.2L1,15.4C0.6,15 0.6,14.4 1,14M9,11L13,7L15.3,9.3C15.7,9.7 15.7,10.3 15.3,10.7L13.1,12.9C12.7,13.3 12.1,13.3 11.7,12.9L9,10.2M23,3.4L21.6,2L14,9.6V11.1L12.9,12.2V13.6L1,26.2L2.4,27.6L15,15H16.4L17.5,13.9H19L26.6,6.3L25.2,4.9L23,7.1V3.4Z",
+        "mdi:leaf": "M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C11,20 15,14 15,14C15,14 19,18 21,18C22,18 22,15 22,15C22,15 21,8 17,8Z",
+        "mdi:spa": "M12,21C12,21 12,13 7,10C3,7.6 2,5 2,5C2,5 3.5,7 6,7C9,7 12,11 12,11C12,11 15,7 18,7C20.5,7 22,5 22,5C22,5 21,7.6 17,10C12,13 12,21 12,21Z"
+    };
+
+    function renderAchievements(history) {
+        if (!achievementsContainer) return;
+        achievementsContainer.innerHTML = "";
+
+        const counts = {};
+        history.forEach(id => {
+            const adv = ui.adventures.find(a => a.id === id);
+            if (adv) counts[adv.categoryId] = (counts[adv.categoryId] || 0) + 1;
+        });
+
+        // Vibrant distinct colors for global achievements
+        const globalColors = {
+            "g1": "#6366f1",   // Indigo
+            "g10": "#0ea5e9",  // Sky
+            "g50": "#10b981",  // Emerald
+            "g150": "#f59e0b", // Amber
+            "g300": "#f43f5e"  // Rose
+        };
+
+        ui.achievements.forEach(ach => {
+            const val = ach.categoryId === 'global' ? history.length : counts[ach.categoryId] || 0;
+            const isEarned = val >= ach.milestone;
+            
+            let catColor = "#6366f1";
+            if (ach.categoryId === 'global') {
+                catColor = globalColors[ach.id] || "#6366f1";
+            } else {
+                catColor = ui.categories[ach.categoryId]?.color || "#6366f1";
+            }
+
+            const badge = document.createElement("div");
+            badge.className = `ma-badge-item ${isEarned ? 'earned' : 'locked'}`;
+            if (isEarned) {
+                badge.style.color = catColor;
+            }
+
+            badge.innerHTML = `
+                <svg viewBox="0 0 24 24"><path d="${ICON_PATHS[ach.icon] || ""}"></path></svg>
+                <div class="ma-tooltip">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center" style="background: ${catColor}20; color: ${catColor}">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4"><path fill="currentColor" d="${ICON_PATHS[ach.icon] || ""}"></path></svg>
+                        </div>
+                        <strong class="!m-0">${ach.label}</strong>
+                    </div>
+                    <p>${ach.description}</p>
+                    <div class="ma-bar-mini">
+                        <div style="width:${Math.min(100, (val/ach.milestone)*100)}%; background:${catColor}"></div>
+                    </div>
+                </div>
+            `;
+            achievementsContainer.appendChild(badge);
+        });
+
+        const earned = ui.achievements.filter(a => (a.categoryId === 'global' ? history.length : counts[a.categoryId] || 0) >= a.milestone).length;
+        if (statAchievements) statAchievements.textContent = earned;
+        if (totalProgressEl) totalProgressEl.textContent = `${Math.round((earned / ui.achievements.length) * 100)}%`;
+    }
+
+    function loadStats() {
+        const history = JSON.parse(localStorage.getItem("mini_adventures_history") || "[]");
+        renderAchievements(history);
+        if (statCompleted) statCompleted.textContent = history.length;
+    }
+
+    function showAdventure() {
+        const adv = ui.adventures[Math.floor(Math.random() * ui.adventures.length)];
+        currentAdventure = adv;
+        
+        const cat = ui.categories[adv.categoryId];
+        textEl.textContent = adv.text;
+        badgeEl.textContent = cat.label;
+        badgeEl.style.borderColor = cat.color + '50';
+        badgeEl.style.color = cat.color;
+        badgeEl.style.background = cat.color + '10';
+
+        iconContainer.style.background = cat.color + '20';
+        iconEl.style.color = cat.color;
+
+        homeView.classList.add("hidden");
+        adventureView.classList.remove("hidden");
+    }
+
+    generateBtn?.addEventListener("click", showAdventure);
+    anotherBtn?.addEventListener("click", showAdventure);
+    closeBtn?.addEventListener("click", () => {
+        adventureView.classList.add("hidden");
+        homeView.classList.remove("hidden");
+    });
+
+    doneBtn?.addEventListener("click", () => {
+        const history = JSON.parse(localStorage.getItem("mini_adventures_history") || "[]");
+        if (!history.includes(currentAdventure.id)) {
+            history.push(currentAdventure.id);
+            localStorage.setItem("mini_adventures_history", JSON.stringify(history));
+        }
+        loadStats();
+        showAdventure();
+    });
+
+    shareBtn?.addEventListener("click", () => {
+        const text = ui.shareTemplate.replace("{text}", currentAdventure.text).replace("{url}", window.location.href);
+        if (navigator.share) navigator.share({ text });
+        else window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+    });
+
+    loadStats();
+</script>
+
+<style>
+.mini-adventures {
+    --ma-primary: #6366f1;
+    --ma-bg: #f8fafc;
+    --ma-card-bg: #ffffff;
+    --ma-text: #1e293b;
+    --ma-text-muted: #64748b;
+    --ma-border: #e2e8f0;
+    --ma-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:global(.theme-dark) .mini-adventures {
+    --ma-bg: #0f172a;
+    --ma-card-bg: #1e293b;
+    --ma-text: #f1f5f9;
+    --ma-text-muted: #94a3b8;
+    --ma-border: #334155;
+    --ma-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+.mini-adventures {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--ma-text);
+}
+
+.ma-card {
+    position: relative;
+    background: var(--ma-card-bg);
+    border-radius: 2.5rem;
+    padding: 2.5rem;
+    min-height: 400px;
+    border: 1px solid var(--ma-border);
+    box-shadow: var(--ma-shadow);
+    overflow: hidden;
+}
+
+.ma-bg-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.05), transparent);
+    pointer-events: none;
+}
+
+.ma-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.ma-view.hidden { display: none; }
+
+.ma-icon-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--ma-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--ma-border);
+}
+
+.ma-icon-circle svg { font-size: 2.5rem; color: var(--ma-primary); }
+
+.ma-pulse { animation: ma-pulse 2s infinite; }
+@keyframes ma-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.ma-hero h3 { font-size: 2rem; font-weight: 900; margin: 0 0 0.5rem; }
+.ma-hero p { font-size: 1.1rem; color: var(--ma-text-muted); margin: 0; line-height: 1.5; }
+
+.ma-btn-main {
+    padding: 1.25rem 2.5rem;
+    background: var(--ma-text);
+    color: var(--ma-card-bg);
+    border: none;
+    border-radius: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+:global(.theme-dark) .ma-btn-main { background: white; color: black; }
+
+.ma-btn-main:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+/* ADVENTURE */
+.ma-adventure { justify-content: space-between; gap: 1rem; width: 100%; }
+
+.ma-header { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+.ma-badge { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.4rem 1rem; border-radius: 2rem; border: 1px solid; }
+
+.ma-close { background: transparent; border: none; color: var(--ma-text-muted); cursor: pointer; padding: 0.5rem; }
+.ma-close svg { font-size: 1.5rem; }
+
+.ma-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+.ma-adventure-icon { width: 80px; height: 80px; border-radius: 1.5rem; display: flex; align-items: center; justify-content: center; }
+.ma-adventure-icon svg { font-size: 2.5rem; }
+
+#ma-adventure-text { font-size: 1.75rem; font-weight: 800; line-height: 1.2; margin: 0; }
+
+.ma-footer { width: 100%; display: flex; flex-direction: column; gap: 1rem; }
+.ma-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.ma-btn-emerald { background: #10b981; color: white; border: none; padding: 1rem; border-radius: 1rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+.ma-btn-outline { background: var(--ma-bg); border: 1px solid var(--ma-border); color: var(--ma-text); padding: 1rem; border-radius: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+.ma-btn-share { background: transparent; border: 1px solid var(--ma-border); color: var(--ma-text-muted); padding: 0.75rem; border-radius: 1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.8rem; }
+
+/* STATS */
+/* --- PREMIUM REDESIGN --- */
+.ma-stats-section {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+}
+
+.ma-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.ma-stat-card {
+    background: linear-gradient(135deg, var(--ma-card-bg), var(--ma-bg));
+    border: 1px solid var(--ma-border);
+    padding: 2rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    transition: transform 0.3s;
+}
+
+.ma-stat-card:hover { transform: translateY(-5px); }
+
+.ma-stat-num {
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(to bottom, var(--ma-text), var(--ma-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ma-progress-card {
+    background: var(--ma-card-bg);
+    border: 1px solid var(--ma-border);
+    padding: 3rem;
+    border-radius: 3rem;
+    box-shadow: var(--ma-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.ma-progress-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--ma-primary-soft), transparent 70%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.ma-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.ma-progress-header h4 {
+    margin: 0.5rem 0 0;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.ma-total-perc {
+    font-size: 3rem;
+    font-weight: 950;
+    color: var(--ma-primary);
+    font-family: 'Outfit', sans-serif;
+    text-shadow: 0 0 20px var(--ma-primary-soft);
+}
+
+.ma-achievements-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- DYNAMIC BADGE STYLES --- */
+.ma-achievements-list :global(.ma-badge-item) {
+    aspect-ratio: 1;
+    border-radius: 1.25rem;
+    background: var(--ma-bg);
+    border: 1px solid var(--ma-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.ma-achievements-list :global(.ma-badge-item svg) {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+    transition: all 0.3s;
+}
+
+.ma-achievements-list :global(.ma-badge-item.locked) {
+    opacity: 0.2;
+    filter: grayscale(1) blur(1px);
+}
+
+.ma-achievements-list :global(.ma-badge-item.earned) {
+    background: var(--ma-card-bg);
+    border-color: currentColor;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), inset 0 0 10px rgba(255,255,255,0.5);
+}
+
+.ma-achievements-list :global(.ma-badge-item.earned::after) {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 1.4rem;
+    background: currentColor;
+    opacity: 0.15;
+    z-index: -1;
+    filter: blur(8px);
+}
+
+.ma-achievements-list :global(.ma-badge-item:hover) {
+    transform: scale(1.15) rotate(5deg);
+    z-index: 10;
+}
+
+.ma-achievements-list :global(.ma-badge-item.earned:hover svg) {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Tooltip Premium */
+.ma-achievements-list :global(.ma-tooltip) {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    width: 220px;
+    font-size: 0.9rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 100;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.ma-achievements-list :global(.ma-badge-item:hover .ma-tooltip) {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.ma-achievements-list :global(.ma-tooltip strong) {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: white;
+}
+
+.ma-achievements-list :global(.ma-tooltip p) {
+    margin: 0 0 1rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+}
+
+.ma-achievements-list :global(.ma-bar-mini) {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+@media (max-width: 640px) {
+    .ma-achievements-list { grid-template-columns: repeat(4, 1fr); }
+    .ma-progress-card { padding: 2rem; }
+    .ma-total-perc { font-size: 2rem; }
+}
+</style>
