@@ -65,7 +65,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'tip',
-      title: 'Experten-Tipp für Reisende',
+      title: 'Experten Tipp für Reisende',
       html: '<p><strong>Dokumentenpflege:</strong> Führen Sie immer eine verschlüsselte digitale Kopie Ihrer Dokumente (Reisepass, Versicherung) in der Cloud und eine versteckte physische Kopie in Ihrem Gepäck mit. Unser Checklisten-Tool erinnert Sie daran, diesen lebenswichtigen Schritt vor dem Verlassen des Hauses einzuplanen.</p>',
     },
     {

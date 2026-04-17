@@ -2,11 +2,11 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
 const slug = 'handbagage-kalkylator-flygbolag';
-const title = 'Handbagage-kalkylator: Flygbolagens mått 2026';
+const title = 'Handbagage kalkylator : Flygbolagens mått 2026';
 const description = 'Kontrollera de mått och vikter som tillåts för din kabinväska och ditt personliga föremål hos Ryanair, Vueling, Iberia och +30 andra flygbolag. Undvik extraavgifter!';
 
 const ui: LuggageCalculatorUI = {
-  title: "Handbagage-kalkylator",
+  title: "Handbagage kalkylator",
   searchLabel: 'Sök efter ditt flygbolag',
   searchPlaceholder: 'Sök flygbolag...',
   personalItemTitle: 'Personligt föremål',

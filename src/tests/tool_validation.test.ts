@@ -5,7 +5,7 @@ import { travelCategory } from '../category';
 describe('Tool Validation Suite', () => {
   describe('Library Registration', () => {
     it('should have 4 tools in ALL_TOOLS', () => {
-      expect(ALL_TOOLS.length).toBe(5);
+      expect(ALL_TOOLS.length).toBe(4);
     });
 
     it('travelCategory should be defined', () => {

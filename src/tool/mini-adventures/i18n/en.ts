@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
 const slug = 'mini-adventure-forecast';
-const title = 'Mini Adventure Forecast - Get Out of the Rut';
+const title = 'Mini Adventure Forecast : Get Out of the Rut';
 const description = 'Random daily challenge generator to break monotony and explore your surroundings.';
 
 const ui: MiniAdventuresUI = {
