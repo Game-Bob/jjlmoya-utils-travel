@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'generator-for-packlista';
-const title = 'Packlista Generator | Skapa din packlista online';
+const title = 'Packlista Generator Skapa din packlista online';
 const description = 'Det ultimata onlineverktyget för att organisera ditt bagage baserat på resetyp, destination och varaktighet. Glöm aldrig dina nödvändigheter igen.';
 
 const ui: SuitcaseChecklistUI = {

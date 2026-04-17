@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'koffer-checklist-generator';
-const title = 'Koffer Checklist Generator | Maak je eigen inpaklijst';
+const title = 'Koffer Checklist Generator Maak je eigen inpaklijst';
 const description = 'De ultieme online tool om je bagage te organiseren op basis van trip type, bestemming en duur. Vergeet nooit meer je reisessentials.';
 
 const ui: SuitcaseChecklistUI = {

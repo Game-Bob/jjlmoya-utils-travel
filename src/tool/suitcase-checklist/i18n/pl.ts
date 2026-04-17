@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'generator-listy-rzeczy-do-walizki';
-const title = 'Generator Listy do Walizki | Stwórz swoją listę pakowania';
+const title = 'Generator Listy do Walizki Stwórz swoją listę pakowania';
 const description = 'Najlepsze narzędzie online do organizowania bagażu na podstawie rodzaju podróży, celu i czasu trwania. Nigdy więcej nie zapomnij o niezbędnych rzeczach w podróży.';
 
 const ui: SuitcaseChecklistUI = {

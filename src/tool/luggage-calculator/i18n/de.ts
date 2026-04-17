@@ -14,7 +14,7 @@ const ui: LuggageCalculatorUI = {
   weightLabel: 'Max. Gewicht',
   noResults: 'Wir konnten diese Fluggesellschaft nicht finden. Versuchen Sie es mit der globalen Suche.',
   modalNoteTitle: 'Wichtiger Hinweis:',
-  modalNoteText: 'Einige Low-Cost-Fluggesellschaften erlauben das Handgepäck nur dann unter dem Sitz, wenn kein "Priority" oder ein zusätzlicher Gepäckservice gebucht wurde.',
+  modalNoteText: 'Einige Low Cost Fluggesellschaften erlauben das Handgepäck nur dann unter dem Sitz, wenn kein "Priority" oder ein zusätzlicher Gepäckservice gebucht wurde.',
   personalItemDetail: 'Tasche für unter den Sitz',
   cabinBagDetail: 'Handgepäck-Koffer',
   airlines: [
@@ -376,7 +376,7 @@ const ui: LuggageCalculatorUI = {
 const faq: LuggageCalculatorLocaleContent['faq'] = [
   {
     question: "Was passiert, wenn mein Koffer die Maße um 1 oder 2 cm überschreitet?",
-    answer: "Das hängt von der Fluggesellschaft und dem Gate-Personal ab. Low-Cost-Fluggesellschaften verwenden in der Regel eine Messbox; wenn der Koffer nicht frei hineinpasst (einschließlich Rollen), wird eine Gate-Check-in-Gebühr fällig, die meist zwischen 45 € und 65 € liegt.",
+    answer: "Das hängt von der Fluggesellschaft und dem Gate-Personal ab. Low Cost Fluggesellschaften verwenden in der Regel eine Messbox; wenn der Koffer nicht frei hineinpasst (einschließlich Rollen), wird eine Gate-Check-in-Gebühr fällig, die meist zwischen 45 € und 65 € liegt.",
   },
   {
     question: "Darf ich einen Rucksack und ein Handgepäckstück kostenlos mitnehmen?",
@@ -455,7 +455,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
         type: "comparative",
         items: [
             {
-                title: "Low-Cost-Fluggesellschaften",
+                title: "Low Cost Fluggesellschaften",
                 description: "Strenge Regeln, meist ist nur eine kleine Tasche unter dem Sitz kostenlos erlaubt.",
                 icon: "mdi:tag-outline",
                 points: [
@@ -505,7 +505,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "tip",
-        title: "Der Gewichts-Trick",
+        title: "Der Gewichts Trick",
         html: "<p>Viele Fluggesellschaften wie Emirates oder Qatar sind beim Gewicht (7 kg) sehr streng, bei den Maßen jedoch entspannter. Andere wie British Airways erlauben bis zu 23 kg, solange Sie die Tasche selbst heben können. Wiegen Sie sie immer zu Hause!</p>",
     },
     {

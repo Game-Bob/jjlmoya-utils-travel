@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
 const slug = 'mini-avonturen-voorspelling';
-const title = 'Mini Avonturen Voorspelling - Doorbeak de sleur';
+const title = 'Mini Avonturen Voorspelling Doorbeak de sleur';
 const description = 'Willekeurige dagelijkse uitdagingen generator om de monotonie te doorbreken en je omgeving te verkennen.';
 
 const ui: MiniAdventuresUI = {

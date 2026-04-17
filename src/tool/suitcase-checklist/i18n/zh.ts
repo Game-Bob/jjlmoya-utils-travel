@@ -2,8 +2,8 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
-const slug = 'xing-li-qing-dan-sheng-cheng-qi';
-const title = '行李清单生成器 | 轻松制定您的打包计划';
+const slug = 'suitcase-checklist-generator';
+const title = '行李清单生成器 轻松制定您的打包计划';
 const description = '根据旅行类型、目的地和时长组织行李的终极在线工具。再也不会忘记您的旅行必备品。';
 
 const ui: SuitcaseChecklistUI = {

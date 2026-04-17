@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'generator-spiska-veshey-v-dorogu';
-const title = 'Генератор списка вещей в чемодан | Составьте свой план сборов';
+const title = 'Генератор списка вещей в чемодан Составьте свой план сборов';
 const description = 'Лучший онлайн-инструмент для организации багажа в зависимости от типа поездки, направления и длительности. Больше вы ничего не забудете.';
 
 const ui: SuitcaseChecklistUI = {

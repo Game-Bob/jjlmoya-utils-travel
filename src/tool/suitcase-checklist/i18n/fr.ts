@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'generateur-checklist-valise';
-const title = 'Générateur de Checklist de Valise | Préparez vos bagages';
+const title = 'Générateur de Checklist de Valise Préparez vos bagages';
 const description = 'L\'outil en ligne ultime pour organiser vos bagages en fonction de votre type de voyage, destination et durée. N\'oubliez plus jamais vos essentiels de voyage.';
 
 const ui: SuitcaseChecklistUI = {

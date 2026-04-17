@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'generatore-lista-valigia';
-const title = 'Generatore Lista Valigia | Crea la tua lista per fare i bagagli';
+const title = 'Generatore Lista Valigia Crea la tua lista per fare i bagagli';
 const description = 'Lo strumento online definitivo per organizzare il tuo bagaglio in base al tipo di viaggio, alla destinazione e alla durata. Non dimenticare mai più gli elementi essenziali per il tuo viaggio.';
 
 const ui: SuitcaseChecklistUI = {

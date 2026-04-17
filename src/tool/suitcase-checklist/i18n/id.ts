@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'generator-daftar-periksa-koper';
-const title = 'Generator Daftar Periksa Koper | Buat daftar kemas Anda';
+const title = 'Generator Daftar Periksa Koper Buat daftar kemas Anda';
 const description = 'Alat online terbaik untuk mengatur barang bawaan Anda berdasarkan jenis perjalanan, tujuan, dan durasi. Jangan pernah melupakan esensial perjalanan Anda lagi.';
 
 const ui: SuitcaseChecklistUI = {

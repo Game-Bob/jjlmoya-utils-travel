@@ -2,7 +2,7 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
-const slug = 'wei-moxian-yuceqi-tuoli-rutine';
+const slug = 'mini-adventure-forecast';
 const title = '微冒险预测器：脱离常规生活';
 const description = '随机每日挑战生成器，打破单调，探索您的周围环境。';
 

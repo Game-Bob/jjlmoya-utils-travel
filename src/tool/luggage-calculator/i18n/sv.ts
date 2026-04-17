@@ -505,7 +505,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "tip",
-        title: "Vikt-tricket",
+        title: "Vikt tricket",
         html: "<p>Många flygbolag som Emirates eller Qatar är mycket strikta med vikten (7 kg) men mer avslappnade med måtten. Andra som British Airways tillåter upp till 23 kg så länge du kan lyfta väskan själv. Väg den alltid hemma!</p>",
     },
     {

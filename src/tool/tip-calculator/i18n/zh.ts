@@ -2,7 +2,7 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { TipCalculatorUI } from '../index';
 
-const slug = 'guo-ji-xiao-fei-ji-suan-qi';
+const slug = 'international-tip-calculator';
 const title = '国际小费计算器';
 const description = '计算您在旅行中应当支付的小费金额。包含针对 50 多个国家的百分比指南和礼仪规则。结账时不再感到困惑！';
 

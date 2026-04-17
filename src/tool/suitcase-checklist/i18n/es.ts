@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'generador-checklist-maleta';
-const title = 'Generador de Checklist de Maleta | Crea tu lista de equipaje';
+const title = 'Generador de Checklist de Maleta Crea tu lista de equipaje';
 const description = 'La herramienta en línea definitiva para organizar tu equipaje en base a tu tipo de viaje, destino y duración. No vuelvas a olvidar tus imprescindibles de viaje.';
 
 const ui: SuitcaseChecklistUI = {

@@ -2,7 +2,7 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
-const slug = 'mini-adobencha-yosoku-mainichi-no-chosen';
+const slug = 'mini-adventure-forecast';
 const title = 'ミニアドベンチャー予測：日常からの脱却';
 const description = 'マンネリを打破し、周囲を探索するためのランダムなデイリーチャレンジ・ジェネレーター。';
 

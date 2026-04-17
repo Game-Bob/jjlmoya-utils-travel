@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'suitcase-checklist-generator';
-const title = 'Suitcase Checklist Generator | Create your packing list';
+const title = 'Suitcase Checklist Generator Create your packing list';
 const description = 'The ultimate online tool to organize your luggage based on trip type, destination, and duration. Never forget your travel essentials again.';
 
 const ui: SuitcaseChecklistUI = {

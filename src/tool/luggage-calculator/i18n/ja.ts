@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
-const slug = 'koku-gaisha-kinai-mochikomi-nimotsu-keisanki';
+const slug = 'airline-luggage-calculator';
 const title = '機内持ち込み手荷物計算機：航空各社の規定サイズ 2026';
 const description = 'ライアンエアー、ブエリング、イベリア航空など、30社以上の航空会社の機内持ち込みスーツケースと身の回り品のサイズ・重量制限を確認。追加料金を回避しましょう！';
 

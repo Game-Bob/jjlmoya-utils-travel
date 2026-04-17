@@ -2,7 +2,7 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { TipCalculatorUI } from '../index';
 
-const slug = 'sekai-no-chip-keisanki';
+const slug = 'international-tip-calculator';
 const title = '世界のチップ計算機';
 const description = '旅行先で必要なチップの金額を計算します。50カ国以上の比率ガイドとマナーを掲載。支払いで困ることはもうありません！';
 

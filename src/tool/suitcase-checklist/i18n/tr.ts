@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'valiz-hazirlama-listesi-olusturucu';
-const title = 'Valiz Hazırlama Listesi Oluşturucu | Seyahat listenizi oluşturun';
+const title = 'Valiz Hazırlama Listesi Oluşturucu Seyahat listenizi oluşturun';
 const description = 'Seyahat türü, varış noktası ve süreye göre bagajınızı düzenlemek için en iyi çevrimiçi araç. Seyahat ihtiyaçlarınızı bir daha asla unutmayın.';
 
 const ui: SuitcaseChecklistUI = {

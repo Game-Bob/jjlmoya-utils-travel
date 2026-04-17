@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
 const slug = 'pronostico-mini-aventuras';
-const title = 'Pronóstico de Mini Aventuras - Sal de la Rutina';
+const title = 'Pronóstico de Mini Aventuras Sal de la Rutina';
 const description = 'Generador aleatorio de retos diarios para romper la monotonía y explorar tu entorno.';
 
 const ui: MiniAdventuresUI = {

@@ -2,7 +2,7 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { TipCalculatorUI } from '../index';
 
-const slug = 'sekye-tipt-gyesangi';
+const slug = 'international-tip-calculator';
 const title = '세계 팁 계산기';
 const description = '여행 중 팁을 얼마를 내야 할지 계산해 보세요. 50개국 이상의 국적별 비율 가이드와 에티켓 규칙이 포함되어 있습니다. 결제 시 당황하지 마세요!';
 

@@ -2,8 +2,8 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
-const slug = 'sutsu-kesu-mochimono-check-list-generator';
-const title = 'スーツケース持ち物チェックリスト作成 | 旅行の準備を完璧に';
+const slug = 'suitcase-checklist-generator';
+const title = 'スーツケース持ち物チェックリスト作成 旅行の準備を完璧に';
 const description = '旅行のタイプ、目的地、期間に基づいて荷物を整理するための究極のオンラインツール。旅行の必需品を二度と忘れることはありません。';
 
 const ui: SuitcaseChecklistUI = {

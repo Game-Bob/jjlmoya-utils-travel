@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
-const slug = 'hanggongsa-ginaemochikomi-suikeollayis-gyesangi';
+const slug = 'airline-luggage-calculator';
 const title = '기내 반입 수하물 계산기: 항공사별 규격 2026';
 const description = '라이언에어, 부엘링, 이베리아 항공 등 30개 이상 항공사의 기내 반입 캐리어 및 개인 휴대품 규격과 허용 중량을 확인하세요. 추가 요금을 피할 수 있습니다!';
 

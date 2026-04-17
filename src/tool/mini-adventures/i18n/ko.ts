@@ -2,7 +2,7 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
-const slug = 'mini-adeubencheo-yetsang-ilsang-talchul-gyesangi';
+const slug = 'mini-adventure-forecast';
 const title = '미니 어드벤처 예측기: 일상의 틀에서 벗어나기';
 const description = '단조로움을 깨고 주변을 탐험하기 위한 무작위 데일리 챌린지 생성기입니다.';
 

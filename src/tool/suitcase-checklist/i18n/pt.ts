@@ -3,7 +3,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'gerador-lista-bagagem-mala-viagem';
-const title = 'Gerador de Lista para Mala | Crie a sua lista de bagagem';
+const title = 'Gerador de Lista para Mala Crie a sua lista de bagagem';
 const description = 'A ferramenta online definitiva para organizar a sua bagagem com base no tipo de viagem, destino e duração. Nunca mais esqueça os itens essenciais para a sua viagem.';
 
 const ui: SuitcaseChecklistUI = {

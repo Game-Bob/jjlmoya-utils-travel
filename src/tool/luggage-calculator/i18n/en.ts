@@ -2,11 +2,11 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
 const slug = 'airline-luggage-calculator';
-const title = 'Carry-on Luggage Calculator: Airline Measurements 2026';
+const title = 'Carry on Luggage Calculator Airline Measurements 2026';
 const description = 'Check the dimensions and weight allowed for your carry-on suitcase and personal item on Ryanair, Vueling, Iberia, and +30 airlines. Avoid surcharges!';
 
 const ui: LuggageCalculatorUI = {
-  title: "Carry-on Luggage Calculator",
+  title: "Carry on Luggage Calculator",
   searchLabel: 'Search your airline',
   searchPlaceholder: 'Search your airline...',
   personalItemTitle: 'Personal Item',

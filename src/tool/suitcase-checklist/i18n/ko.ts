@@ -2,8 +2,8 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
-const slug = 'yeohaeng-gabang-mochimono-check-list-generator';
-const title = '여행 가방 짐 싸기 체크리스트 생성기 | 완벽한 여행 준비';
+const slug = 'suitcase-checklist-generator';
+const title = '여행 가방 짐 싸기 체크리스트 생성기 완벽한 여행 준비';
 const description = '여행 유형, 목적지, 기간을 바탕으로 짐을 정리하는 최고의 온라인 도구입니다. 여행 필수품을 다시는 잊지 마세요.';
 
 const ui: SuitcaseChecklistUI = {

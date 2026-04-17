@@ -1,7 +1,7 @@
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
-const slug = 'hang-kong-gong-si-deng-ji-shou-ti-xing-li-chi-cun-ji-suan-qi';
+const slug = 'airline-luggage-calculator';
 const title = '登机行李尺寸计算器：2026年航空公司规定';
 const description = '查询瑞安航空、伏林航空、西班牙国家航空等30多家航空公司的登机箱和随身物品尺寸及重量限制。避免支付额外费用！';
 
