@@ -1,3 +1,4 @@
+import { miniAdventures } from './entry';
 export * from './entry';
 export const MINI_ADVENTURES_TOOL: ToolDefinition = {
   entry: miniAdventures,

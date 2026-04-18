@@ -1,3 +1,4 @@
+import { tipCalculator } from './entry';
 export * from './entry';
 export const TIP_CALCULATOR_TOOL: ToolDefinition = {
   entry: tipCalculator,

@@ -1,3 +1,4 @@
+import { luggageCalculator } from './entry';
 export * from './entry';
 export const LUGGAGE_CALCULATOR_TOOL: ToolDefinition = {
   entry: luggageCalculator,

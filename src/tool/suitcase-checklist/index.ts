@@ -1,3 +1,4 @@
+import { suitcaseChecklist } from './entry';
 export * from './entry';
 export const SUITCASE_CHECKLIST_TOOL: ToolDefinition = {
   entry: suitcaseChecklist,
