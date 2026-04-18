@@ -11,3 +11,5 @@ export const ALL_TOOLS: ToolDefinition[] = [
   MINI_ADVENTURES_TOOL,
 ];
 
+
+export const ALL_ENTRIES = ALL_TOOLS.map(t => t.entry);
