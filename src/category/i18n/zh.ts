@@ -1,7 +1,7 @@
 import type { CategoryLocaleContent } from '../../types';
 
 export const content: CategoryLocaleContent = {
-  slug: 'lv-xing',
+  slug: 'travel',
   title: '旅行者和冒险者的工具与计算器',
   description: '使用免费在线工具规划您的下一次旅行。航空行李计算器、国际小费指南、行李清单以及每日挑战生成器。',
   seo: [

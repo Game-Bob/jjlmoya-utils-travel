@@ -1,7 +1,7 @@
 import type { CategoryLocaleContent } from '../../types';
 
 export const content: CategoryLocaleContent = {
-  slug: 'yeohaeng',
+  slug: 'travel',
   title: '여행자 및 모험가를 위한 도구 및 계산기',
   description: '무료 온라인 도구로 다음 여행을 계획하세요. 항공사 수하물 계산기, 국제 팁 가이드, 수트케이스 체크리스트 및 일일 챌린지 생성기를 제공합니다.',
   seo: [

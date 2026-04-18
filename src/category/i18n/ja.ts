@@ -1,7 +1,7 @@
 import type { CategoryLocaleContent } from '../../types';
 
 export const content: CategoryLocaleContent = {
-  slug: 'ryoko',
+  slug: 'travel',
   title: '旅行者と冒険者のためのツールと計算機',
   description: '無料のオンラインツールで次の旅行を計画しましょう。航空会社の荷物計算機、国際チップガイド、スーツケースのチェックリスト、デイリーチャレンジジェネレーターなどを掲載しています。',
   seo: [
