@@ -1,3 +1,4 @@
+export { ALL_ENTRIES } from './entries';
 import { LUGGAGE_CALCULATOR_TOOL } from './tool/luggage-calculator';
 import { TIP_CALCULATOR_TOOL } from './tool/tip-calculator';
 import { SUITCASE_CHECKLIST_TOOL } from './tool/suitcase-checklist';
@@ -12,4 +13,3 @@ export const ALL_TOOLS: ToolDefinition[] = [
 ];
 
 
-export const ALL_ENTRIES = ALL_TOOLS.map(t => t.entry);
