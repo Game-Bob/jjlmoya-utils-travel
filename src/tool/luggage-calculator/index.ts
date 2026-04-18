@@ -1,7 +1,4 @@
 import type { TravelToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import LuggageCalculator from './component.astro';
-import LuggageCalculatorSEO from './seo.astro';
-import LuggageCalculatorBibliography from './bibliography.astro';
 
 export interface Airline {
   name: string;
@@ -55,11 +52,10 @@ export const luggageCalculator: TravelToolEntry<LuggageCalculatorUI> = {
   },
 };
 
-export { LuggageCalculator, LuggageCalculatorSEO, LuggageCalculatorBibliography };
 
 export const LUGGAGE_CALCULATOR_TOOL: ToolDefinition = {
   entry: luggageCalculator,
-  Component: LuggageCalculator,
-  SEOComponent: LuggageCalculatorSEO,
-  BibliographyComponent: LuggageCalculatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

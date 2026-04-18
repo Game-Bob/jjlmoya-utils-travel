@@ -1,7 +1,4 @@
 import type { TravelToolEntry, ToolDefinition } from '../../types';
-import SuitcaseChecklist from './component.astro';
-import SuitcaseChecklistSEO from './seo.astro';
-import SuitcaseChecklistBibliography from './bibliography.astro';
 
 export interface ChecklistItem {
   label: string;
@@ -77,11 +74,10 @@ export const suitcaseChecklist: TravelToolEntry<SuitcaseChecklistUI> = {
   },
 };
 
-export { SuitcaseChecklist, SuitcaseChecklistSEO, SuitcaseChecklistBibliography };
 
 export const SUITCASE_CHECKLIST_TOOL: ToolDefinition = {
   entry: suitcaseChecklist,
-  Component: SuitcaseChecklist,
-  SEOComponent: SuitcaseChecklistSEO,
-  BibliographyComponent: SuitcaseChecklistBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

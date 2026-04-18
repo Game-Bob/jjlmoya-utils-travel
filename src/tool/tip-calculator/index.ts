@@ -1,7 +1,4 @@
 import type { TravelToolEntry, ToolDefinition } from '../../types';
-import TipCalculator from './component.astro';
-import TipCalculatorSEO from './seo.astro';
-import TipCalculatorBibliography from './bibliography.astro';
 
 export interface TipCountry {
   id: string;
@@ -55,11 +52,10 @@ export const tipCalculator: TravelToolEntry<TipCalculatorUI> = {
   },
 };
 
-export { TipCalculator, TipCalculatorSEO, TipCalculatorBibliography };
 
 export const TIP_CALCULATOR_TOOL: ToolDefinition = {
   entry: tipCalculator,
-  Component: TipCalculator,
-  SEOComponent: TipCalculatorSEO,
-  BibliographyComponent: TipCalculatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };

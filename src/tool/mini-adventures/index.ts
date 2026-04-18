@@ -1,7 +1,4 @@
 import type { TravelToolEntry, ToolDefinition } from '../../types';
-import MiniAdventures from './component.astro';
-import MiniAdventuresSEO from './seo.astro';
-import MiniAdventuresBibliography from './bibliography.astro';
 
 export interface AdventureCategory {
   id: string;
@@ -72,11 +69,10 @@ export const miniAdventures: TravelToolEntry<MiniAdventuresUI> = {
   },
 };
 
-export { MiniAdventures, MiniAdventuresSEO, MiniAdventuresBibliography };
 
 export const MINI_ADVENTURES_TOOL: ToolDefinition = {
   entry: miniAdventures,
-  Component: MiniAdventures,
-  SEOComponent: MiniAdventuresSEO,
-  BibliographyComponent: MiniAdventuresBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };
