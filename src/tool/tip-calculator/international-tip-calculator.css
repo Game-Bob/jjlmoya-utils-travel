@@ -11,7 +11,7 @@
     --tc-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-:global(.theme-dark) .tip-calculator {
+.theme-dark .tip-calculator {
     --tc-bg: #0f172a;
     --tc-border: #334155;
     --tc-text: #f1f5f9;

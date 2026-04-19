@@ -8,7 +8,7 @@
     --ma-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-:global(.theme-dark) .mini-adventures {
+.theme-dark .mini-adventures {
     --ma-bg: #0f172a;
     --ma-card-bg: #1e293b;
     --ma-text: #f1f5f9;
@@ -106,7 +106,7 @@
     transition: 0.2s;
 }
 
-:global(.theme-dark) .ma-btn-main {
+.theme-dark .ma-btn-main {
     background: white;
     color: black;
 }
@@ -325,7 +325,7 @@
     z-index: 1;
 }
 
-.ma-achievements-list :global(.ma-badge-item) {
+.ma-achievements-list .ma-badge-item {
     aspect-ratio: 1;
     border-radius: 1.25rem;
     background: var(--ma-bg);
@@ -338,25 +338,25 @@
     cursor: pointer;
 }
 
-.ma-achievements-list :global(.ma-badge-item svg) {
+.ma-achievements-list .ma-badge-item svg {
     width: 32px;
     height: 32px;
     fill: currentcolor;
     transition: all 0.3s;
 }
 
-.ma-achievements-list :global(.ma-badge-item.locked) {
+.ma-achievements-list .ma-badge-item.locked {
     opacity: 0.2;
     filter: grayscale(1) blur(1px);
 }
 
-.ma-achievements-list :global(.ma-badge-item.earned) {
+.ma-achievements-list .ma-badge-item.earned {
     background: var(--ma-card-bg);
     border-color: currentcolor;
     box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), inset 0 0 10px rgba(255,255,255,0.5);
 }
 
-.ma-achievements-list :global(.ma-badge-item.earned::after) {
+.ma-achievements-list .ma-badge-item.earned::after {
     content: '';
     position: absolute;
     inset: -2px;
@@ -367,17 +367,17 @@
     filter: blur(8px);
 }
 
-.ma-achievements-list :global(.ma-badge-item:hover) {
+.ma-achievements-list .ma-badge-item:hover {
     transform: scale(1.15) rotate(5deg);
     z-index: 10;
 }
 
-.ma-achievements-list :global(.ma-badge-item.earned:hover svg) {
+.ma-achievements-list .ma-badge-item.earned:hover svg {
     transform: scale(1.1);
     filter: drop-shadow(0 0 8px currentcolor);
 }
 
-.ma-achievements-list :global(.ma-tooltip) {
+.ma-achievements-list .ma-tooltip {
     position: absolute;
     bottom: 120%;
     left: 50%;
@@ -397,25 +397,25 @@
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.ma-achievements-list :global(.ma-badge-item:hover .ma-tooltip) {
+.ma-achievements-list .ma-badge-item:hover .ma-tooltip {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
 
-.ma-achievements-list :global(.ma-tooltip strong) {
+.ma-achievements-list .ma-tooltip strong {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 1rem;
     color: white;
 }
 
-.ma-achievements-list :global(.ma-tooltip p) {
+.ma-achievements-list .ma-tooltip p {
     margin: 0 0 1rem;
     color: rgba(255,255,255,0.6);
     line-height: 1.4;
 }
 
-.ma-achievements-list :global(.ma-bar-mini) {
+.ma-achievements-list .ma-bar-mini {
     height: 6px;
     background: rgba(255,255,255,0.1);
     border-radius: 3px;

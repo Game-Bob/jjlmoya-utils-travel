@@ -9,7 +9,7 @@
     --sc-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-:global(.theme-dark) .suitcase-checklist {
+.theme-dark .suitcase-checklist {
     --sc-bg: #0f172a;
     --sc-card-bg: #1e293b;
     --sc-text: #f1f5f9;
