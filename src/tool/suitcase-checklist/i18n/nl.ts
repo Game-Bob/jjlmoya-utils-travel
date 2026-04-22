@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "Is de tool gratis?", answer: "Ja, onze koffer checklist generator is 100% gratis en vereist geen registratie of extra app-downloads." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - Hoe een koffer in te pakken volgens KonMari", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - Wat in te pakken: De ultieme reis checklist", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Definieer je reis", text: "Selecteer het klimaat, de reden en de duur van je reis." },
   { name: "Genereer lijst", text: "Druk op de knop en krijg direct alle benodigde items te zien, van cosmetica tot technologie." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Veelgestelde Vragen",
-  bibliography,
-  bibliographyTitle: "Bronnen en Referenties",
+  bibliography: "Bronnen en Referenties",
   howTo,
   howToTitle: "Hoe je koffer in te pakken",
   schemas: [faqSchema, howToSchema, appSchema],

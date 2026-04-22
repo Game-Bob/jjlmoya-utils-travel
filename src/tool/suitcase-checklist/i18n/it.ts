@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "Lo strumento è gratuito?", answer: "Sì, il nostro generatore di liste per la valigia è gratuito al 100% e non richiede registrazione o download di app aggiuntive." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - Come fare la valigia secondo il metodo KonMari", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - Cosa mettere in valigia: La lista definitiva per i bagagli", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Definisci il tuo viaggio", text: "Seleziona il clima, il motivo e la durata del tuo soggiorno." },
   { name: "Genera lista", text: "Premi il pulsante e ottieni istantaneamente tutti gli articoli necessari, dai cosmetici alla tecnologia." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Domande Frequenti",
-  bibliography,
-  bibliographyTitle: "Fonti e Riferimenti",
+  bibliography: "Fonti e Riferimenti",
   howTo,
   howToTitle: "Come preparare la valigia",
   schemas: [faqSchema, howToSchema, appSchema],

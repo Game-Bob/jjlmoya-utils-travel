@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
@@ -101,11 +102,6 @@ const faq: ToolLocaleContent<MiniAdventuresUI>['faq'] = [
   { question: "新しいアドベンチャーを提案できますか？", answer: "もちろんです！このツールのコードは公開されています。予算や時間をあまり必要としない楽しいチャレンジのアイデアがあれば、GitHubのリポジトリを通じて提案することができます。" }
 ];
 
-const bibliography: ToolLocaleContent<MiniAdventuresUI>['bibliography'] = [
-  { name: "Alastair Humphreys: Microadventures", url: "https://alastairhumphreys.com/blog/microadventures-3/" },
-  { name: "Rob Walker: The Art of Noticing", url: "https://www.goodreads.com/es/book/show/41552704-the-art-of-noticing" }
-];
-
 const howTo: ToolLocaleContent<MiniAdventuresUI>['howTo'] = [
   { name: "生成", text: "生成ボタンを押して、ランダムなチャレンジを受け取ります。" },
   { name: "実行", text: "その日のうちにチャレンジを完了するように努めましょう。" },
@@ -153,8 +149,7 @@ export const content: ToolLocaleContent<MiniAdventuresUI> = {
   seo,
   faq,
   faqTitle: "よくある質問",
-  bibliography,
-  bibliographyTitle: "出典とリファレンス",
+  bibliography: "出典とリファレンス",
   howTo,
   howToTitle: "使い方",
   schemas: [faqSchema, howToSchema, appSchema],

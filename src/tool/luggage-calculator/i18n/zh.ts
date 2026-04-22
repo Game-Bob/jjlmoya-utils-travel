@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
@@ -407,21 +408,6 @@ const howTo: LuggageCalculatorLocaleContent['howTo'] = [
   },
 ];
 
-const bibliography: LuggageCalculatorLocaleContent['bibliography'] = [
-  {
-    name: "AENA：旅客与行李",
-    url: "https://www.aena.es/es/pasajeros/pasajeros.html",
-  },
-  {
-    name: "航空旅客权益 - 欧盟",
-    url: "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_en.htm",
-  },
-  {
-    name: "IATA：旅客行李规定",
-    url: "https://www.iata.org/en/programs/ops-infra/baggage/passenger-baggage-rules/",
-  },
-];
-
 const seo: LuggageCalculatorLocaleContent['seo'] = [
     {
         type: "title",
@@ -608,8 +594,7 @@ export const content: LuggageCalculatorLocaleContent = {
   seo,
   faq,
   faqTitle: "常见问题",
-  bibliography,
-  bibliographyTitle: "来源与参考",
+  bibliography: "来源与参考",
   howTo,
   howToTitle: "如何使用计算器",
   schemas: [faqSchema, howToSchema, appSchema],

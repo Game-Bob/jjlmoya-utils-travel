@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
@@ -407,21 +408,6 @@ const howTo: LuggageCalculatorLocaleContent['howTo'] = [
   },
 ];
 
-const bibliography: LuggageCalculatorLocaleContent['bibliography'] = [
-  {
-    name: "AENA: Yolcular ve Bagaj",
-    url: "https://www.aena.es/es/pasajeros/pasajeros.html",
-  },
-  {
-    name: "Hava Yolu Yolcu Hakları - AB",
-    url: "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_en.htm",
-  },
-  {
-    name: "IATA: Yolcu Bagaj Kuralları",
-    url: "https://www.iata.org/en/programs/ops-infra/baggage/passenger-baggage-rules/",
-  },
-];
-
 const seo: LuggageCalculatorLocaleContent['seo'] = [
     {
         type: "title",
@@ -608,8 +594,7 @@ export const content: LuggageCalculatorLocaleContent = {
   seo,
   faq,
   faqTitle: "Sıkça Sorulan Sorular",
-  bibliography,
-  bibliographyTitle: "Kaynaklar ve Referanslar",
+  bibliography: "Kaynaklar ve Referanslar",
   howTo,
   howToTitle: "Hesaplayıcı nasıl kullanılır",
   schemas: [faqSchema, howToSchema, appSchema],

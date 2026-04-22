@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
@@ -101,11 +102,6 @@ const faq: ToolLocaleContent<MiniAdventuresUI>['faq'] = [
   { question: "我可以提议新的冒险吗？", answer: "当然可以！此工具的代码是开源的。如果您有不需要太多预算或时间的有趣挑战想法，可以通过 GitHub 上的仓库建议它们。" }
 ];
 
-const bibliography: ToolLocaleContent<MiniAdventuresUI>['bibliography'] = [
-  { name: "Alastair Humphreys: Microadventures", url: "https://alastairhumphreys.com/blog/microadventures-3/" },
-  { name: "Rob Walker: The Art of Noticing", url: "https://www.goodreads.com/es/book/show/41552704-the-art-of-noticing" }
-];
-
 const howTo: ToolLocaleContent<MiniAdventuresUI>['howTo'] = [
   { name: "生成", text: "按下生成按钮以接收随机挑战。" },
   { name: "执行", text: "尝试在一天结束前完成挑战。" },
@@ -153,8 +149,7 @@ export const content: ToolLocaleContent<MiniAdventuresUI> = {
   seo,
   faq,
   faqTitle: "常见问题",
-  bibliography,
-  bibliographyTitle: "来源与参考",
+  bibliography: "来源与参考",
   howTo,
   howToTitle: "工作原理",
   schemas: [faqSchema, howToSchema, appSchema],

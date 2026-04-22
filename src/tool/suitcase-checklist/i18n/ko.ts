@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "도구는 무료인가요?", answer: "네, 저희 여행 가방 체크리스트 생성기는 100% 무료이며 등록이나 추가 앱 다운로드가 필요 없습니다." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "こんまり - 곤마리식 여행 가방 정리법", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - 짐 싸기: 궁극의 여행용 체크리스트", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "여행 정의하기", text: "목적지 기후, 목적 및 여행 기간을 선택합니다." },
   { name: "리스트 생성", text: "버튼을 누르면 화장품부터 테크놀로지까지 필요한 모든 항목이 즉시 표시됩니다." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "자주 묻는 질문",
-  bibliography,
-  bibliographyTitle: "출처 및 참고",
+  bibliography: "출처 및 참고",
   howTo,
   howToTitle: "여행 가방 싸는 법",
   schemas: [faqSchema, howToSchema, appSchema],

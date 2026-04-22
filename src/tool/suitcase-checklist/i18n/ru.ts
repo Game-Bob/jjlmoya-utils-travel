@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "Инструмент бесплатный?", answer: "Да, наш генератор списков вещей на 100% бесплатен и не требует регистрации или загрузки приложений." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - Как собрать чемодан по методу КонМари", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - Что взять с собой: полный список вещей в дорогу", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Опишите поездку", text: "Выберите климат, цель и длительность вашего путешествия." },
   { name: "Создайте список", text: "Нажмите кнопку и мгновенно получите список всего необходимого, от косметики до техники." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Часто задаваемые вопросы",
-  bibliography,
-  bibliographyTitle: "Источники и ссылки",
+  bibliography: "Источники и ссылки",
   howTo,
   howToTitle: "Как собрать чемодан",
   schemas: [faqSchema, howToSchema, appSchema],

@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "Apakah alat ini gratis?", answer: "Ya, generator daftar periksa koper kami 100% gratis dan tidak memerlukan registrasi atau unduhan aplikasi tambahan." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - Cara Mengemas Koper ala KonMari", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - Apa yang Harus Dikemas: Daftar Periksa Kemas Perjalanan Terbaik", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Tentukan perjalanan Anda", text: "Pilih iklim, alasan, dan durasi liburan Anda." },
   { name: "Buat daftar", text: "Tekan tombol dan dapatkan secara instan semua item yang diperlukan, dari kosmetik hingga teknologi." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Pertanyaan yang Sering Diajukan",
-  bibliography,
-  bibliographyTitle: "Sumber dan Referensi",
+  bibliography: "Sumber dan Referensi",
   howTo,
   howToTitle: "Cara mengemas koper Anda",
   schemas: [faqSchema, howToSchema, appSchema],

@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "Czy narzędzie jest darmowe?", answer: "Tak, nasz generator listy pakowania do walizki jest w 100% darmowy i nie wymaga rejestracji ani pobierania dodatkowych aplikacji." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - Jak spakować walizkę metodą KonMari", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - Co spakować: Najlepsza lista kontrolna pakowania w podróży", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Zdefiniuj swoja podróż", text: "Wybierz klimat, powód i czas trwania swojego wyjazdu." },
   { name: "Generuj listę", text: "Naciśnij przycisk i natychmiast otrzymaj wszystkie niezbędne rzeczy, od kosmetyków po technologię." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Najczęściej Zadawane Pytania",
-  bibliography,
-  bibliographyTitle: "Źródła i Odniesienia",
+  bibliography: "Źródła i Odniesienia",
   howTo,
   howToTitle: "Jak spakować walizkę",
   schemas: [faqSchema, howToSchema, appSchema],

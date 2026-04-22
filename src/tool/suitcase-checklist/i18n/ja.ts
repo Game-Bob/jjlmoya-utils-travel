@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "ツールは無料ですか？", answer: "はい、当社のスーツケース用チェックリスト作成ツールは100%無料であり、登録や追加アプリのダウンロードも不要です。" }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "こんまり - スーツケースをこんまり流に整理する方法", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - 持ち物リスト：究極の旅行パッキング・チェックリスト", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "旅行の内容を定義する", text: "目的地の気候、目的、旅行期間を選択します。" },
   { name: "リストを生成する", text: "ボタンを押すと、化粧品からテクノロジーまで、必要なすべてのアイテムが即座に表示されます。" },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "よくある質問",
-  bibliography,
-  bibliographyTitle: "出典とリファレンス",
+  bibliography: "出典とリファレンス",
   howTo,
   howToTitle: "スーツケースのパッキング方法",
   schemas: [faqSchema, howToSchema, appSchema],

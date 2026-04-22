@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
@@ -101,11 +102,6 @@ const faq: ToolLocaleContent<MiniAdventuresUI>['faq'] = [
   { question: "새로운 어드벤처를 제안할 수 있나요?", answer: "물론입니다! 이 도구의 코드는 공개되어 있습니다. 예산이나 시간이 많이 들지 않는 재미있는 챌린지 아이디어가 있다면 GitHub 저장소를 통해 제안해주실 수 있습니다." }
 ];
 
-const bibliography: ToolLocaleContent<MiniAdventuresUI>['bibliography'] = [
-  { name: "앨러스터 험프리스: 마이크로어드벤처", url: "https://alastairhumphreys.com/blog/microadventures-3/" },
-  { name: "롭 워커: 관찰의 기술", url: "https://www.goodreads.com/es/book/show/41552704-the-art-of-noticing" }
-];
-
 const howTo: ToolLocaleContent<MiniAdventuresUI>['howTo'] = [
   { name: "생성하기", text: "생성 버튼을 눌러 무작위 챌린지를 받습니다." },
   { name: "실천하기", text: "하루가 끝나기 전에 챌린지를 완료하도록 노력해보세요." },
@@ -153,8 +149,7 @@ export const content: ToolLocaleContent<MiniAdventuresUI> = {
   seo,
   faq,
   faqTitle: "자주 묻는 질문",
-  bibliography,
-  bibliographyTitle: "출처 및 참고",
+  bibliography: "출처 및 참고",
   howTo,
   howToTitle: "사용 방법",
   schemas: [faqSchema, howToSchema, appSchema],

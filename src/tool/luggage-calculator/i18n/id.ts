@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
@@ -407,21 +408,6 @@ const howTo: LuggageCalculatorLocaleContent['howTo'] = [
   },
 ];
 
-const bibliography: LuggageCalculatorLocaleContent['bibliography'] = [
-  {
-    name: "AENA: Penumpang dan Bagasi",
-    url: "https://www.aena.es/es/pasajeros/pasajeros.html",
-  },
-  {
-    name: "Hak Penumpang Udara - Uni Eropa",
-    url: "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_en.htm",
-  },
-  {
-    name: "IATA: Aturan Bagasi Penumpang",
-    url: "https://www.iata.org/en/programs/ops-infra/baggage/passenger-baggage-rules/",
-  },
-];
-
 const seo: LuggageCalculatorLocaleContent['seo'] = [
     {
         type: "title",
@@ -608,8 +594,7 @@ export const content: LuggageCalculatorLocaleContent = {
   seo,
   faq,
   faqTitle: "Pertanyaan yang Sering Diajukan",
-  bibliography,
-  bibliographyTitle: "Sumber dan Referensi",
+  bibliography: "Sumber dan Referensi",
   howTo,
   howToTitle: "Cara menggunakan kalkulator",
   schemas: [faqSchema, howToSchema, appSchema],

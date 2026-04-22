@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "Är verktyget gratis?", answer: "Ja, vår packlista-generator är 100 % gratis och kräver ingen registrering eller nedladdning av appar." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - How to KonMari a Suitcase", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - Packlista: Den ultimata guiden", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Definiera din resa", text: "Välj klimat, syfte och varaktighet för din resa." },
   { name: "Generera lista", text: "Tryck på knappen och få direkt fram alla nödvändiga föremål, från hygienartiklar till teknik." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Vanliga frågor",
-  bibliography,
-  bibliographyTitle: "Källor och referenser",
+  bibliography: "Källor och referenser",
   howTo,
   howToTitle: "Hur du packar din väska",
   schemas: [faqSchema, howToSchema, appSchema],

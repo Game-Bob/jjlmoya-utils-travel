@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
@@ -101,11 +102,6 @@ const faq: ToolLocaleContent<MiniAdventuresUI>['faq'] = [
   { question: "Yeni maceralar önerebilir miyim?", answer: "Tabii ki! Bu aracın kodu açıktır. Fazla bütçe veya zaman gerektirmeyen eğlenceli zorluk fikirleriniz varsa, bunları GitHub'daki depo aracılığıyla önerebilirsiniz." }
 ];
 
-const bibliography: ToolLocaleContent<MiniAdventuresUI>['bibliography'] = [
-  { name: "Alastair Humphreys: Microadventures", url: "https://alastairhumphreys.com/blog/microadventures-3/" },
-  { name: "Rob Walker: The Art of Noticing", url: "https://www.goodreads.com/es/book/show/41552704-the-art-of-noticing" }
-];
-
 const howTo: ToolLocaleContent<MiniAdventuresUI>['howTo'] = [
   { name: "Oluştur", text: "Rastgele bir görev almak için oluştur düğmesine basın." },
   { name: "Yap", text: "Görevi gün bitmeden tamamlamaya çalışın." },
@@ -153,8 +149,7 @@ export const content: ToolLocaleContent<MiniAdventuresUI> = {
   seo,
   faq,
   faqTitle: "Sıkça Sorulan Sorular",
-  bibliography,
-  bibliographyTitle: "Kaynaklar ve Referanslar",
+  bibliography: "Kaynaklar ve Referanslar",
   howTo,
   howToTitle: "Nasıl çalışır",
   schemas: [faqSchema, howToSchema, appSchema],

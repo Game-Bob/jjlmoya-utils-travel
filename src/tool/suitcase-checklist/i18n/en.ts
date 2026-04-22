@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "Is the tool free?", answer: "Yes, our luggage checklist generator is 100% free and requires no registration or additional app downloads." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - How to KonMari a Suitcase", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - What to Pack: Ultimate Travel Packing Checklist", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Define your trip", text: "Select the climate, reason, and duration of your getaway." },
   { name: "Generate list", text: "Press the button and instantly get all necessary items, from cosmetics to technology." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Frequently Asked Questions",
-  bibliography,
-  bibliographyTitle: "Sources and References",
+  bibliography: "Sources and References",
   howTo,
   howToTitle: "How to pack your suitcase",
   schemas: [faqSchema, howToSchema, appSchema],

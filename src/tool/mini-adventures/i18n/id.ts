@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
@@ -101,11 +102,6 @@ const faq: ToolLocaleContent<MiniAdventuresUI>['faq'] = [
   { question: "Bisakah saya mengusulkan petualangan baru?", answer: "Tentu saja! Kode untuk alat ini bersifat terbuka. Jika Anda memiliki ide untuk tantangan menyenangkan yang tidak memerlukan banyak anggaran atau waktu, Anda dapat menyarankannya melalui repositori di GitHub." }
 ];
 
-const bibliography: ToolLocaleContent<MiniAdventuresUI>['bibliography'] = [
-  { name: "Alastair Humphreys: Microadventures", url: "https://alastairhumphreys.com/blog/microadventures-3/" },
-  { name: "Rob Walker: The Art of Noticing", url: "https://www.goodreads.com/es/book/show/41552704-the-art-of-noticing" }
-];
-
 const howTo: ToolLocaleContent<MiniAdventuresUI>['howTo'] = [
   { name: "Buat", text: "Tekan tombol buat untuk menerima tantangan acak." },
   { name: "Lakukan", text: "Cobalah untuk menyelesaikan tantangan sebelum hari berakhir." },
@@ -153,8 +149,7 @@ export const content: ToolLocaleContent<MiniAdventuresUI> = {
   seo,
   faq,
   faqTitle: "Pertanyaan yang Sering Diajukan",
-  bibliography,
-  bibliographyTitle: "Sumber dan Referensi",
+  bibliography: "Sumber dan Referensi",
   howTo,
   howToTitle: "Cara kerjanya",
   schemas: [faqSchema, howToSchema, appSchema],

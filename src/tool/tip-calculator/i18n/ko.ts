@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { TipCalculatorUI } from '../index';
@@ -185,21 +186,6 @@ const faq: ToolLocaleContent<TipCalculatorUI>['faq'] = [
   },
 ];
 
-const bibliography: ToolLocaleContent<TipCalculatorUI>['bibliography'] = [
-  {
-    name: "Condé Nast Traveler: Tipping Etiquette Guide",
-    url: "https://www.cntraveler.com/stories/2008-11-11/etiquette-101-tipping-guide",
-  },
-  {
-    name: "Lonely Planet: Tipping and Etiquette in Europe",
-    url: "https://www.lonelyplanet.com/articles/tipping-customs-europe",
-  },
-  {
-    name: "Western Union: Global Tipping Guide",
-    url: "https://www.westernunion.com/blog/en/global-tipping-guide/",
-  },
-];
-
 const howTo: ToolLocaleContent<TipCalculatorUI>['howTo'] = [
   {
     name: "청구서 총액 입력",
@@ -256,8 +242,7 @@ export const content: ToolLocaleContent<TipCalculatorUI> = {
   seo,
   faq,
   faqTitle: "자주 묻는 질문",
-  bibliography,
-  bibliographyTitle: "출처 및 참고",
+  bibliography: "출처 및 참고",
   howTo,
   howToTitle: "계산기 사용 방법",
   schemas: [faqSchema, howToSchema, appSchema],

@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "这个工具免费吗？", answer: "是的，我们的行李清单生成器 100% 免费，无需注册或下载额外的应用程序。" }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - 如何按照整理魔法打包行李", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - 终极旅行打包清单", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "定义您的旅行", text: "选择您旅行的气候、目的和时长。" },
   { name: "生成清单", text: "点击按钮，立即获取从洗漱用品到电子产品的所有必备物品。" },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "常见问题",
-  bibliography,
-  bibliographyTitle: "来源与参考",
+  bibliography: "来源与参考",
   howTo,
   howToTitle: "如何打包您的行李箱",
   schemas: [faqSchema, howToSchema, appSchema],

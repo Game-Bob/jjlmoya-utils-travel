@@ -51,3 +51,5 @@ export const luggageCalculator: TravelToolEntry<LuggageCalculatorUI> = {
     zh: () => import('./i18n/zh').then((m) => m.content),
   },
 };
+
+export { bibliography } from './bibliography';

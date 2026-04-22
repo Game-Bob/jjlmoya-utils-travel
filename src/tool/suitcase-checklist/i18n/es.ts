@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "¿Tiene la herramienta algún costo?", answer: "No, nuestro generador de listas de equipaje es 100% gratuito y no requiere ningún registro o descarga de aplicación adicional." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - How to KonMari a Suitcase", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - What to Pack: Ultimate Travel Packing Checklist", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Define tu viaje", text: "Selecciona el clima, el motivo y la duración de tu escapada." },
   { name: "Genera la lista", text: "Pulsa el botón y obtén al instante todas las cosas necesarias, desde cosmética hasta tecnología." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Preguntas Frecuentes",
-  bibliography,
-  bibliographyTitle: "Fuentes y Referencias",
+  bibliography: "Fuentes y Referencias",
   howTo,
   howToTitle: "Cómo planificar tu maleta",
   schemas: [faqSchema, howToSchema, appSchema],

@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "A ferramenta é gratuita?", answer: "Sim, o nosso gerador de lista para mala de viagem é 100% gratuito e não requer registo ou downloads de aplicações adicionais." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - Como organizar a mala ao estilo KonMari", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - O que levar: Lista definitiva de verificação para viagens", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Defina a sua viagem", text: "Selecione o clima, o motivo e a duração da sua escapadinha." },
   { name: "Gere a lista", text: "Pressione o botão e obtenha instantaneamente todos os itens necessários, de cosméticos a tecnologia." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Perguntas Frequentes",
-  bibliography,
-  bibliographyTitle: "Fontes e Referências",
+  bibliography: "Fontes e Referências",
   howTo,
   howToTitle: "Como preparar a sua mala",
   schemas: [faqSchema, howToSchema, appSchema],

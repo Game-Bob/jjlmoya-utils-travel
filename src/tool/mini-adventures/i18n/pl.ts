@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
@@ -101,11 +102,6 @@ const faq: ToolLocaleContent<MiniAdventuresUI>['faq'] = [
   { question: "Czy mogę zaproponować nowe przygody?", answer: "Oczywiście! Kod tego narzędzia jest otwarty. Jeśli masz pomysły na zabawne wyzwania, które nie wymagają dużego budżetu ani czasu, możesz je zasugerować poprzez repozytorium na GitHubie." }
 ];
 
-const bibliography: ToolLocaleContent<MiniAdventuresUI>['bibliography'] = [
-  { name: "Alastair Humphreys: Microadventures", url: "https://alastairhumphreys.com/blog/microadventures-3/" },
-  { name: "Rob Walker: The Art of Noticing", url: "https://www.goodreads.com/es/book/show/41552704-the-art-of-noticing" }
-];
-
 const howTo: ToolLocaleContent<MiniAdventuresUI>['howTo'] = [
   { name: "Generuj", text: "Naciśnij przycisk generowania, aby otrzymać losowe wyzwanie." },
   { name: "Zrób to", text: "Spróbuj ukończyć wyzwanie przed końcem dnia." },
@@ -153,8 +149,7 @@ export const content: ToolLocaleContent<MiniAdventuresUI> = {
   seo,
   faq,
   faqTitle: "Najczęściej Zadawane Pytania",
-  bibliography,
-  bibliographyTitle: "Źródła i Odniesienia",
+  bibliography: "Źródła i Odniesienia",
   howTo,
   howToTitle: "Jak to działa",
   schemas: [faqSchema, howToSchema, appSchema],

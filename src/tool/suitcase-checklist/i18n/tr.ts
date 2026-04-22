@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dts';
 import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
@@ -201,11 +202,6 @@ const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [
   { question: "Araç ücretsiz mi?", answer: "Evet, valiz hazırlama listesi oluşturucumuz %100 ücretsizdir ve kayıt veya ek uygulama indirme gerektirmez." }
 ];
 
-const bibliography: ToolLocaleContent<SuitcaseChecklistUI>['bibliography'] = [
-  { name: "KonMari - How to KonMari a Suitcase", url: "https://konmari.com/how-to-konmari-a-suitcase/" },
-  { name: "Eagle Creek - Valiz Hazırlama: En Kapsamlı Liste", url: "https://eaglecreek.com/blogs/articles/what-pack-ultimate-travel-packing-checklist" }
-];
-
 const howTo: ToolLocaleContent<SuitcaseChecklistUI>['howTo'] = [
   { name: "Seyahatinizi tanımlayın", text: "Kaçamağınızın iklimini, nedenini ve süresini seçin." },
   { name: "Liste oluşturun", text: "Düğmeye basın ve kozmetikten teknolojiye kadar tüm gerekli eşyaları anında alın." },
@@ -253,8 +249,7 @@ export const content: ToolLocaleContent<SuitcaseChecklistUI> = {
   seo,
   faq,
   faqTitle: "Sıkça Sorulan Sorular",
-  bibliography,
-  bibliographyTitle: "Kaynaklar ve Referanslar",
+  bibliography: "Kaynaklar ve Referanslar",
   howTo,
   howToTitle: "Valiziniz nasıl hazırlanır",
   schemas: [faqSchema, howToSchema, appSchema],
