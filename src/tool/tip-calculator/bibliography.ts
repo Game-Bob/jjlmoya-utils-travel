@@ -1,6 +1,6 @@
 import type { BibliographyEntry } from '../../types';
 
-export const bibliography: BibliographyEntry[] = ['bibliography'] = [
+export const bibliography: BibliographyEntry[] = [
   {
     name: "Condé Nast Traveler: Tipping Etiquette Guide",
     url: "https://www.cntraveler.com/stories/2008-11-11/etiquette-101-tipping-guide",
