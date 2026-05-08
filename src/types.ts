@@ -5,7 +5,7 @@ export type { SEOSection };
 
 export type KnownLocale =
   | 'ar' | 'da' | 'de' | 'en' | 'es' | 'fi'
-  | 'fr' | 'it' | 'ja' | 'ko' | 'nb' | 'nl'
+  | 'fr' | 'id' | 'it' | 'ja' | 'ko' | 'nb' | 'nl'
   | 'pl' | 'pt' | 'ru' | 'sv' | 'tr' | 'zh';
 
 export interface FAQItem {
@@ -29,9 +29,7 @@ export interface ToolLocaleContent<TUI extends Record<string, unknown> = Record<
   description: string;
   ui: TUI;
   seo: SEOSection[];
-  faqTitle?: string;
   faq: FAQItem[];
-  bibliographyTitle?: string;
   bibliography: BibliographyEntry[];
   howTo: HowToStep[];
   schemas: WithContext<Thing>[];
@@ -66,8 +64,8 @@ export interface TravelCategoryEntry {
 
 export interface ToolDefinition {
   entry: TravelToolEntry;
-  Component: unknown;
-  SEOComponent: unknown;
-  BibliographyComponent: unknown;
+  Component: () => Promise<unknown>;
+  SEOComponent: () => Promise<unknown>;
+  BibliographyComponent: () => Promise<unknown>;
 }
 

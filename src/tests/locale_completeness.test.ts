@@ -7,16 +7,16 @@ describe('Locale Completeness Validation', () => {
     describe(`Tool: ${tool.entry.id}`, () => {
       Object.keys(tool.entry.i18n).forEach((locale) => {
         describe(`Locale: ${locale}`, () => {
-          it('faqTitle should be defined when faq items exist', async () => {
+          it('should have mandatory properties', async () => {
             const loader = tool.entry.i18n[locale as keyof typeof tool.entry.i18n];
             const content = (await loader?.()) as ToolLocaleContent;
 
-            if (content.faq.length > 0) {
-              expect(
-                content.faqTitle,
-                `Tool "${tool.entry.id}" locale "${locale}" has ${content.faq.length} FAQ items but is missing faqTitle`,
-              ).toBeTruthy();
-            }
+            expect(content.slug).toBeTruthy();
+            expect(typeof content.slug).toBe('string');
+            expect(content.title).toBeTruthy();
+            expect(typeof content.title).toBe('string');
+            expect(content.description).toBeTruthy();
+            expect(typeof content.description).toBe('string');
           });
         });
       });
