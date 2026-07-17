@@ -34,7 +34,7 @@ const { ui } = Astro.props;
 
                 <div class="sc-form-row">
                     <div class="sc-form-group">
-                        <label class="sc-label"><Icon name="mdi:calendar-clock" /> {ui.form.daysTitle}</label>
+                        <label class="sc-label" for="sc-travel-days"><Icon name="mdi:calendar-clock" /> {ui.form.daysTitle}</label>
                         <div class="sc-number-input">
                             <button type="button" class="sc-num-btn" id="sc-minus"><Icon name="mdi:minus" /></button>
                             <input type="number" id="sc-travel-days" value="3" min="1" max="90" readonly />

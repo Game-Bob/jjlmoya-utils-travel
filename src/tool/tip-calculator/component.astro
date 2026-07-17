@@ -24,7 +24,7 @@ const { ui } = Astro.props;
         <div class="tc-grid">
             <div class="tc-inputs">
                 <div class="tc-input-field">
-                    <label>{ui.billLabel}</label>
+                    <label for="bill-amount">{ui.billLabel}</label>
                     <div class="tc-input-control">
                         <Icon name="mdi:currency-eur" class="tc-control-icon" />
                         <input
@@ -51,6 +51,7 @@ const { ui } = Astro.props;
                                     type="text"
                                     id="country-search"
                                     placeholder={ui.placeholderFilter}
+                                    aria-label={ui.placeholderFilter}
                                 />
                             </div>
                             <div class="tc-dropdown-list" id="country-list">

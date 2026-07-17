@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
 const slug = 'mini-adventure-forecast';
-const title = 'Mini Adventure Forecast : Get Out of the Rut';
+const title = 'Mini Adventure Forecast: Get Out of the Rut';
 const description = 'Random daily challenge generator to break monotony and explore your surroundings.';
 
 const ui: MiniAdventuresUI = {
@@ -80,7 +80,7 @@ const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
   { type: "title", text: "Mini Adventures: The Art of the Everyday", level: 2 },
   { type: "paragraph", html: "Discover how micro-adventures can rewire your brain, combat routine, and awaken your innate curiosity. Routine is the enemy of creativity. By introducing small variations into our daily lives, we force our brain to forge new neural connections." },
   { type: "title", text: "Neuroplasticity in Action", level: 3 },
-  { type: "paragraph", html: "Routine is the enemy of creativity. By introducing small variations into our daily lives —like trying a new flavor or walking down an unknown street— we force our brain to forge new neural connections. These micro-adventures act as a mental gym that keeps the mind agile and open to new possibilities." },
+  { type: "paragraph", html: "Routine is the enemy of creativity. By introducing small variations into our daily lives -like trying a new flavor or walking down an unknown street- we force our brain to forge new neural connections. These micro-adventures act as a mental gym that keeps the mind agile and open to new possibilities." },
   { type: "title", text: "Emotional Well-being", level: 3 },
   { type: "paragraph", html: "The feeling of stagnation often comes from absolute predictability. The controlled randomness of an adventure generator introduces the element of 'positive surprise', releasing dopamine and improving mood naturally. You don't need a transoceanic trip to feel the thrill of discovery." },
   { type: "title", text: "Explore what you already know: Local Philosophy", level: 2 },

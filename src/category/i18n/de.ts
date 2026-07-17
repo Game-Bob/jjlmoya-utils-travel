@@ -16,7 +16,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Von der Einhaltung der Fluglinien-Vorschriften bis hin zur internationalen kulturellen Etikette und der Gamifizierung Ihrer unmittelbaren Umgebung – unsere Dienstprogramme helfen Ihnen, ein bewussterer, effizienterer und neugierigerer Reisender zu sein.',
+      html: 'Von der Einhaltung der Fluglinien-Vorschriften bis hin zur internationalen kulturellen Etikette und der Gamifizierung Ihrer unmittelbaren Umgebung - unsere Dienstprogramme helfen Ihnen, ein bewussterer, effizienterer und neugierigerer Reisender zu sein.',
     },
     {
       type: 'title',
@@ -124,7 +124,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Der Wechsel von Zeitzonen beeinflusst Ihren zirkadianen Rhythmus tiefgreifend. Unser <strong>Jetlag-Planer</strong>, der auf dem Prinzip der "hellen Lichttherapie" basiert, schlägt vor, wann Sie sich je nach Zielort dem Sonnenlicht aussetzen sollten. Reisen nach Osten ist schwieriger als Reisen nach Westen. Einfache Strategien wie die Anpassung Ihres Schlafes 2–3 Tage vor der Reise können den Jetlag drastisch reduzieren.',
+      html: 'Der Wechsel von Zeitzonen beeinflusst Ihren zirkadianen Rhythmus tiefgreifend. Unser <strong>Jetlag-Planer</strong>, der auf dem Prinzip der "hellen Lichttherapie" basiert, schlägt vor, wann Sie sich je nach Zielort dem Sonnenlicht aussetzen sollten. Reisen nach Osten ist schwieriger als Reisen nach Westen. Einfache Strategien wie die Anpassung Ihres Schlafes 2-3 Tage vor der Reise können den Jetlag drastisch reduzieren.',
     },
     {
       type: 'title',
@@ -169,7 +169,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Im Jahr 2026 sind <strong>Slow Travel</strong> und regenerativer Tourismus grundlegend. Es geht darum, weniger, aber besser zu reisen. Diese Tools befähigen Sie, Ihre Autonomie als Reisender zu verwalten, den logistischen Lärm zu reduzieren, damit Sie sich auf das konzentrieren können, was wirklich zählt: das Erlebnis und die Verbindung zum Ort. Eine gut geplante Reise ist nicht langweilig – sie ist befreiend.',
+      html: 'Im Jahr 2026 sind <strong>Slow Travel</strong> und regenerativer Tourismus grundlegend. Es geht darum, weniger, aber besser zu reisen. Diese Tools befähigen Sie, Ihre Autonomie als Reisender zu verwalten, den logistischen Lärm zu reduzieren, damit Sie sich auf das konzentrieren können, was wirklich zählt: das Erlebnis und die Verbindung zum Ort. Eine gut geplante Reise ist nicht langweilig - sie ist befreiend.',
     },
     {
       type: 'stats',

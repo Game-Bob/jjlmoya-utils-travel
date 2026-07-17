@@ -16,7 +16,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Od przestrzegania przepisów linii lotniczych po międzynarodową etykietę kulturową i grywalizację lokalnego otoczenia – nasze narzędzia pomogą Ci być bardziej świadomym, wydajnym i ciekawym świata podróżnikiem.',
+      html: 'Od przestrzegania przepisów linii lotniczych po międzynarodową etykietę kulturową i grywalizację lokalnego otoczenia - nasze narzędzia pomogą Ci być bardziej świadomym, wydajnym i ciekawym świata podróżnikiem.',
     },
     {
       type: 'title',

@@ -52,7 +52,7 @@ const ui: TipCalculatorUI = {
       min: 0,
       max: 10,
       default: 0,
-      culture: "“Coperto”是座位费、面包和餐具费，并非小费本身。额外留下 5-10% 会被赞赏，但完全是自愿的。",
+      culture: "\"Coperto\"是座位费、面包和餐具费，并非小费本身。额外留下 5-10% 会被赞赏，但完全是自愿的。",
     },
     {
       id: "fra",
@@ -60,7 +60,7 @@ const ui: TipCalculatorUI = {
       min: 0,
       max: 10,
       default: 5,
-      culture: "服务费已依法包含在内。仅在获得卓越服务时才留下“pourboire”（额外的小额奖励）。",
+      culture: "服务费已依法包含在内。仅在获得卓越服务时才留下\"pourboire\"（额外的小额奖励）。",
     },
     {
       id: "gbr",
@@ -76,7 +76,7 @@ const ui: TipCalculatorUI = {
       min: 10,
       max: 15,
       default: 12,
-      culture: "期待 10-15% 的“propina”。这是该行业从业者收入的重要组成部分。",
+      culture: "期待 10-15% 的\"propina\"。这是该行业从业者收入的重要组成部分。",
     },
     {
       id: "arg",
@@ -92,7 +92,7 @@ const ui: TipCalculatorUI = {
       min: 0,
       max: 10,
       default: 10,
-      culture: "通常账单中会包含 10% 的“Serviço”费用。这是可选的，但大多数人都会支付。",
+      culture: "通常账单中会包含 10% 的\"Serviço\"费用。这是可选的，但大多数人都会支付。",
     },
     {
       id: "deu",

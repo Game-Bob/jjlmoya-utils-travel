@@ -16,7 +16,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Från att följa flygbolagens regler till internationell kulturell etikett och gamification av din närmiljö – våra verktyg hjälper dig att bli en mer medveten, effektiv och nyfiken resenär.',
+      html: 'Från att följa flygbolagens regler till internationell kulturell etikett och gamification av din närmiljö - våra verktyg hjälper dig att bli en mer medveten, effektiv och nyfiken resenär.',
     },
     {
       type: 'title',

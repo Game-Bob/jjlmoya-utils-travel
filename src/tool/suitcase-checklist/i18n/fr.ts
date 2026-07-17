@@ -169,17 +169,17 @@ const ui: SuitcaseChecklistUI = {
   tips: {
     military: "Rouler ses vêtements style 'militaire' aide énormément à éviter les plis et gagne de la place.",
     longTravel: "Vous partez plus d'une semaine. Au lieu d'emporter des kilos de linge, prévoyez de laver vos basiques à mi-parcours.",
-    intlPassport: "Voyage International : Vérifiez dès aujourd'hui que votre passeport est valide au moins 6 mois, car de nombreux pays l'exigent.",
+    intlPassport: "Voyage International: Vérifiez dès aujourd'hui que votre passeport est valide au moins 6 mois, car de nombreux pays l'exigent.",
     intlBank: "Consultez si des visas sont nécessaires ou si votre banque applique des frais à l'étranger.",
     intlAdapter: "N'oubliez pas votre adaptateur universel si les prises du pays de destination sont différentes !",
-    coldLayers: "Pour le froid, la clé est de s'habiller en couches : une base thermique, une couche isolante et un bon manteau imperméable.",
+    coldLayers: "Pour le froid, la clé est de s'habiller en couches: une base thermique, une couche isolante et un bon manteau imperméable.",
     coldHeavyOn: "Portez les vêtements les plus volumineux et lourds sur vous dans l'avion pour gagner de la place en cabine.",
     beachWet: "Prévoyez plusieurs maillots de bain ; l'humidité empêche parfois le séchage pour le lendemain."
   }
 };
 
 const seo: ToolLocaleContent<SuitcaseChecklistUI>['seo'] = [
-  { type: "title", text: "Générateur de Checklist de Valise : Votre Compagnon de Voyage Idéal", level: 2 },
+  { type: "title", text: "Générateur de Checklist de Valise: Votre Compagnon de Voyage Idéal", level: 2 },
   { type: "paragraph", html: "Préparer sa valise est souvent l'un des moments les plus stressants avant un voyage. Le peur d'oublier quelque chose d'important, le doute sur la météo ou l'incertitude sur la quantité de bagages peuvent gâcher l'excitation du départ. C'est ici qu'un <strong>générateur de checklist de valise</strong> devient votre meilleur allié." },
   {
     type: "summary",

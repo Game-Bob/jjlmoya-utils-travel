@@ -3,7 +3,7 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
 const slug = 'handgepaeck-rechner-fluggesellschaften';
-const title = 'Handgepäck Rechner : Fluggesellschaft Maße 2026';
+const title = 'Handgepäck Rechner: Fluggesellschaft Maße 2026';
 const description = 'Überprüfen Sie die Maße und das erlaubte Gewicht für Ihr Handgepäck und Ihren persönlichen Gegenstand bei Ryanair, Vueling, Iberia und +30 weiteren Fluggesellschaften. Vermeiden Sie Aufpreise!';
 
 const ui: LuggageCalculatorUI = {

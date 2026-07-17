@@ -204,7 +204,7 @@ const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
   { type: "title", text: "Mini Aventuras: El Arte de lo Cotidiano", level: 2 },
   { type: "paragraph", html: "Descubre cómo las microaventuras pueden reprogramar tu cerebro, combatir la rutina y despertar tu curiosidad innata. La rutina es el enemigo de la creatividad. Al introducir pequeñas variaciones en nuestro día a día obligamos a nuestro cerebro a forjar nuevas conexiones neuronales." },
   { type: "title", text: "Neuroplasticidad en Acción", level: 3 },
-  { type: "paragraph", html: "La rutina es el enemigo de la creatividad. Al introducir pequeñas variaciones en nuestro día a día —como probar un sabor nuevo o caminar por una calle desconocida— obligamos a nuestro cerebro a forjar nuevas conexiones neuronales. Estas microaventuras actúan como un gimnasio mental que mantiene la mente ágil y abierta a nuevas posibilidades." },
+  { type: "paragraph", html: "La rutina es el enemigo de la creatividad. Al introducir pequeñas variaciones en nuestro día a día -como probar un sabor nuevo o caminar por una calle desconocida- obligamos a nuestro cerebro a forjar nuevas conexiones neuronales. Estas microaventuras actúan como un gimnasio mental que mantiene la mente ágil y abierta a nuevas posibilidades." },
   { type: "title", text: "Bienestar Emocional", level: 3 },
   { type: "paragraph", html: "La sensación de estancamiento suele provenir de la previsibilidad absoluta. El azar controlado de un generador de aventuras introduce el elemento de 'sorpresa positiva', liberando dopamina y mejorando el estado de ánimo de forma natural. No necesitas un viaje transoceánico para sentir la emoción del descubrimiento." },
   { type: "title", text: "Explora lo que ya conoces: Filosofía Local", level: 2 },

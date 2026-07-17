@@ -148,7 +148,7 @@ const ui: TipCalculatorUI = {
 const seo: ToolLocaleContent<TipCalculatorUI>['seo'] = [
   {
     type: "title",
-    text: "Guide International du Pourboire : Étiquette et Pourcentages 2026",
+    text: "Guide International du Pourboire: Étiquette et Pourcentages 2026",
     level: 2,
   },
   {
@@ -158,7 +158,7 @@ const seo: ToolLocaleContent<TipCalculatorUI>['seo'] = [
       "Guide complet sur le pourcentage de pourboire attendu dans les principales destinations touristiques.",
       "Comment calculer rapidement le pourboire à partir du sous-total ou du total incluant les taxes.",
       "Différence entre frais de service, couvert (coperto) et pourboire volontaire.",
-      "Règles d'étiquette pour les situations spéciales : taxis, hôtels et guides touristiques.",
+      "Règles d'étiquette pour les situations spéciales: taxis, hôtels et guides touristiques.",
     ],
   },
   {

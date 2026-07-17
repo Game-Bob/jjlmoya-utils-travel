@@ -15,7 +15,7 @@ const ui: LuggageCalculatorUI = {
   weightLabel: '最大重量',
   noResults: '未找到该航空公司。请尝试全局搜索。',
   modalNoteTitle: '重要提示：',
-  modalNoteText: '一些廉价航空公司（LCC）仅允许在未购买“优先登机（Priority）”或额外行李服务的情况下，将登机箱放置在座位下方。',
+  modalNoteText: '一些廉价航空公司（LCC）仅允许在未购买\"优先登机（Priority）\"或额外行李服务的情况下，将登机箱放置在座位下方。',
   personalItemDetail: '座位下方行李',
   cabinBagDetail: '登机手提箱',
   airlines: [
@@ -381,7 +381,7 @@ const faq: LuggageCalculatorLocaleContent['faq'] = [
   },
   {
     question: "我可以免费携带一个背包和一个登机箱吗？",
-    answer: "在西班牙国家航空（Iberia）、英国航空（British Airways）或汉莎航空（Lufthansa）等航空公司是可以的。在瑞安航空（Ryanair）或伏林航空（Vueling）等（基础票价）航空公司，您只能免费携带一件可以放在座位下方的小物品。要携带登机箱上飞机，您必须购买“优先登机（Priority）”额外服务。",
+    answer: "在西班牙国家航空（Iberia）、英国航空（British Airways）或汉莎航空（Lufthansa）等航空公司是可以的。在瑞安航空（Ryanair）或伏林航空（Vueling）等（基础票价）航空公司，您只能免费携带一件可以放在座位下方的小物品。要携带登机箱上飞机，您必须购买\"优先登机（Priority）\"额外服务。",
   },
   {
     question: "行李尺寸是否包括轮子？",
@@ -426,7 +426,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "paragraph",
-        html: "如今的旅行已经变成了一场物流迷题。曾经通用的标准（10公斤行李）现在变成了一个充满各种尺寸的丛林，不同公司之间往往只有几厘米的差别。我们的<strong>行李计算器</strong>旨在回答机场里最常见的问题：“我需要为这件行李付费吗？”",
+        html: "如今的旅行已经变成了一场物流迷题。曾经通用的标准（10公斤行李）现在变成了一个充满各种尺寸的丛林，不同公司之间往往只有几厘米的差别。我们的<strong>行李计算器</strong>旨在回答机场里最常见的问题：\"我需要为这件行李付费吗？\"",
     },
     {
         type: "title",
@@ -501,7 +501,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "paragraph",
-        html: "许多旅行者购买了贴有“客舱尺寸”标签的包，结果却大吃一惊。原因在于制造商通常只标注箱体的尺寸，但航空公司测量的是整体：<strong>轮子 + 把手 + 外部口袋</strong>。",
+        html: "许多旅行者购买了贴有\"客舱尺寸\"标签的包，结果却大吃一惊。原因在于制造商通常只标注箱体的尺寸，但航空公司测量的是整体：<strong>轮子 + 把手 + 外部口袋</strong>。",
     },
     {
         type: "title",
@@ -512,7 +512,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
         type: "list",
         icon: "mdi:check-decagram",
         items: [
-            "<strong>“随身物品”与“登机行李”的区别：</strong> 随身物品必须能放进前方的座位下方。登机箱则放入头顶的行李舱中。",
+            "<strong>\"随身物品\"与\"登机行李\"的区别：</strong> 随身物品必须能放进前方的座位下方。登机箱则放入头顶的行李舱中。",
             "<strong>轮子因素：</strong> 我们提供的尺寸包括轮子和把手。一个55厘米箱体带有3厘米轮子的包，将无法放入官方测量框。",
             "<strong>压缩性与灵活性：</strong> 如果您的行李刚好在临界点，软质背包通常比硬壳行李箱更好，因为它们能在测量框中稍微压缩一下。",
             "<strong>组合票价：</strong> 有时购买包含行李的票价，比购票后单独添加登机箱更划算。",

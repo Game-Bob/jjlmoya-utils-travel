@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
 const slug = 'mini-abenteuer-generator';
-const title = 'Mini Abenteuer Generator : Raus aus dem Trott';
+const title = 'Mini Abenteuer Generator: Raus aus dem Trott';
 const description = 'Zufälliger Generator für tägliche Herausforderungen, um die Monotonie zu durchbrechen und Ihre Umgebung zu erkunden.';
 
 const ui: MiniAdventuresUI = {
@@ -80,7 +80,7 @@ const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
   { type: "title", text: "Mini-Abenteuer: Die Kunst des Alltäglichen", level: 2 },
   { type: "paragraph", html: "Entdecken Sie, wie Mikro-Abenteuer Ihr Gehirn neu verdrahten, den Alltag bekämpfen und Ihre angeborene Neugier wecken können. Routine ist der Feind der Kreativität. Indem wir kleine Variationen in unser tägliches Leben einbauen, zwingen wir unser Gehirn, neue neuronale Verbindungen zu knüpfen." },
   { type: "title", text: "Neuroplastizität in Aktion", level: 3 },
-  { type: "paragraph", html: "Routine ist der Feind der Kreativität. Indem wir kleine Variationen in unser tägliches Leben einbauen — wie das Ausprobieren einer neuen Geschmacksrichtung oder das Gehen durch eine unbekannte Straße — zwingen wir unser Gehirn, neue neuronale Verbindungen zu knüpfen. Diese Mikro-Abenteuer wirken wie ein mentales Fitnessstudio, das den Geist beweglich und offen für neue Möglichkeiten hält." },
+  { type: "paragraph", html: "Routine ist der Feind der Kreativität. Indem wir kleine Variationen in unser tägliches Leben einbauen - wie das Ausprobieren einer neuen Geschmacksrichtung oder das Gehen durch eine unbekannte Straße - zwingen wir unser Gehirn, neue neuronale Verbindungen zu knüpfen. Diese Mikro-Abenteuer wirken wie ein mentales Fitnessstudio, das den Geist beweglich und offen für neue Möglichkeiten hält." },
   { type: "title", text: "Emotionales Wohlbefinden", level: 3 },
   { type: "paragraph", html: "Das Gefühl des Stillstands entsteht oft durch absolute Vorhersehbarkeit. Der gesteuerte Zufall eines Abenteuer-Generators führt das Element der 'positiven Überraschung' ein, das Dopamin freisetzt und die Stimmung auf natürliche Weise verbessert. Man braucht keine transozeanische Reise, um den Nervenkitzel der Entdeckung zu spüren." },
   { type: "title", text: "Erkunden Sie, was Sie bereits kennen: Lokale Philosophie", level: 2 },

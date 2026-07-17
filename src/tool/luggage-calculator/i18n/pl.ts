@@ -381,7 +381,7 @@ const faq: LuggageCalculatorLocaleContent['faq'] = [
   },
   {
     question: "Czy mogę zabrać plecak i walizkę kabinową za darmo?",
-    answer: "W liniach takich jak Iberia, British Airways czy Lufthansa – tak. W liniach takich jak Ryanair czy Vueling (taryfa basic) możesz zabrać tylko jeden mały przedmiot, który zmieści się pod fotelem. Aby zabrać walizkę kabinową na pokład, musisz wykupić opcję 'Priority'.",
+    answer: "W liniach takich jak Iberia, British Airways czy Lufthansa - tak. W liniach takich jak Ryanair czy Vueling (taryfa basic) możesz zabrać tylko jeden mały przedmiot, który zmieści się pod fotelem. Aby zabrać walizkę kabinową na pokład, musisz wykupić opcję 'Priority'.",
   },
   {
     question: "Czy kółka liczą się do wymiarów bagażu?",
@@ -426,7 +426,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "paragraph",
-        html: "Podróżowanie stało się dziś logistyczną układanką. To, co kiedyś było uniwersalnym standardem (torba 10 kg), jest teraz dżunglą wymiarów, które różnią się o kilka centymetrów między liniami. Nasz <strong>kalkulator bagażu</strong> powstał, aby odpowiedzieć na najczęściej zadawane pytanie na lotniskach: „Czy zapłacę za tę torbę?”.",
+        html: "Podróżowanie stało się dziś logistyczną układanką. To, co kiedyś było uniwersalnym standardem (torba 10 kg), jest teraz dżunglą wymiarów, które różnią się o kilka centymetrów między liniami. Nasz <strong>kalkulator bagażu</strong> powstał, aby odpowiedzieć na najczęściej zadawane pytanie na lotniskach: \"Czy zapłacę za tę torbę?\".",
     },
     {
         type: "title",
@@ -501,7 +501,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "paragraph",
-        html: "Wielu podróżnych kupuje torby z etykietą „Wymiar Kabinowy” i spotyka ich przykra niespodzianka. Dzieje się tak dlatego, że producenci zazwyczaj podają wymiar korpusu torby, ale linie lotnicze mierzą całość: <strong>kółka + rączkę + zewnętrzne kieszenie</strong>.",
+        html: "Wielu podróżnych kupuje torby z etykietą \"Wymiar Kabinowy\" i spotyka ich przykra niespodzianka. Dzieje się tak dlatego, że producenci zazwyczaj podają wymiar korpusu torby, ale linie lotnicze mierzą całość: <strong>kółka + rączkę + zewnętrzne kieszenie</strong>.",
     },
     {
         type: "title",

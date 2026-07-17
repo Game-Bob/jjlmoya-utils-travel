@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { SuitcaseChecklistUI } from '../index';
 
 const slug = 'koffer-packliste-generator';
-const title = 'Koffer Packliste Generator : Erstellen Sie Ihre Packliste';
+const title = 'Koffer Packliste Generator: Erstellen Sie Ihre Packliste';
 const description = 'Das ultimative Online-Tool zur Organisation Ihres Gepäcks basierend auf Reiseart, Ziel und Dauer. Vergessen Sie nie wieder Ihre Reiseutensilien.';
 
 const ui: SuitcaseChecklistUI = {

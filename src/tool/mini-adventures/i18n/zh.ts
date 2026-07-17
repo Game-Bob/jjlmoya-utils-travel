@@ -27,7 +27,7 @@ const ui: MiniAdventuresUI = {
   adventures: [
     { id: 1, text: "在您从未进入过的地方尝试一杯咖啡或饮料。", categoryId: "food" },
     { id: 2, text: "出门时朝着您平时不走的方向走10分钟。", categoryId: "exploration" },
-    { id: 3, text: "学习用三种您不会的语言说“谢谢”。", categoryId: "learning" },
+    { id: 3, text: "学习用三种您不会的语言说\"谢谢\"。", categoryId: "learning" },
     { id: 4, text: "拍一张您街道上吸引您注意力的建筑细节照片。", categoryId: "creativity" },
     { id: 5, text: "买一种您从未尝试过的水果并发现它的味道。", categoryId: "food" },
     { id: 6, text: "在您的社区寻找一块纪念牌，并阅读它讲述的故事。", categoryId: "exploration" },
@@ -73,16 +73,16 @@ const ui: MiniAdventuresUI = {
     progress: "您的进度",
     trophies: "奖杯收藏"
   },
-  shareTemplate: "我刚获得了一个微冒险挑战！\n\n“{text}”\n\n你敢挑战吗？在这里生成你的： {url}"
+  shareTemplate: "我刚获得了一个微冒险挑战！\n\n\"{text}\"\n\n你敢挑战吗？在这里生成你的： {url}"
 };
 
 const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
   { type: "title", text: "微冒险：日常生活的艺术", level: 2 },
   { type: "paragraph", html: "发现微冒险如何重塑您的脑回路，对抗平淡的常规，并唤醒您天生的好奇心。常规是创造力的敌人。通过在日常生活中引入微小的变化，我们迫使大脑建立新的神经连接。" },
   { type: "title", text: "行动中的神经可塑性", level: 3 },
-  { type: "paragraph", html: "常规是创造力的敌人。通过在日常生活中引入微小的变化——比如尝试一种新口味或走一条未知的街道——我们迫使大脑建立新的神经连接。这些微冒险充当了精神健身房，保持思维敏捷并对新的可能性保持开放。" },
+  { type: "paragraph", html: "常规是创造力的敌人。通过在日常生活中引入微小的变化-比如尝试一种新口味或走一条未知的街道-我们迫使大脑建立新的神经连接。这些微冒险充当了精神健身房，保持思维敏捷并对新的可能性保持开放。" },
   { type: "title", text: "情感健康", level: 3 },
-  { type: "paragraph", html: "停滞感往往源于绝对的可预测性。冒险生成器受控的随机性引入了“积极惊喜”的元素，释放多巴胺并自然地改善情绪。您不需要跨洋旅行就能感受到发现的快感。" },
+  { type: "paragraph", html: "停滞感往往源于绝对的可预测性。冒险生成器受控的随机性引入了\"积极惊喜\"的元素，释放多巴胺并自然地改善情绪。您不需要跨洋旅行就能感受到发现的快感。" },
   { type: "title", text: "探索您已知的领域：本地哲学", level: 2 },
   { type: "paragraph", html: "我们生活在被忽视的故事和细节中。这个预测器的目标是训练您的眼睛在平凡中发现非凡。不要寻找完美的时刻；寻找可能的时刻。" },
   {

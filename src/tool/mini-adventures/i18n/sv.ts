@@ -4,7 +4,7 @@ import type { ToolLocaleContent } from '../../../types';
 import type { MiniAdventuresUI } from '../index';
 
 const slug = 'mini-aventyrs-generator-bryt-rutinen';
-const title = 'Mini äventyrsgenerator : Bryt vardagslunken';
+const title = 'Mini äventyrsgenerator: Bryt vardagslunken';
 const description = 'Slumpmässig generator för dagliga utmaningar för att bryta monotonin och utforska din omgivning.';
 
 const ui: MiniAdventuresUI = {
@@ -80,7 +80,7 @@ const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
   { type: "title", text: "Mini-äventyr: Vardagens konst", level: 2 },
   { type: "paragraph", html: "Upptäck hur mikroäventyr kan koppla om din hjärna, bekämpa rutin och väcka din inneboende nyfikenhet. Rutin är kreativitetens fiende. Genom att introducera små variationer i vårt dagliga liv tvingar vi vår hjärna att skapa nya neurala kopplingar." },
   { type: "title", text: "Neuroplasticitet i handling", level: 3 },
-  { type: "paragraph", html: "Rutin är kreativitetens fiende. Genom att introducera små variationer i vårt dagliga liv — som att prova en ny smak eller gå på en okänd gata — tvingar vi vår hjärna att skapa nya neurala kopplingar. Dessa mikroäventyr fungerar som ett mentalt gym som håller sinnet rörligt och öppet för nya möjligheter." },
+  { type: "paragraph", html: "Rutin är kreativitetens fiende. Genom att introducera små variationer i vårt dagliga liv - som att prova en ny smak eller gå på en okänd gata - tvingar vi vår hjärna att skapa nya neurala kopplingar. Dessa mikroäventyr fungerar som ett mentalt gym som håller sinnet rörligt och öppet för nya möjligheter." },
   { type: "title", text: "Emotionellt välbefinnande", level: 3 },
   { type: "paragraph", html: "Känslan av stagnation kommer ofta från absolut förutsägbarhet. Den kontrollerade slumpmässigheten hos en äventyrsgenerator introducerar elementet av 'positiv överraskning', vilket frigör dopamin och förbättrar humöret naturligt. Du behöver inte en transoceanisk resa för att känna spänningen i att upptäcka något nytt." },
   { type: "title", text: "Utforska det du redan känner till: Lokal filosofi", level: 2 },

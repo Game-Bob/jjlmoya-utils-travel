@@ -153,7 +153,7 @@ const seo: ToolLocaleContent<TipCalculatorUI>['seo'] = [
   },
   {
     type: "summary",
-    title: "Trinkgeld geben wie ein Einheimischer – überall auf der Welt",
+    title: "Trinkgeld geben wie ein Einheimischer: überall auf der Welt",
     items: [
       "Vollständiger Leitfaden zu erwarteten Trinkgeldern in den wichtigsten Reisezielen.",
       "Schnelle Berechnung des Trinkgelds basierend auf der Zwischensumme oder dem Endbetrag.",

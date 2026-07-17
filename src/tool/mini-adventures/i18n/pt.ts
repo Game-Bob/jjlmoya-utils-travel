@@ -80,7 +80,7 @@ const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
   { type: "title", text: "Mini Aventuras: A Arte do Quotidiano", level: 2 },
   { type: "paragraph", html: "Descubra como as micro-aventuras podem reprogramar o seu cérebro, combater a rotina e despertar a sua curiosidade inata. A rotina é a inimiga da criatividade. Ao introduzir pequenas variações na nossa vida quotidiana, forçamos o nosso cérebro a forjar novas conexões neurais." },
   { type: "title", text: "Neuroplasticidade em Ação", level: 3 },
-  { type: "paragraph", html: "A rotina é a inimiga da criatividade. Ao introduzir pequenas variações na nossa vida quotidiana — como provar um novo sabor ou caminhar por uma rua desconhecida — forçamos o nosso cérebro a forjar novas conexões neurais. Estas micro-aventuras agem como um ginásio mental que mantém a mente ágil e aberta a novas possibilidades." },
+  { type: "paragraph", html: "A rotina é a inimiga da criatividade. Ao introduzir pequenas variações na nossa vida quotidiana - como provar um novo sabor ou caminhar por uma rua desconhecida - forçamos o nosso cérebro a forjar novas conexões neurais. Estas micro-aventuras agem como um ginásio mental que mantém a mente ágil e aberta a novas possibilidades." },
   { type: "title", text: "Bem-estar Emocional", level: 3 },
   { type: "paragraph", html: "A sensação de estagnação provém frequentemente da previsibilidade absoluta. A aleatoriedade controlada de um gerador de aventuras introduz o elemento da 'surpresa positiva', libertando dopamina e melhorando o humor naturalmente. Não precisa de uma viagem transoceânica para sentir a emoção da descoberta." },
   { type: "title", text: "Explore o que já conhece: Filosofia Local", level: 2 },

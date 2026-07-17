@@ -7,7 +7,7 @@ export const content: CategoryLocaleContent = {
   seo: [
     {
       type: 'title',
-      text: 'Logistique de Voyage et Exploration Locale : Planifiez intelligemment',
+      text: 'Logistique de Voyage et Exploration Locale: Planifiez intelligemment',
       level: 2,
     },
     {
@@ -20,7 +20,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Logistique Aérienne : Calculateur de Bagages et Mesures',
+      text: 'Logistique Aérienne: Calculateur de Bagages et Mesures',
       level: 2,
     },
     {
@@ -29,7 +29,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Étiquette Internationale : Guide et Calculateur de Pourboires',
+      text: 'Étiquette Internationale: Guide et Calculateur de Pourboires',
       level: 2,
     },
     {
@@ -38,7 +38,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Organisation Efficace : Générateur de Checklist de Valise',
+      text: 'Organisation Efficace: Générateur de Checklist de Valise',
       level: 2,
     },
     {
@@ -47,7 +47,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Exploration de l\'Environnement : Générateur de Mini Aventures',
+      text: 'Exploration de l\'Environnement: Générateur de Mini Aventures',
       level: 2,
     },
     {
@@ -70,12 +70,12 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Planification Financière : Budget et Contrôle des Dépenses',
+      text: 'Planification Financière: Budget et Contrôle des Dépenses',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Un voyage sans budget est un voyage qui se contrôle lui-même plutôt que l\'inverse. Avant de partir, établissez un budget réaliste réparti par catégories : hébergement (40%), alimentation (25%), activités (20%), transport local (10%), urgences (5%). Cette structure vous évite les mauvaises surprises et maximise la valeur de chaque euro investi.',
+      html: 'Un voyage sans budget est un voyage qui se contrôle lui-même plutôt que l\'inverse. Avant de partir, établissez un budget réaliste réparti par catégories: hébergement (40%), alimentation (25%), activités (20%), transport local (10%), urgences (5%). Cette structure vous évite les mauvaises surprises et maximise la valeur de chaque euro investi.',
     },
     {
       type: 'paragraph',
@@ -92,12 +92,12 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Expériences Authentiques : Tourisme Responsable versus Exploitation',
+      text: 'Expériences Authentiques: Tourisme Responsable versus Exploitation',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Tous les tours ne se valent pas. Un tour "exotique" promouvant des "rencontres avec des tribus locales" est souvent de l\'exploitation touristique. La différence est : Les locaux consentent-ils volontairement ? Reçoivent-ils une compensation équitable ? Leur vie privée et leur culture sont-elles respectées ? Voyager de manière responsable signifie effectuer des recherches préalables, respecter les limites locales et apporter un soutien économique direct aux communautés, pas aux intermédiaires.',
+      html: 'Tous les tours ne se valent pas. Un tour "exotique" promouvant des "rencontres avec des tribus locales" est souvent de l\'exploitation touristique. La différence est: Les locaux consentent-ils volontairement ? Reçoivent-ils une compensation équitable ? Leur vie privée et leur culture sont-elles respectées ? Voyager de manière responsable signifie effectuer des recherches préalables, respecter les limites locales et apporter un soutien économique direct aux communautés, pas aux intermédiaires.',
     },
     {
       type: 'title',
@@ -115,7 +115,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'Le taux de change n\'est pas constant. Vous changez de l\'argent à un taux moins avantageux à l\'aéroport qu\'à la maison. Notre <strong>suivi de taux de change</strong> vous montre les taux historiques afin que vous puissiez planifier quand changer de l\'argent de manière optimale. L\'analyse historique montre des schémas : l\'euro a tendance à s\'affaiblir en hiver, le dollar se renforce en période de crise.',
+      html: 'Le taux de change n\'est pas constant. Vous changez de l\'argent à un taux moins avantageux à l\'aéroport qu\'à la maison. Notre <strong>suivi de taux de change</strong> vous montre les taux historiques afin que vous puissiez planifier quand changer de l\'argent de manière optimale. L\'analyse historique montre des schémas: l\'euro a tendance à s\'affaiblir en hiver, le dollar se renforce en période de crise.',
     },
     {
       type: 'title',
@@ -128,7 +128,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Itinéraires Optimisés : L\'Algorithme du Voyageur de Commerce Appliqué au Tourisme',
+      text: 'Itinéraires Optimisés: L\'Algorithme du Voyageur de Commerce Appliqué au Tourisme',
       level: 2,
     },
     {
@@ -137,16 +137,16 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'title',
-      text: 'Réglementations de Voyage : Visas, Vaccins et Documents Requis',
+      text: 'Réglementations de Voyage: Visas, Vaccins et Documents Requis',
       level: 2,
     },
     {
       type: 'paragraph',
-      html: 'Chaque pays a ses propres exigences uniques. L\'<strong>auditeur d\'exigences de voyage</strong> vérifie votre nationalité, votre destination et vos dates de voyage pour vous informer exactement des documents dont vous avez besoin : visa préalable ? vaccins obligatoires ? certificats de santé ? limites de devises ? L\'ignorer peut signifier être expulsé à la frontière ou mis à l\'amende.',
+      html: 'Chaque pays a ses propres exigences uniques. L\'<strong>auditeur d\'exigences de voyage</strong> vérifie votre nationalité, votre destination et vos dates de voyage pour vous informer exactement des documents dont vous avez besoin: visa préalable ? vaccins obligatoires ? certificats de santé ? limites de devises ? L\'ignorer peut signifier être expulsé à la frontière ou mis à l\'amende.',
     },
     {
       type: 'title',
-      text: 'Transport Local : Plans de Métro et Systèmes de Transport Globaux',
+      text: 'Transport Local: Plans de Métro et Systèmes de Transport Globaux',
       level: 2,
     },
     {
@@ -169,7 +169,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'En 2026, le <strong>Slow Travel</strong> et le tourisme régénératif sont fondamentaux. Il s\'agit de voyager moins, mais mieux. Ces outils vous permettent de gérer votre autonomie en tant que voyageur, réduisant le bruit logistique pour que vous puissiez vous concentrer sur ce qui compte vraiment : l\'expérience et la connexion avec le lieu. Un voyage bien planifié n\'est pas ennuyeux — il est libérateur.',
+      html: 'En 2026, le <strong>Slow Travel</strong> et le tourisme régénératif sont fondamentaux. Il s\'agit de voyager moins, mais mieux. Ces outils vous permettent de gérer votre autonomie en tant que voyageur, réduisant le bruit logistique pour que vous puissiez vous concentrer sur ce qui compte vraiment: l\'expérience et la connexion avec le lieu. Un voyage bien planifié n\'est pas ennuyeux - il est libérateur.',
     },
     {
       type: 'stats',

@@ -3,7 +3,7 @@ import type { WithContext, FAQPage, HowTo, SoftwareApplication } from 'schema-dt
 import type { LuggageCalculatorUI, LuggageCalculatorLocaleContent } from '../index';
 
 const slug = 'calculateur-bagages-cabine';
-const title = 'Calculateur de Bagages Cabine : Mesures par Compagnie 2026';
+const title = 'Calculateur de Bagages Cabine: Mesures par Compagnie 2026';
 const description = 'Consultez les dimensions et le poids autorisés pour votre bagage cabine et votre accessoire personnel sur toutes les compagnies aériennes. Évitez les surtaxes à l\'aéroport.';
 
 const ui: LuggageCalculatorUI = {
@@ -411,7 +411,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "paragraph",
-        html: "Voyager aujourd'hui est devenu un véritable puzzle logistique. Ce qui était autrefois un standard universel (le sac de 10 kg) est devenu une jungle de mesures qui varient de quelques centimètres d'une compagnie à l'autre. Notre <strong>calculateur de bagages</strong> est né pour répondre à la question la plus répétée dans les aéroports : \"Vais-je payer un supplément pour ce sac ?\".",
+        html: "Voyager aujourd'hui est devenu un véritable puzzle logistique. Ce qui était autrefois un standard universel (le sac de 10 kg) est devenu une jungle de mesures qui varient de quelques centimètres d'une compagnie à l'autre. Notre <strong>calculateur de bagages</strong> est né pour répondre à la question la plus répétée dans les aéroports: \"Vais-je payer un supplément pour ce sac ?\".",
     },
     {
         type: "title",
@@ -430,7 +430,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
                 description: "Règles strictes, n'autorisant généralement qu'un petit sac sous le siège gratuitement.",
                 icon: "mdi:tag-outline",
                 points: [
-                    "Ryanair/Vueling : Bagage cabine payant",
+                    "Ryanair/Vueling: Bagage cabine payant",
                     "Dimensions surveillées avec gabarit",
                     "Poids maximum entre 8kg et 10kg",
                     "Suppléments élevés si vous dépassez la taille",
@@ -442,7 +442,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
                 icon: "mdi:airplane-takeoff",
                 highlight: true,
                 points: [
-                    "Air France/Lufthansa : Bagage cabine inclus",
+                    "Air France/Lufthansa: Bagage cabine inclus",
                     "Limites de poids plus élevées (jusqu'à 23kg chez BA)",
                     "Combinaison article personnel + bagage",
                     "Service d'enregistrement gratuit en porte si le vol est complet",
@@ -452,7 +452,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "title",
-        text: "Dimensions par Compagnie : Tableau Récapitulatif",
+        text: "Dimensions par Compagnie: Tableau Récapitulatif",
         level: 3,
     },
     {
@@ -477,7 +477,7 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
     },
     {
         type: "title",
-        text: "Conclusion : Voyagez sans Stress",
+        text: "Conclusion: Voyagez sans Stress",
         level: 3,
     },
     {

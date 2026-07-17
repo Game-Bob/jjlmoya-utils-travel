@@ -63,11 +63,11 @@ const ui: MiniAdventuresUI = {
     progress: "Votre Progrès",
     trophies: "Collection de Trophées"
   },
-  shareTemplate: "Je viens de relever un défi !\n\n\"{text}\"\n\nOserez-vous ? Générez le vôtre ici : {url}"
+  shareTemplate: "Je viens de relever un défi !\n\n\"{text}\"\n\nOserez-vous ? Générez le vôtre ici: {url}"
 };
 
 const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
-  { type: "title", text: "Mini Aventures : L'Art du Quotidien", level: 2 },
+  { type: "title", text: "Mini Aventures: L'Art du Quotidien", level: 2 },
   { type: "paragraph", html: "Découvrez comment les micro-aventures peuvent reprogrammer votre cerveau, combattre la routine et éveiller votre curiosité innée. La routine est l'ennemie de la créativité. En introduisant de petites variations dans notre vie quotidienne, nous forçons notre cerveau à forger de nouvelles connexions neuronales." },
   { type: "title", text: "Neuroplasticité en Action", level: 3 },
   { type: "paragraph", html: "En essayant une nouvelle saveur ou en marchant dans une rue inconnue, vous forcez votre cerveau à s'adapter. Ces micro-aventures agissent comme un gymnase mental." },

@@ -169,7 +169,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'En 2026, el <strong>Slow Travel</strong> y el turismo regenerativo son fundamentales. Se trata de viajar menos, pero mejor. Estas herramientas te empoderan para gestionar tu autonomía como viajero, reduciendo el ruido logístico para que puedas centrarte en lo que realmente importa: la experiencia y la conexión con el lugar. Un viaje bien planificado no es aburrido—es liberador.',
+      html: 'En 2026, el <strong>Slow Travel</strong> y el turismo regenerativo son fundamentales. Se trata de viajar menos, pero mejor. Estas herramientas te empoderan para gestionar tu autonomía como viajero, reduciendo el ruido logístico para que puedas centrarte en lo que realmente importa: la experiencia y la conexión con el lugar. Un viaje bien planificado no es aburrido-es liberador.',
     },
     {
       type: 'stats',

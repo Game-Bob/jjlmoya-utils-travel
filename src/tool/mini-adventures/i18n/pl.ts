@@ -80,7 +80,7 @@ const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
   { type: "title", text: "Mini Przygody: Sztuka Codzienności", level: 2 },
   { type: "paragraph", html: "Odkryj, jak mikro-przygody mogą przeprogramować Twój mózg, zwalczyć rutynę i obudzić Twoją wrodzoną ciekawość. Rutyna jest wrogiem kreatywności. Wprowadzając małe wariacje do naszego codziennego życia, zmuszamy nasz mózg do tworzenia nowych połączeń neuronowych." },
   { type: "title", text: "Neuroplastyczność w Akcji", level: 3 },
-  { type: "paragraph", html: "Rutyna jest wrogiem kreatywności. Wprowadzając małe wariacje do naszego codziennego życia — takie jak spróbowanie nowego smaku czy spacer nieznaną ulicą — zmuszamy nasz mózg do tworzenia nowych połączeń neuronowych. Te mikro-przygody działają jak mentalna siłownia, która utrzymuje umysł sprawnym i otwartym na nowe możliwości." },
+  { type: "paragraph", html: "Rutyna jest wrogiem kreatywności. Wprowadzając małe wariacje do naszego codziennego życia - takie jak spróbowanie nowego smaku czy spacer nieznaną ulicą - zmuszamy nasz mózg do tworzenia nowych połączeń neuronowych. Te mikro-przygody działają jak mentalna siłownia, która utrzymuje umysł sprawnym i otwartym na nowe możliwości." },
   { type: "title", text: "Dobrostan Emocjonalny", level: 3 },
   { type: "paragraph", html: "Poczucie stagnacji często wynika z absolutnej przewidywalności. Kontrolowana losowość generatora przygód wprowadza element 'pozytywnego zaskoczenia', uwalniając dopaminę i poprawiając nastrój w naturalny sposób. Nie potrzebujesz transoceanicznej podróży, aby poczuć dreszcz odkrycia." },
   { type: "title", text: "Odkrywaj to, co już znasz: Lokalna Filozofia", level: 2 },

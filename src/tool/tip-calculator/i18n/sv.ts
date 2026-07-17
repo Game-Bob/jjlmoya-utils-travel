@@ -36,7 +36,7 @@ const ui: TipCalculatorUI = {
       min: 0,
       max: 10,
       default: 5,
-      culture: "Valfritt. Det är vanligt att runda upp växeln eller lämna 5–10 % på middagar om servicen har varit av bra kvalitet.",
+      culture: "Valfritt. Det är vanligt att runda upp växeln eller lämna 5-10 % på middagar om servicen har varit av bra kvalitet.",
     },
     {
       id: "jpn",
@@ -52,7 +52,7 @@ const ui: TipCalculatorUI = {
       min: 0,
       max: 10,
       default: 0,
-      culture: "'Coperto' är en avgift för dukning, bröd och service, det är inte själva dricksen. Att lämna ytterligare 5–10 % är en uppskattad men helt valfri gest.",
+      culture: "'Coperto' är en avgift för dukning, bröd och service, det är inte själva dricksen. Att lämna ytterligare 5-10 % är en uppskattad men helt valfri gest.",
     },
     {
       id: "fra",
@@ -76,7 +76,7 @@ const ui: TipCalculatorUI = {
       min: 10,
       max: 15,
       default: 12,
-      culture: "En 'propina' på 10–15 % förväntas. Det är en viktig del av ekonomin för arbetare inom sektorn.",
+      culture: "En 'propina' på 10-15 % förväntas. Det är en viktig del av ekonomin för arbetare inom sektorn.",
     },
     {
       id: "arg",
@@ -100,7 +100,7 @@ const ui: TipCalculatorUI = {
       min: 5,
       max: 10,
       default: 7,
-      culture: "Det är vanligt att runda upp eller lägga till 5–10 %. Berätta för kyparen det totala beloppet inkl. dricks när du betalar.",
+      culture: "Det är vanligt att runda upp eller lägga till 5-10 %. Berätta för kyparen det totala beloppet inkl. dricks när du betalar.",
     },
     {
       id: "tur",
@@ -132,7 +132,7 @@ const ui: TipCalculatorUI = {
       min: 0,
       max: 10,
       default: 5,
-      culture: "Det är sedvänja att lämna växeln eller runda upp. I turistområden är 5–10 % vanligt.",
+      culture: "Det är sedvänja att lämna växeln eller runda upp. I turistområden är 5-10 % vanligt.",
     },
     {
       id: "grc",
@@ -140,7 +140,7 @@ const ui: TipCalculatorUI = {
       min: 0,
       max: 10,
       default: 5,
-      culture: "Det räcker vanligtvis att runda upp notan. Extra 5–10 % är mycket uppskattat men inte obligatoriskt.",
+      culture: "Det räcker vanligtvis att runda upp notan. Extra 5-10 % är mycket uppskattat men inte obligatoriskt.",
     },
   ]
 };

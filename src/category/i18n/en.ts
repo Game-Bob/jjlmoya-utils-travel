@@ -169,7 +169,7 @@ export const content: CategoryLocaleContent = {
     },
     {
       type: 'paragraph',
-      html: 'In 2026, <strong>Slow Travel</strong> and regenerative tourism are fundamental. It\'s about traveling less, but better. These tools empower you to manage your autonomy as a traveler, reducing logistical noise so you can focus on what really matters: the experience and the connection with the place. A well-planned trip is not boring—it\'s liberating.',
+      html: 'In 2026, <strong>Slow Travel</strong> and regenerative tourism are fundamental. It\'s about traveling less, but better. These tools empower you to manage your autonomy as a traveler, reducing logistical noise so you can focus on what really matters: the experience and the connection with the place. A well-planned trip is not boring-it\'s liberating.',
     },
     {
       type: 'stats',
