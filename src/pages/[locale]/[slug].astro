@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   const paths = [];
 
   for (const { entry, Component: lazyComp } of ALL_TOOLS) {
-    const { default: Component } = await lazyComp();
+    const { default: Component } = (await lazyComp()) as { default: unknown };
     const localeEntries = Object.entries(entry.i18n) as [
       KnownLocale,
       () => Promise<ToolLocaleContent>,

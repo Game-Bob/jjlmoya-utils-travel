@@ -1,0 +1,199 @@
+---
+import type { SchengenCalculatorUI } from './ui';
+import './schengen-calculator.css';
+
+interface Props {
+  ui?: SchengenCalculatorUI;
+}
+
+const { ui: t } = Astro.props;
+const defaultUI: SchengenCalculatorUI = {
+  verdictSafeTitle: 'Safe to Travel (Within Legal Limits)',
+  verdictWarningTitle: 'Caution: Approaching 90-Day Limit',
+  verdictOverstayTitle: 'Illegal Overstay Detected',
+  daysRemainingSub: 'Days Allowed Remaining',
+  daysUsedSub: 'Days Used in 180-Day Window',
+  maxStaySub: 'Max Continuous Stay from Date',
+  fullResetSub: 'Full 90-Day Reset Date',
+  plannerHeading: '1. Check Status on Target Date',
+  plannerEntryLabel: 'Evaluation Date (Entry / Flight Date)',
+  quickDatesLabel: 'Jump to Date',
+  presetToday: 'Today',
+  presetPlus7: '+1 Week',
+  presetPlus14: '+2 Weeks',
+  presetPlus30: '+1 Month',
+  tripsHeading: '2. Your Schengen Trips (Past & Planned)',
+  addTripBtn: '+ Add Trip',
+  emptyTripsMsg: 'No trips added yet. Add past or planned trips to calculate your Schengen allowance.',
+  colArrival: 'Entry (Arrival)',
+  colDeparture: 'Exit (Departure)',
+  colDestination: 'Country / Notes',
+  colDays: 'Days',
+  sampleBtn: 'Load Sample Trips',
+  clearBtn: 'Clear All',
+  timelineTitle: '180-Day Rolling Window',
+  legendInSchengen: 'In Schengen',
+  legendOutside: 'Outside',
+  legendOverstay: 'Overstay',
+  bannerSafe: 'On {date}, you will have used {used} ({rem} available).',
+  bannerWarning: 'On {date}, you will have used {used} (only {rem} remaining).',
+  bannerOverstay: 'Overstay violation detected starting on {date}. Your itinerary exceeds the legal limit by {days}.',
+  unitDays: 'days',
+  notesPlaceholder: 'e.g. France, Spain',
+  sampleNotes1: 'Italy Roadtrip (20 days)',
+  sampleNotes2: 'Germany & Austria (20 days)',
+  sampleNotesDefault: 'France & Spain',
+};
+
+const ui = { ...defaultUI, ...(t ?? {}) };
+const uiJson = JSON.stringify(ui);
+---
+
+<div class="schengen-card" id="sc-app" data-i18n={uiJson}>
+  <div class="sc-hero">
+    <div id="sc-status-badge" class="sc-status-pill legal">
+      <span id="sc-status-text">{ui.verdictSafeTitle}</span>
+    </div>
+
+    <div class="sc-explanation-banner" id="sc-explanation-banner">
+      On <strong id="sc-banner-date">--</strong>, you will have used <strong id="sc-banner-used">0 {ui.unitDays}</strong> (<strong id="sc-banner-rem">90 {ui.unitDays} available</strong>).
+    </div>
+
+    <div class="sc-gauge-wrap">
+      <svg class="sc-gauge-svg" viewBox="0 0 120 120">
+        <circle class="sc-gauge-track" cx="60" cy="60" r="50" />
+        <circle
+          class="sc-gauge-bar"
+          id="sc-gauge-circle"
+          cx="60"
+          cy="60"
+          r="50"
+          stroke-dasharray="314.159"
+          stroke-dashoffset="314.159"
+        />
+      </svg>
+      <div class="sc-gauge-content">
+        <span class="sc-gauge-num" id="sc-days-remaining">90</span>
+        <span class="sc-gauge-caption" id="sc-gauge-caption">{ui.daysRemainingSub}</span>
+      </div>
+    </div>
+
+    <div class="sc-metrics-grid">
+      <div class="sc-metric-card">
+        <span class="sc-metric-title">{ui.daysUsedSub}</span>
+        <span class="sc-metric-val" id="sc-days-used">0 / 90</span>
+      </div>
+      <div class="sc-metric-card">
+        <span class="sc-metric-title">{ui.maxStaySub}</span>
+        <span class="sc-metric-val" id="sc-max-continuous">90 {ui.unitDays}</span>
+      </div>
+      <div class="sc-metric-card">
+        <span class="sc-metric-title">{ui.fullResetSub}</span>
+        <span class="sc-metric-val" id="sc-reset-date">--</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sc-divider"></div>
+
+  <div class="sc-body">
+    <div class="sc-section-block">
+      <div class="sc-section-header">
+        <span class="sc-section-title">{ui.plannerHeading}</span>
+        <div class="sc-chip-group">
+          <button type="button" class="sc-chip-mini" id="sc-preset-today">{ui.presetToday}</button>
+          <button type="button" class="sc-chip-mini" id="sc-preset-plus7">{ui.presetPlus7}</button>
+          <button type="button" class="sc-chip-mini" id="sc-preset-plus14">{ui.presetPlus14}</button>
+          <button type="button" class="sc-chip-mini" id="sc-preset-plus30">{ui.presetPlus30}</button>
+        </div>
+      </div>
+      <div class="sc-planner-box">
+        <div class="sc-field-group">
+          <label for="sc-ref-date-input" class="sc-field-label">{ui.plannerEntryLabel}</label>
+          <div class="sc-date-wrap">
+            <input type="date" id="sc-ref-date-input" class="sc-input-control" />
+            <span class="sc-date-icon-btn" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 4h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-section-block">
+      <div class="sc-section-header">
+        <span class="sc-section-title">{ui.tripsHeading}</span>
+      </div>
+      <div class="sc-trips-table-header">
+        <span>{ui.colArrival}</span>
+        <span>{ui.colDeparture}</span>
+        <span>{ui.colDestination}</span>
+        <span style="text-align:center;">{ui.colDays}</span>
+        <span></span>
+      </div>
+      <div class="sc-trips-container" id="sc-trips-container"></div>
+      <div id="sc-empty-msg" class="sc-empty-box">{ui.emptyTripsMsg}</div>
+    </div>
+
+    <div class="sc-timeline-bar-wrap">
+      <div class="sc-ribbon-legend">
+        <span>{ui.timelineTitle}</span>
+        <div class="sc-legend-items">
+          <div class="sc-leg-item">
+            <span class="sc-dot spent"></span>
+            <span>{ui.legendInSchengen}</span>
+          </div>
+          <div class="sc-leg-item">
+            <span class="sc-dot free"></span>
+            <span>{ui.legendOutside}</span>
+          </div>
+          <div class="sc-leg-item">
+            <span class="sc-dot overstay"></span>
+            <span>{ui.legendOverstay}</span>
+          </div>
+        </div>
+      </div>
+      <div class="sc-ribbon" id="sc-timeline-ribbon"></div>
+    </div>
+  </div>
+
+  <div class="sc-footer-actions">
+    <div class="sc-chip-group">
+      <button type="button" class="sc-btn-ghost" id="sc-sample-btn">{ui.sampleBtn}</button>
+      <button type="button" class="sc-btn-ghost" id="sc-clear-btn">{ui.clearBtn}</button>
+    </div>
+    <button type="button" class="sc-btn-main" id="sc-add-trip-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+      </svg>
+      <span>{ui.addTripBtn}</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  import type { SchengenCalculatorUI } from './ui';
+  import { SchengenCalculatorController } from './controller';
+
+  function initApp() {
+    const appEl = document.getElementById('sc-app');
+    let i18n = {} as SchengenCalculatorUI;
+    if (appEl && appEl.dataset.i18n) {
+      try {
+        i18n = JSON.parse(appEl.dataset.i18n);
+      } catch {
+        return;
+      }
+    }
+    const controller = new SchengenCalculatorController(i18n);
+    controller.init();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+  } else {
+    initApp();
+  }
+</script>

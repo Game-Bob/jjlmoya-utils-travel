@@ -1,0 +1,38 @@
+export interface SchengenCalculatorUI {
+  [key: string]: unknown;
+  verdictSafeTitle: string;
+  verdictWarningTitle: string;
+  verdictOverstayTitle: string;
+  daysRemainingSub: string;
+  daysUsedSub: string;
+  maxStaySub: string;
+  fullResetSub: string;
+  plannerHeading: string;
+  plannerEntryLabel: string;
+  quickDatesLabel: string;
+  presetToday: string;
+  presetPlus7: string;
+  presetPlus14: string;
+  presetPlus30: string;
+  tripsHeading: string;
+  addTripBtn: string;
+  emptyTripsMsg: string;
+  colArrival: string;
+  colDeparture: string;
+  colDestination: string;
+  colDays: string;
+  sampleBtn: string;
+  clearBtn: string;
+  timelineTitle: string;
+  legendInSchengen: string;
+  legendOutside: string;
+  legendOverstay: string;
+  bannerSafe: string;
+  bannerWarning: string;
+  bannerOverstay: string;
+  unitDays: string;
+  notesPlaceholder: string;
+  sampleNotes1: string;
+  sampleNotes2: string;
+  sampleNotesDefault: string;
+}
