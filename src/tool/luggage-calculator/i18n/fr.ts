@@ -384,12 +384,28 @@ const faq: LuggageCalculatorLocaleContent['faq'] = [
     question: "Puis-je emporter un sac à dos et une valise cabine gratuitement ?",
     answer: "Sur des compagnies comme Air France ou Lufthansa, oui. Sur des compagnies comme Ryanair ou Vueling (tarif de base), vous ne pouvez emporter qu'un petit sac sous le siège.",
   },
+  {
+    question: "Les dimensions des compagnies changent-elles souvent ?",
+    answer: "Oui. Vérifiez les conditions de votre billet et la page officielle de la compagnie avant le départ, car les franchises peuvent évoluer.",
+  },
+  {
+    question: "Comment mesurer une valise cabine correctement ?",
+    answer: "Mesurez la hauteur avec les roues et la poignée comprise, puis la largeur et la profondeur aux points les plus larges.",
+  },
 ];
 
 const howTo: LuggageCalculatorLocaleContent['howTo'] = [
   {
     name: "Recherchez votre compagnie",
     text: "Utilisez notre moteur de recherche pour voir les limites spécifiques de votre transporteur.",
+  },
+  {
+    name: "Mesurez votre bagage",
+    text: "Mesurez la hauteur, la largeur et la profondeur avec les roues et les poignées dans leur position habituelle.",
+  },
+  {
+    name: "Vérifiez le poids",
+    text: "Pesez le bagage complet et comparez le résultat avec la franchise de votre billet.",
   },
 ];
 
@@ -484,6 +500,15 @@ const seo: LuggageCalculatorLocaleContent['seo'] = [
         type: "paragraph",
         html: "Vérifier les mesures de vos bagages avant de partir pour l'aéroport vous fera économiser non seulement de l'argent (les frais de porte dépassent souvent 50€), mais aussi le stress de commencer vos vacances par une dispute au comptoir.",
     },
+    { type: "title", text: "Comparer les règles des compagnies", level: 3 },
+    { type: "paragraph", html: "Chaque transporteur applique sa propre combinaison de dimensions et de poids. Utilisez le moteur de recherche avant de fermer votre valise." },
+    { type: "title", text: "Mesurer l'article personnel", level: 3 },
+    { type: "paragraph", html: "L'article personnel doit généralement entrer sous le siège devant vous. Mesurez-le rempli, car les poches et les côtés bombés comptent." },
+    { type: "title", text: "Comprendre le bagage cabine", level: 3 },
+    { type: "paragraph", html: "Le trolley cabine est souvent inclus seulement avec certains tarifs. Vérifiez l'option de priorité ou le forfait bagage de votre réservation." },
+    { type: "title", text: "Pourquoi les centimètres comptent", level: 3 },
+    { type: "paragraph", html: "Un écart de quelques centimètres peut empêcher le bagage d'entrer dans le gabarit à la porte. Ne vous fiez pas uniquement au volume annoncé." },
+    { type: "tip", title: "Conseils pour le poids", html: "Placez les objets lourds près des roues et laissez une petite marge sous la limite autorisée. Vérifiez aussi les règles concernant les liquides et les batteries avant le départ." },
 ];
 
 const faqSchema: WithContext<FAQPage> = {

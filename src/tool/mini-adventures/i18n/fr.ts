@@ -76,13 +76,20 @@ const seo: ToolLocaleContent<MiniAdventuresUI>['seo'] = [
     columns: 2
   },
   { type: "card", icon: "mdi:clock-fast", title: "Pas d'excuses", html: "Des aventures qui demandent moins de 15 minutes et zéro euro. Le temps n'est pas une barrière à la curiosité." },
-  { type: "card", icon: "mdi:lock-outline", title: "Confidentialité Totale", html: "Vos progrès sont sauvegardés uniquement sur votre appareil." }
+  { type: "card", icon: "mdi:lock-outline", title: "Confidentialité Totale", html: "Vos progrès sont sauvegardés uniquement sur votre appareil." },
+  { type: "title", text: "Le cerveau aime la nouveauté", level: 3 },
+  { type: "paragraph", html: "Une variation simple dans une journée prévisible attire l'attention et crée une occasion d'apprentissage sans exiger un grand voyage." },
+  { type: "title", text: "Le bien-être émotionnel", level: 3 },
+  { type: "paragraph", html: "Une surprise positive et maîtrisée peut améliorer l'humeur. Choisissez un défi compatible avec votre énergie et votre environnement." },
+  { type: "title", text: "Explorer son quartier", level: 3 },
+  { type: "paragraph", html: "Les rues et bâtiments proches offrent souvent des détails inconnus. L'objectif est de regarder autrement ce que vous connaissez déjà." },
 ];
 
 const faq: ToolLocaleContent<MiniAdventuresUI>['faq'] = [
   { question: "Qu'est-ce qu'une micro-aventure ?", answer: "C'est une petite aventure proche de chez vous, peu coûteuse et simple. Le terme cherche à démontrer qu'il n'est pas nécessaire d'aller à l'autre bout du monde pour vivre des expériences passionnantes." },
   { question: "À quoi sert ce générateur ?", answer: "Il sert à combattre la paralysie de l'analyse. Parfois, nous voulons faire quelque chose de différent mais nous ne savons pas quoi." },
-  { question: "Dois-je m'enregistrer ?", answer: "Non. C'est un outil de confidentialité totale. Les défis sont générés localement." }
+  { question: "Dois-je m'enregistrer ?", answer: "Non. C'est un outil de confidentialité totale. Les défis sont générés localement." },
+  { question: "Comment choisir un défi ?", answer: "Générez un défi adapté à votre quotidien, puis recommencez si les conditions de sécurité ou de temps ne conviennent pas." }
 ];
 
 const howTo: ToolLocaleContent<MiniAdventuresUI>['howTo'] = [

@@ -190,7 +190,9 @@ const seo: ToolLocaleContent<SuitcaseChecklistUI>['seo'] = [
       "Réduction drastique du stress logistique avec une checklist interactive.",
       "Optimisation de l'espace pour éviter le syndrome du 'au cas où'."
     ]
-  }
+  },
+  { type: "title", text: "Vérifiez la météo et le contexte local", level: 3 },
+  { type: "paragraph", html: "Adaptez votre liste aux prévisions, aux activités prévues et aux règles locales de votre destination. Cette vérification finale permet d'emporter exactement ce dont vous aurez besoin, sans ajouter de poids inutile." }
 ];
 
 const faq: ToolLocaleContent<SuitcaseChecklistUI>['faq'] = [

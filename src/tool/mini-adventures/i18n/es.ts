@@ -228,7 +228,6 @@ const faq: ToolLocaleContent<MiniAdventuresUI>['faq'] = [
 
 const howTo: ToolLocaleContent<MiniAdventuresUI>['howTo'] = [
   { name: "Generar", text: "Pulsa el botón de generación para que el algoritmo seleccione una categoría y un reto aleatorio." },
-  { name: "Leer", text: "El sistema te dará una instrucción clara sobre qué hacer hoy (ej. ir a un lugar nuevo, probar un sabor diferente)." },
   { name: "Realizar", text: "Lo divertido es la espontaneidad. Intenta realizar el reto antes de que termine el día." },
   { name: "Completar", text: "Marca el reto como hecho para ganar insignias exclusivas y progresar." }
 ];
