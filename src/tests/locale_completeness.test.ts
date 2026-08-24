@@ -10,7 +10,6 @@ describe('Locale Completeness Validation', () => {
           it('should have mandatory properties', async () => {
             const loader = tool.entry.i18n[locale as keyof typeof tool.entry.i18n];
             const content = (await loader?.()) as ToolLocaleContent;
-
             expect(content.slug).toBeTruthy();
             expect(typeof content.slug).toBe('string');
             expect(content.title).toBeTruthy();
@@ -23,8 +22,7 @@ describe('Locale Completeness Validation', () => {
     });
   });
 
-  it('all 5 tools registered', () => {
-    expect(ALL_TOOLS.length).toBe(5);
+  it('all 7 tools registered', () => {
+    expect(ALL_TOOLS.length).toBe(7);
   });
 });
-

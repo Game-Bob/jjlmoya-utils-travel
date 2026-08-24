@@ -1,0 +1,41 @@
+---
+import type { TripExpenseSplitterUI } from './ui';
+const { ui } = Astro.props as { ui: TripExpenseSplitterUI };
+---
+
+<div class="trip-expense-tool" data-trip-expense-splitter>
+  <script is:inline type="application/json" id="trip-expense-splitter-data" set:html={JSON.stringify(ui)}></script>
+  <div class="tool-intro"><span class="intro-kicker">Shared ledger</span><p>{ui.intro}</p></div>
+  <div class="splitter-layout">
+    <div class="ledger-column">
+      <section class="ledger-section trip-section">
+        <div class="section-heading"><div><span class="section-number">01</span><h2>{ui.tripNameLabel}</h2></div><div class="currency-row" data-currency-row></div></div>
+        <input class="trip-name-input" data-trip-name value={ui.defaultTripName} placeholder={ui.tripNamePlaceholder} aria-label={ui.tripNameLabel}>
+      </section>
+      <section class="ledger-section">
+        <div class="section-heading"><div><span class="section-number">02</span><h2>{ui.travelersHeading}</h2></div><button type="button" class="text-button" data-add-member>+ {ui.addTraveler}</button></div>
+        <div class="traveler-list" data-travelers></div>
+      </section>
+      <section class="ledger-section expense-section">
+        <div class="section-heading"><div><span class="section-number">03</span><h2>{ui.expensesHeading}</h2></div><span class="ledger-rule"></span></div>
+        <div class="expense-form">
+          <input class="expense-description" data-expense-description placeholder={ui.expenseDescriptionPlaceholder} aria-label={ui.expenseDescriptionPlaceholder}>
+          <label class="amount-field"><span>{ui.amountLabel}</span><input data-expense-amount type="number" min="0" step="0.01" placeholder="0.00" inputmode="decimal"></label>
+          <div class="payer-select" data-payer-select></div>
+          <div class="participant-select" data-participant-select></div>
+          <button type="button" class="add-expense-button" data-add-expense>+ {ui.addExpense}</button>
+        </div>
+        <div class="expense-list" data-expenses></div>
+      </section>
+    </div>
+    <aside class="result-column">
+      <div class="result-panel"><div class="result-heading"><span class="section-number">04</span><h2>{ui.resultHeading}</h2></div><div data-result></div></div>
+      <div class="action-row"><button type="button" class="primary-action" data-copy-link>{ui.copyLink}</button><button type="button" class="secondary-action" data-export-json>{ui.exportJson}</button><button type="button" class="quiet-action" data-reset>{ui.reset}</button></div>
+    </aside>
+  </div>
+</div>
+
+<script>
+  import { initTripExpenseSplitter } from './controller';
+  initTripExpenseSplitter();
+</script>

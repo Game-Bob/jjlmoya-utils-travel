@@ -1,0 +1,151 @@
+---
+import type { FuelCostCalculatorUI } from './ui';
+import './fuel-cost-calculator.css';
+
+interface Props {
+  ui?: FuelCostCalculatorUI;
+}
+
+const { ui } = Astro.props;
+const defaultUI: FuelCostCalculatorUI = {
+  metricLabel: 'Metric',
+  imperialLabel: 'Imperial',
+  routeHeading: 'Tune your trip',
+  distanceLabel: 'One-way distance',
+  distanceHint: 'How far is the destination?',
+  consumptionLabel: 'Vehicle consumption',
+  consumptionHint: 'Use the figure from your car',
+  priceLabel: 'Fuel price',
+  priceHint: 'Enter the current pump price',
+  passengersLabel: 'Passengers',
+  roundTripLabel: 'Round trip',
+  currencyLabel: 'Currency',
+  presetsLabel: 'Quick routes',
+  presetCommute: 'Daily run',
+  presetWeekend: 'Weekend escape',
+  presetRoadTrip: 'Road trip',
+  resultHeading: 'Trip fuel forecast',
+  totalDistanceLabel: 'Total distance',
+  fuelUsedLabel: 'Fuel used',
+  totalCostLabel: 'Total fuel cost',
+  perPersonLabel: 'Each traveler pays',
+  routeStatement: '{distance} {unit} there and back, shared by {passengers}',
+  routeOneWayStatement: '{distance} {unit} one way, shared by {passengers}',
+  statusLight: 'Light lift',
+  statusMedium: 'Worth sharing',
+  statusHigh: 'Big journey',
+  sampleButton: 'Load a sample',
+  resetButton: 'Reset',
+  litersUnit: 'L',
+  gallonsUnit: 'gal',
+  distanceMetricUnit: 'km',
+  distanceImperialUnit: 'mi',
+  consumptionMetricUnit: 'L/100 km',
+  consumptionImperialUnit: 'mpg',
+  priceMetricUnit: 'per litre',
+  priceImperialUnit: 'per gallon',
+  currencyOptions: [
+    { code: 'EUR', symbol: '€' },
+    { code: 'USD', symbol: '$' },
+    { code: 'GBP', symbol: '£' },
+    { code: 'JPY', symbol: '¥' },
+  ],
+};
+
+const content = { ...defaultUI, ...(ui ?? {}) };
+const uiJson = JSON.stringify(content);
+---
+
+<div class="fuel-cost-card" id="fc-app">
+  <div class="fc-stage">
+    <div class="fc-route-art" aria-hidden="true">
+      <svg viewBox="0 0 420 220" role="presentation">
+        <path class="fc-road-shadow" d="M-25 184 C80 70 150 228 250 115 S350 40 450 82" />
+        <path class="fc-road" d="M-25 184 C80 70 150 228 250 115 S350 40 450 82" />
+        <path id="fc-road-progress" class="fc-road-progress" pathLength="340" d="M-25 184 C80 70 150 228 250 115 S350 40 450 82" />
+        <circle class="fc-map-pin fc-pin-start" cx="38" cy="165" r="8" />
+        <circle class="fc-map-pin fc-pin-end" cx="378" cy="65" r="8" />
+        <circle class="fc-route-orb" cx="245" cy="118" r="4" />
+      </svg>
+    </div>
+    <div class="fc-stage-copy">
+      <span class="fc-kicker">{content.resultHeading}</span>
+      <span id="fc-cost-status" class="fc-cost-status" data-level="medium">{content.statusMedium}</span>
+      <strong id="fc-total-cost" class="fc-total-cost">€71.55</strong>
+      <p id="fc-route-statement" class="fc-route-statement">640 km there and back, shared by 2</p>
+    </div>
+  </div>
+
+  <div class="fc-result-strip">
+    <div><span>{content.totalDistanceLabel}</span><strong id="fc-total-distance">640 km</strong></div>
+    <div><span>{content.fuelUsedLabel}</span><strong id="fc-fuel-used">41.6 L</strong></div>
+    <div><span>{content.perPersonLabel}</span><strong id="fc-cost-person">€35.78</strong></div>
+  </div>
+
+  <div class="fc-controls">
+    <div class="fc-controls-head">
+      <span class="fc-section-label">{content.routeHeading}</span>
+      <div class="fc-unit-toggle" role="group" aria-label="Unit system">
+        <button type="button" data-fc-unit="metric">{content.metricLabel}</button>
+        <button type="button" data-fc-unit="imperial">{content.imperialLabel}</button>
+      </div>
+    </div>
+
+    <div class="fc-input-grid">
+      <label class="fc-field" for="fc-distance">
+        <span>{content.distanceLabel}</span>
+        <small>{content.distanceHint}</small>
+        <div class="fc-input-wrap"><input id="fc-distance" type="number" min="0" step="1" inputmode="decimal" /><b id="fc-distance-unit">km</b></div>
+      </label>
+      <label class="fc-field" for="fc-consumption">
+        <span>{content.consumptionLabel}</span>
+        <small>{content.consumptionHint}</small>
+        <div class="fc-input-wrap"><input id="fc-consumption" type="number" min="0" step="0.1" inputmode="decimal" /><b id="fc-consumption-unit">L/100 km</b></div>
+      </label>
+      <label class="fc-field" for="fc-price">
+        <span>{content.priceLabel}</span>
+        <small>{content.priceHint}</small>
+        <div class="fc-input-wrap"><input id="fc-price" type="number" min="0" step="0.01" inputmode="decimal" /><b id="fc-price-unit">per litre</b></div>
+      </label>
+      <label class="fc-field" for="fc-passengers">
+        <span>{content.passengersLabel}</span>
+        <small>Split the cost fairly</small>
+        <div class="fc-input-wrap"><input id="fc-passengers" type="number" min="1" max="99" step="1" inputmode="numeric" /><b>people</b></div>
+      </label>
+    </div>
+
+    <div class="fc-option-row">
+      <label class="fc-switch-label" for="fc-round-trip"><input id="fc-round-trip" type="checkbox" /><span class="fc-switch"></span><span>{content.roundTripLabel}</span></label>
+      <div class="fc-currency-group" role="group" aria-label={content.currencyLabel}>
+        {content.currencyOptions.map((option) => <button type="button" data-fc-currency={option.code}>{option.symbol} {option.code}</button>)}
+      </div>
+    </div>
+
+    <div class="fc-presets">
+      <span>{content.presetsLabel}</span>
+      <button type="button" data-fc-preset="18">{content.presetCommute}<b>18 km</b></button>
+      <button type="button" data-fc-preset="160">{content.presetWeekend}<b>160 km</b></button>
+      <button type="button" data-fc-preset="680">{content.presetRoadTrip}<b>680 km</b></button>
+    </div>
+
+    <div class="fc-actions"><button type="button" id="fc-sample" class="fc-action-secondary">{content.sampleButton}</button><button type="button" id="fc-reset" class="fc-action-primary">{content.resetButton}</button></div>
+  </div>
+</div>
+
+<script is:inline type="application/json" id="fc-i18n" set:html={uiJson}></script>
+<script>
+  import { FuelCostController } from './controller';
+  import type { FuelCostCalculatorUI } from './ui';
+
+  function initFuelCostCalculator(): void {
+    const data = document.getElementById('fc-i18n')?.textContent;
+    if (!data) return;
+    try {
+      const ui = JSON.parse(data) as FuelCostCalculatorUI;
+      new FuelCostController(ui).init();
+    } catch {}
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initFuelCostCalculator);
+  else initFuelCostCalculator();
+</script>

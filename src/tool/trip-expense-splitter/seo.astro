@@ -1,0 +1,6 @@
+---
+import { SEORenderer } from '@jjlmoya/utils-shared';
+const { sections = [], locale = 'en' } = Astro.props;
+---
+
+<SEORenderer content={{ locale, sections }} />

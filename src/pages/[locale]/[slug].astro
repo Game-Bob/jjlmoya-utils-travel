@@ -71,7 +71,7 @@ interface NavItem {
 }
 
 interface Props {
-  Component: unknown;
+  Component: ToolComponent;
   locale: KnownLocale;
   content: ToolLocaleContent;
   localeUrls: Partial<Record<KnownLocale, string>>;
@@ -79,7 +79,9 @@ interface Props {
   englishSlug: string;
 }
 
-const { Component, locale, content, localeUrls, allToolsNav, englishSlug } = Astro.props;
+type ToolComponent = (props: { ui: Record<string, unknown> }) => unknown;
+
+const { Component, locale, content, localeUrls, allToolsNav, englishSlug } = Astro.props as Props;
 
 // eslint-disable-next-line custom/no-css-comments
 const cssFiles = import.meta.glob("../../tool/**/*.css", { query: "?raw", import: "default" });
