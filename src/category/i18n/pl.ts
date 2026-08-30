@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'podroze',
   title: 'Narzędzia i kalkulatory dla podróżników i poszukiwaczy przygód',
-  description: 'Zaplanuj swoją następną podróż za pomocą darmowych narzędzi online. Kalkulatory bagażu lotniczego, międzynarodowe przewodniki po napiwkach, listy kontrolne do pakowania i generatory codziennych wyzwań.',
+  description: 'Darmowe narzędzia do bagażu, międzynarodowych napiwków, list pakowania i codziennych wyzwań podróżnych.',
   seo: [
     {
       type: 'title',

@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'viajes',
   title: 'Herramientas y Calculadoras para Viajeros y Aventureros',
-  description: 'Planifica tu próximo viaje con herramientas gratuitas online. Calculadoras de equipaje de aerolíneas, guías de propinas internacionales, checklists de maleta y generadores de retos diarios.',
+  description: 'Herramientas gratuitas para equipaje, propinas internacionales, listas de maleta y retos diarios de viaje.',
   seo: [
     {
       type: 'title',

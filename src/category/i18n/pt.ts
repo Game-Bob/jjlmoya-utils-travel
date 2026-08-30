@@ -59,7 +59,7 @@ export const content: CategoryLocaleContent = {
       items: [
         '<strong>Poupança em Voos:</strong> Evite custos extra por excesso de bagagem ou malas fora das medidas através de um planeamento técnico.',
         '<strong>Consciência Cultural:</strong> Navegue em ambientes internacionais com a confiança de conhecer as normas de etiqueta locais.',
-        '<strong>Viagens Seguras:</strong> Checklists que garantem que leva toda a documentação e medicação necessária.',
+        '<strong>Viagens Seguras:</strong> Checklists para organizar a documentação e a medicação necessária.',
         '<strong>Gamificação da Exploração:</strong> Transforme os seus trajetos diários em pequenas expedições de descoberta.',
       ],
     },

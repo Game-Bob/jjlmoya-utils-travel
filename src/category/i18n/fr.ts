@@ -3,7 +3,7 @@ import type { CategoryLocaleContent } from '../../types';
 export const content: CategoryLocaleContent = {
   slug: 'voyages',
   title: 'Outils et Calculateurs pour Voyageurs et Aventuriers',
-  description: 'Planifiez votre prochain voyage avec des outils gratuits en ligne. Calculateurs de bagages, guides de pourboires internationaux, checklists de valise et générateurs de défis quotidiens.',
+  description: 'Outils gratuits pour bagages, pourboires internationaux, listes de valise et défis quotidiens de voyage.',
   seo: [
     {
       type: 'title',
@@ -59,7 +59,7 @@ export const content: CategoryLocaleContent = {
       items: [
         '<strong>Économie sur le Vol :</strong> Évitez les frais supplémentaires pour excès de bagages grâce à une planification technique.',
         '<strong>Conscience Culturelle :</strong> Naviguez dans des environnements internationaux avec la confiance de connaître les normes locales.',
-        '<strong>Voyages Sûrs :</strong> Des checklists qui garantissent que vous emportez tous vos documents et médicaments nécessaires.',
+        '<strong>Voyages Sûrs :</strong> Des checklists pour organiser vos documents et médicaments nécessaires.',
         '<strong>Gamification de l\'Exploration :</strong> Transformez vos trajets quotidiens en petites expéditions de découverte.',
       ],
     },
