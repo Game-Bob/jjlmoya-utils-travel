@@ -164,7 +164,11 @@ const seo: ToolLocaleContent<TipCalculatorUI>['seo'] = [
   {
     type: "paragraph",
     html: "Uluslararası bir seyahatin en stresli anlarından biri, faturanın masaya geldiği andır. <strong>Uluslararası bahşiş hesaplayıcımız</strong> bu belirsizliği ortadan kaldırmak için tasarlanmıştır.",
-  }
+  },
+  {
+    type: "paragraph",
+    html: "Bahşiş kültürü ülkeye ve hizmet türüne göre değişir. Tutarı hesapladıktan sonra faturada servis ücretinin zaten bulunup bulunmadığını kontrol edin ve ödemeyi yerel alışkanlıklara göre ayarlayın. Emin değilseniz çalışanlara kibarca sormak en güvenli yoldur.",
+  },
 ];
 
 const faq: ToolLocaleContent<TipCalculatorUI>['faq'] = [

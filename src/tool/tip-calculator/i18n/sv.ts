@@ -164,7 +164,11 @@ const seo: ToolLocaleContent<TipCalculatorUI>['seo'] = [
   {
     type: "paragraph",
     html: "Ett av de mest stressiga ögonblicken på en internationell resa är när notan landar på bordet. Vår <strong>internationella dricks-kalkylator</strong> är utformad för att eliminera den osäkerheten.",
-  }
+  },
+  {
+    type: "paragraph",
+    html: "Drickskulturen varierar mycket mellan länder och olika typer av service. När du har räknat ut beloppet bör du kontrollera om serviceavgift redan finns på notan och anpassa dricksen efter lokala vanor. Fråga personalen artigt om du är osäker.",
+  },
 ];
 
 const faq: ToolLocaleContent<TipCalculatorUI>['faq'] = [

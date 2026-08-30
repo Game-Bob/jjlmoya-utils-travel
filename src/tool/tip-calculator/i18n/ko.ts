@@ -164,7 +164,11 @@ const seo: ToolLocaleContent<TipCalculatorUI>['seo'] = [
   {
     type: "paragraph",
     html: "해외 여행 중 가장 스트레스 받는 순간 중 하나는 계산서가 테이블에 도착했을 때입니다. 저희의 <strong>세계 팁 계산기</strong>는 그러한 불확실성을 없애기 위해 설계되었습니다.",
-  }
+  },
+  {
+    type: "paragraph",
+    html: "팁 문화는 국가와 서비스 종류에 따라 크게 달라집니다. 계산기를 사용한 뒤 영수증에 서비스 요금이 포함되어 있는지 확인하고, 현지 관습에 맞는 금액을 선택하세요. 확신이 없다면 직원에게 정중하게 물어보는 것이 가장 안전합니다.",
+  },
 ];
 
 const faq: ToolLocaleContent<TipCalculatorUI>['faq'] = [

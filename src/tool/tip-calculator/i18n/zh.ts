@@ -164,7 +164,11 @@ const seo: ToolLocaleContent<TipCalculatorUI>['seo'] = [
   {
     type: "paragraph",
     html: "任何国际旅行中最令人紧张的时刻之一就是当账单送到桌上时。我们的<strong>国际小费计算器</strong>旨在消除这种不确定性。",
-  }
+  },
+  {
+    type: "paragraph",
+    html: "不同国家和服务类型的小费习惯差异很大。使用计算器得到金额后，请先确认账单是否已经包含服务费，再按照当地习惯调整付款金额。如果不确定，可以礼貌地询问工作人员，这是最稳妥的做法。",
+  },
 ];
 
 const faq: ToolLocaleContent<TipCalculatorUI>['faq'] = [

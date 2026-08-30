@@ -164,7 +164,11 @@ const seo: ToolLocaleContent<TipCalculatorUI>['seo'] = [
   {
     type: "paragraph",
     html: "海外旅行で最もストレスを感じる瞬間の一つは、テーブルに請求書が届いた時ではないでしょうか。私たちの<strong>国際チップ計算機</strong>は、そのような不安を解消するために設計されました。",
-  }
+  },
+  {
+    type: "paragraph",
+    html: "国によってチップの習慣は大きく異なります。計算機で金額を確認したら、請求書にサービス料が含まれているかを確認し、現地の慣習に合わせて支払いましょう。迷った場合は、スタッフに丁寧に尋ねるのが最も確実です。",
+  },
 ];
 
 const faq: ToolLocaleContent<TipCalculatorUI>['faq'] = [
