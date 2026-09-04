@@ -1,0 +1,486 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-04T06:52:59.112Z",
+  "pages": {
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/reisen/ausgaben-teilen-reisen-rechner/": {
+      "hash": "7dfa90660bff37e297ebaa9c15a759e37d763089c9c650aae35c4adeec78310c",
+      "route": "/de/werkzeuge/kategorien/reisen/ausgaben-teilen-reisen-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/reisen/handgepaeck-rechner-fluggesellschaften/": {
+      "hash": "bab7fda4fbdc00a83fa2ff147ff8cce61d414311fd2066a5723e163deb2e8797",
+      "route": "/de/werkzeuge/kategorien/reisen/handgepaeck-rechner-fluggesellschaften/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/reisen/": {
+      "hash": "998ed44c39df6abe650262d1d6eca97e5bbc535e7fa6338253a299278c6e3661",
+      "route": "/de/werkzeuge/kategorien/reisen/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/reisen/internationaler-trinkgeld-rechner/": {
+      "hash": "8a0b15c7f696b3a9ab5e4e1d26faf259405c12a46201e8d6e47546224c1df6a7",
+      "route": "/de/werkzeuge/kategorien/reisen/internationaler-trinkgeld-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/reisen/koffer-packliste-generator/": {
+      "hash": "0ba65e1dca041a492984d5c08ab058c4ac32679792b362ab2d6e95bd41af52e0",
+      "route": "/de/werkzeuge/kategorien/reisen/koffer-packliste-generator/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/reisen/kraftstoffkostenrechner-fahrt/": {
+      "hash": "1e57af8e69fe3465f80128e862c25db5a165507ed7cfec33b62ce92dc28e817d",
+      "route": "/de/werkzeuge/kategorien/reisen/kraftstoffkostenrechner-fahrt/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/reisen/mini-abenteuer-generator/": {
+      "hash": "2d7776d95ed7517625fe107a57a73decd0fd61960e275e14f96289198ac74583",
+      "route": "/de/werkzeuge/kategorien/reisen/mini-abenteuer-generator/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/reisen/schengen-aufenthaltsrechner-90-180/": {
+      "hash": "b97fdf5e66fcc59db51967ca6b28a506e2ce474e2869713187e672d372b0ebaf",
+      "route": "/de/werkzeuge/kategorien/reisen/schengen-aufenthaltsrechner-90-180/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/travel/airline-luggage-calculator/": {
+      "hash": "944441741126f8527ad706d1184502e86448109215a0638e2b55473693f21976",
+      "route": "/en/utilities/categories/travel/airline-luggage-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/travel/fuel-cost-calculator/": {
+      "hash": "fe358030c4092a0f801dc437377bef95bbe804d7a05cec725fa2f0a79d8f9c8b",
+      "route": "/en/utilities/categories/travel/fuel-cost-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/travel/": {
+      "hash": "e569bd0f2c0eb09fb954b4f2bcbfc72501e6e3b5d512f8abb52d21f36068669d",
+      "route": "/en/utilities/categories/travel/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/travel/international-tip-calculator/": {
+      "hash": "0ae60f262303564bb988551b15a0b2a0a89a7f10f86290807eb0d8946b8715cb",
+      "route": "/en/utilities/categories/travel/international-tip-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/travel/mini-adventure-forecast/": {
+      "hash": "e5089b3dcb9fe85a00596fcffe71e46d56c5e353dba6046b85afa1b3c777b3c1",
+      "route": "/en/utilities/categories/travel/mini-adventure-forecast/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/travel/schengen-calculator/": {
+      "hash": "f8357495cb85ad506e763ba2daff9c870c624d573682ac09b8e745673bd24a98",
+      "route": "/en/utilities/categories/travel/schengen-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/travel/suitcase-checklist-generator/": {
+      "hash": "bc9ba71472b2d8ec078bdc6a56c13a3ae34f9528e82185aeeb3debd7c6a3c772",
+      "route": "/en/utilities/categories/travel/suitcase-checklist-generator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/travel/trip-expense-splitter/": {
+      "hash": "b3af931cbe334a0e17bcc60238a56e925b48fee4f1b42171f450fa60d4dee3bc",
+      "route": "/en/utilities/categories/travel/trip-expense-splitter/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/voyages/calculateur-bagages-cabine/": {
+      "hash": "91a064ba34547dd6225631e4df8d86f0a3350d914b4bd3da397983c1d17ace66",
+      "route": "/fr/utilitaires/categories/voyages/calculateur-bagages-cabine/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/voyages/calculateur-cout-carburant-trajet/": {
+      "hash": "9371d4674f9a5f9a631b0a3bb410dd86c9ea0b0c13d364a2bebcceb581975397",
+      "route": "/fr/utilitaires/categories/voyages/calculateur-cout-carburant-trajet/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/voyages/calculateur-partage-depenses-voyage-groupe/": {
+      "hash": "ed9b344accf4541f6fe2b53ffc59bc4bf58a25be47b5df9c9368620cd29125d0",
+      "route": "/fr/utilitaires/categories/voyages/calculateur-partage-depenses-voyage-groupe/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/voyages/calculateur-pourboire-international/": {
+      "hash": "7107f0efc0056bdf3726bb7d00c29a3e69c8dba68d4aac37f259966d7ac247af",
+      "route": "/fr/utilitaires/categories/voyages/calculateur-pourboire-international/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/voyages/calculateur-sejour-schengen-90-180/": {
+      "hash": "c9d0a7c077e9e51434a84d4d885e624e20d1b6f939d36834ec57c5dc8bd365cc",
+      "route": "/fr/utilitaires/categories/voyages/calculateur-sejour-schengen-90-180/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/voyages/generateur-checklist-valise/": {
+      "hash": "ee5412f9b85636205f43362223aedafe619f42fb8524d82a35d5565ff85ae683",
+      "route": "/fr/utilitaires/categories/voyages/generateur-checklist-valise/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/voyages/": {
+      "hash": "c2bb2f1b43e503fc5a2c46f7cee5292f4db50b60eff86898d8fb4a44334c7160",
+      "route": "/fr/utilitaires/categories/voyages/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/voyages/mini-aventures-quotidiennes/": {
+      "hash": "f6b5eba1aaecc534f56a8e6f5931d019f0393300dc3da69cf730fc8057f1fe36",
+      "route": "/fr/utilitaires/categories/voyages/mini-aventures-quotidiennes/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/wisata/generator-daftar-periksa-koper/": {
+      "hash": "a0cb6dfddd012fc5b8c3ca57734c6dedddfc9aae10fcd66c23b869817c741990",
+      "route": "/id/utilitas/kategori/wisata/generator-daftar-periksa-koper/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/wisata/generator-petualangan-mini/": {
+      "hash": "4c2957a0ef66ef653e4d378c530b3ab0616972e6f2a01f19894cd5dba4ca79be",
+      "route": "/id/utilitas/kategori/wisata/generator-petualangan-mini/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/wisata/": {
+      "hash": "49e621b7c2c7a99f5c87706eddb060d95ca9a5dfa44ec2b62744c89a49b23dce",
+      "route": "/id/utilitas/kategori/wisata/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/wisata/kalkulator-bagasi-maskapai/": {
+      "hash": "1fde307372b19bf2fc03e0ea947bf6120d12d2ff6532c3111f18ef383f821eec",
+      "route": "/id/utilitas/kategori/wisata/kalkulator-bagasi-maskapai/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/wisata/kalkulator-bagi-biaya-patungan-liburan-kelompok/": {
+      "hash": "21de5256e09f48968f971db1a1625b46f0bdc6e96961679e258b773c861b5fc0",
+      "route": "/id/utilitas/kategori/wisata/kalkulator-bagi-biaya-patungan-liburan-kelompok/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/wisata/kalkulator-biaya-bahan-bakar-perjalanan/": {
+      "hash": "a0fd0a6995610f9012864821a77e11baa8d2940c33b1bc3a86d134e78948114f",
+      "route": "/id/utilitas/kategori/wisata/kalkulator-biaya-bahan-bakar-perjalanan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/wisata/kalkulator-tinggal-schengen-90-180/": {
+      "hash": "7a7c3abd370080086d4cd9e8bb34eada4b28072fdbcb8db46bc6696fae30e449",
+      "route": "/id/utilitas/kategori/wisata/kalkulator-tinggal-schengen-90-180/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/wisata/kalkulator-tip-internasional/": {
+      "hash": "90541d60cb4ec6f487bf037db42147294d814c05b3276eff2fc9a5e0ed678376",
+      "route": "/id/utilitas/kategori/wisata/kalkulator-tip-internasional/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/viaggi/calcolatore-bagaglio-compagnie-aeree/": {
+      "hash": "4f3201afa04d61b491a2d5b3a8bcc0e3ab89efc26188420553104cc40ca879da",
+      "route": "/it/utilita/categorie/viaggi/calcolatore-bagaglio-compagnie-aeree/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/viaggi/calcolatore-costo-carburante-viaggio/": {
+      "hash": "4d67b060ad003572f362643a410e3a8a7b8b86f507901ea57a9f556ed061632a",
+      "route": "/it/utilita/categorie/viaggi/calcolatore-costo-carburante-viaggio/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/viaggi/calcolatore-divisione-spese-viaggio-gruppo/": {
+      "hash": "750cb483bb8dd96b6ae35ba0b3adf171a8e9f222e3844bcba00c2b03cffc35ca",
+      "route": "/it/utilita/categorie/viaggi/calcolatore-divisione-spese-viaggio-gruppo/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/viaggi/calcolatore-mancia-internazionale/": {
+      "hash": "2e431bb855ae1ce8485d9b1eb397b99b58ce016f815f21f5720f0a0aeb99cd14",
+      "route": "/it/utilita/categorie/viaggi/calcolatore-mancia-internazionale/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/viaggi/calcolatore-soggiorno-schengen-90-180/": {
+      "hash": "8d4a410fc795def3a1dadcb4551e83388bd79a8c2924e7afb6f93ca799d642c7",
+      "route": "/it/utilita/categorie/viaggi/calcolatore-soggiorno-schengen-90-180/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/viaggi/generatore-lista-valigia/": {
+      "hash": "2da331e0ffc874c8300f33c312b7ff0bc59a0d8cfff3fa6d6def3b6f0f175b19",
+      "route": "/it/utilita/categorie/viaggi/generatore-lista-valigia/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/viaggi/generatore-mini-avventure/": {
+      "hash": "6772d38632a50a2cc844943045032c5167320b29e2689a93e64caad824d24e1b",
+      "route": "/it/utilita/categorie/viaggi/generatore-mini-avventure/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/viaggi/": {
+      "hash": "1073438ecf45baf2f5432059f75c68a0dda6e1556e0002b37f65570821467927",
+      "route": "/it/utilita/categorie/viaggi/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/travel/airline-luggage-calculator/": {
+      "hash": "fe4e23265f3aa34053b771ec6567527fcab564d6d0220bc1fcf6d6f668019b63",
+      "route": "/ja/utilities/categories/travel/airline-luggage-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/travel/fuel-cost-calculator/": {
+      "hash": "cfa9275c0c54068bdb26ba26c847a14b83b7f221c18eb7b722518dfd71bd157c",
+      "route": "/ja/utilities/categories/travel/fuel-cost-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/travel/": {
+      "hash": "e1ef979c3ba423415c61ce6a303964ed839b55b35226bb5db554f6fc9822de92",
+      "route": "/ja/utilities/categories/travel/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/travel/international-tip-calculator/": {
+      "hash": "5578aad8df4abd7bad0607375a549995fd191595bd2f0ee9200547c46c4ee7e6",
+      "route": "/ja/utilities/categories/travel/international-tip-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/travel/mini-adventure-forecast/": {
+      "hash": "7ac12bcd4b4b7265cd2afa891a3399807b45521cc0abc620bdf7ff07c866b13f",
+      "route": "/ja/utilities/categories/travel/mini-adventure-forecast/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/travel/schengen-calculator/": {
+      "hash": "39f3f3e05875fce568e9c969d759800278f67307359622010e76ae8512558eb7",
+      "route": "/ja/utilities/categories/travel/schengen-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/travel/suitcase-checklist-generator/": {
+      "hash": "5e3d3d6f84d248e3db45da7ebcd444c58ba5ea635077fe20028caa99d345e8d0",
+      "route": "/ja/utilities/categories/travel/suitcase-checklist-generator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/travel/trip-expense-splitter/": {
+      "hash": "6f0281726929b4777660db4b16bf151bf3cdcb34d6e33fd4a29e0e9e4f517c61",
+      "route": "/ja/utilities/categories/travel/trip-expense-splitter/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/travel/airline-luggage-calculator/": {
+      "hash": "e0c35313429c36f983a0d6d290e75ccbb402182d7adad878429933fdf5833770",
+      "route": "/ko/utilities/categories/travel/airline-luggage-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/travel/fuel-cost-calculator/": {
+      "hash": "810495120e7370e0d56299c94289c4ddc59975478c103eaea533d1c2e9386e3c",
+      "route": "/ko/utilities/categories/travel/fuel-cost-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/travel/": {
+      "hash": "0ec211dde30bff06f8cbb06d0d00449cc3e39daf81631d29ce7e32984c74a340",
+      "route": "/ko/utilities/categories/travel/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/travel/international-tip-calculator/": {
+      "hash": "bb32eb76b8218aaa803d16d1bc80a508739f7139eaa8d8ff69da11ed92b219b5",
+      "route": "/ko/utilities/categories/travel/international-tip-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/travel/mini-adventure-forecast/": {
+      "hash": "8878b7f19347c82c203245aec41fe9d4756b266acf538f7aff6560cfe1b82c00",
+      "route": "/ko/utilities/categories/travel/mini-adventure-forecast/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/travel/schengen-calculator/": {
+      "hash": "a5d665e9a6f86d3433bb65f8f54f62d567c428231c607ea3b5dbd0a91ae77c6e",
+      "route": "/ko/utilities/categories/travel/schengen-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/travel/suitcase-checklist-generator/": {
+      "hash": "5f48264e694bde848fc8a1aa7fd8a82de7f8fbbe536303049b723038b29379d4",
+      "route": "/ko/utilities/categories/travel/suitcase-checklist-generator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/travel/trip-expense-splitter/": {
+      "hash": "d9a772aa1c74d67491ae3449dddeb5c8504557d9a3611370c3adbf9173919cf7",
+      "route": "/ko/utilities/categories/travel/trip-expense-splitter/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/reizen/brandstofkosten-berekenen-autoreis/": {
+      "hash": "e6b50993cd5e5480b397127d90dd01773459371f66accb8309c8069d3bfd8403",
+      "route": "/nl/hulpmiddelen/categorieen/reizen/brandstofkosten-berekenen-autoreis/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/reizen/groepsuitgaven-verdelen-vakantie-calculator/": {
+      "hash": "b965c9fea0ec2d726267bd786cd03fac64a63af758101e6c8259fb69beae34f4",
+      "route": "/nl/hulpmiddelen/categorieen/reizen/groepsuitgaven-verdelen-vakantie-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/reizen/handbagage-calculator-luchtvaartmaatschappijen/": {
+      "hash": "5c0b6b505c02f57f7cd023d1e26e63085cdc70c3dc4a5f59cd7712d53000368d",
+      "route": "/nl/hulpmiddelen/categorieen/reizen/handbagage-calculator-luchtvaartmaatschappijen/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/reizen/": {
+      "hash": "6c7773ea142808e040f56780341e096fbaf634f0f8c7385a5f8c9590daa1a05e",
+      "route": "/nl/hulpmiddelen/categorieen/reizen/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/reizen/internationale-fooi-calculator/": {
+      "hash": "4b384321874281a9d82abdae10ac0aa8bdfe66d928d68c23860579ceb1ebaaff",
+      "route": "/nl/hulpmiddelen/categorieen/reizen/internationale-fooi-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/reizen/koffer-checklist-generator/": {
+      "hash": "cbee67ed75fa660d7ef2840e14ab420b62c94b78ea36c16f956e923fd24f2d44",
+      "route": "/nl/hulpmiddelen/categorieen/reizen/koffer-checklist-generator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/reizen/mini-avonturen-voorspelling/": {
+      "hash": "97bda2919cab58b01eb7c344f9f19686b8092a1f188b162dd90c1967a52594f9",
+      "route": "/nl/hulpmiddelen/categorieen/reizen/mini-avonturen-voorspelling/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/reizen/schengen-verblijfscalculator-90-180/": {
+      "hash": "38376db53a55e424a231695305d032eb49186c1f78508e65383ba7f85d934bf6",
+      "route": "/nl/hulpmiddelen/categorieen/reizen/schengen-verblijfscalculator-90-180/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/podroze/generator-listy-rzeczy-do-walizki/": {
+      "hash": "58f4fccd5b770104ca322509d57c95eb1b93d15eea4039d958dc17dd4e2138ac",
+      "route": "/pl/narzedzia/kategorie/podroze/generator-listy-rzeczy-do-walizki/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/podroze/generator-mini-przygod-wyjdz-z-ruty/": {
+      "hash": "5e9092011b32d75a6fe4e8e826b7d61e63cecd0ac69c9af49c8748d77ae4e430",
+      "route": "/pl/narzedzia/kategorie/podroze/generator-mini-przygod-wyjdz-z-ruty/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/podroze/": {
+      "hash": "9f91fdfcbec79f67076f6b322644cd06e741cb5ed0654e5838671c25905d8ff7",
+      "route": "/pl/narzedzia/kategorie/podroze/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/podroze/kalkulator-bagazu-podrecznego-linie-lotnicze/": {
+      "hash": "dbfc33434338815b36c8f57315739907e0e78bb4478203ff4f2caa6f79ca1e1c",
+      "route": "/pl/narzedzia/kategorie/podroze/kalkulator-bagazu-podrecznego-linie-lotnicze/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/podroze/kalkulator-kosztow-paliwa-podroz/": {
+      "hash": "43fa69db54875516a87e01e49f4b0d495c44e4c670ea46e0ff461ae2fb7cb1d3",
+      "route": "/pl/narzedzia/kategorie/podroze/kalkulator-kosztow-paliwa-podroz/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/podroze/kalkulator-pobytu-schengen-90-180/": {
+      "hash": "4b9906acdaeb831977f3155302df564744eb8e62b85d56494774a20b2ba1608d",
+      "route": "/pl/narzedzia/kategorie/podroze/kalkulator-pobytu-schengen-90-180/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/podroze/kalkulator-podzialu-kosztow-wyjazdu-grupy/": {
+      "hash": "7ef01cc4095301622cafb1a875361a6c58670983e47b67eea06d5f3f606ce25c",
+      "route": "/pl/narzedzia/kategorie/podroze/kalkulator-podzialu-kosztow-wyjazdu-grupy/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/podroze/miedzynarodowy-kalkulator-napiwkow/": {
+      "hash": "b754a2508e729eb33a40702f33ace137879a22c569e5092f800b1e30d59876dd",
+      "route": "/pl/narzedzia/kategorie/podroze/miedzynarodowy-kalkulator-napiwkow/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/viagens/calculadora-bagagem-mao-companhias-aereas/": {
+      "hash": "7c5dbdd738b840c22043f7a7929d5c4e1afb9070d58c6fb40a9822a2969f6f4d",
+      "route": "/pt/utilidades/categorias/viagens/calculadora-bagagem-mao-companhias-aereas/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/viagens/calculadora-custo-combustivel-viagem/": {
+      "hash": "9e3587680f3b671982ebc09d887083dee81d29097787b82267d607300b4e2d35",
+      "route": "/pt/utilidades/categorias/viagens/calculadora-custo-combustivel-viagem/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/viagens/calculadora-dividir-despesas-viagem-grupo/": {
+      "hash": "040f4de885efda8afa780eb4a2631acfee36173306bffd3809258e308d44c0b6",
+      "route": "/pt/utilidades/categorias/viagens/calculadora-dividir-despesas-viagem-grupo/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/viagens/calculadora-estadia-schengen-90-180/": {
+      "hash": "66df30162d9a245ac0592027db8b79453ecb8a9477980f292703ca61aa1c13a9",
+      "route": "/pt/utilidades/categorias/viagens/calculadora-estadia-schengen-90-180/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/viagens/calculadora-gorjetas-internacional/": {
+      "hash": "f16f3e87bf4392da3305434fbe0dbb512eaa97899f6ca156300ac33c76940376",
+      "route": "/pt/utilidades/categorias/viagens/calculadora-gorjetas-internacional/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/viagens/gerador-lista-bagagem-mala-viagem/": {
+      "hash": "fddf8076c52a9d46d97e86d353e74f2e8d90f32da3fcd380cb77074aee5282d2",
+      "route": "/pt/utilidades/categorias/viagens/gerador-lista-bagagem-mala-viagem/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/viagens/gerador-mini-aventuras-sair-da-rotina/": {
+      "hash": "13b09d85a56fe1ed6f854350201a63aa3e57efc818fb026a929aa41bfea82dac",
+      "route": "/pt/utilidades/categorias/viagens/gerador-mini-aventuras-sair-da-rotina/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/viagens/": {
+      "hash": "8162acdc13e5a54b534f49ef214efe9e0bb69743efa9affcc05a22e42e7c7029",
+      "route": "/pt/utilidades/categorias/viagens/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/puteshestviya/generator-mini-priklyuchenij-vyrvis-iz-rutiny/": {
+      "hash": "c45ad624fcbf70854e5d5241b52f9e92bfec513c257baad037c6c3c1762a93ec",
+      "route": "/ru/instrumenty/kategorii/puteshestviya/generator-mini-priklyuchenij-vyrvis-iz-rutiny/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/puteshestviya/generator-spiska-veshey-v-dorogu/": {
+      "hash": "1b31da5b04da5dcba8756b85459c44d6fd693fceadd4b3f8cafa49707a2b8a63",
+      "route": "/ru/instrumenty/kategorii/puteshestviya/generator-spiska-veshey-v-dorogu/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/puteshestviya/": {
+      "hash": "aa8d95e572654f79dd8e03441b2eafeedf756c615d14b6cf9e4130ac4909fbb1",
+      "route": "/ru/instrumenty/kategorii/puteshestviya/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/puteshestviya/kalkulyator-razdela-rasxodov-poezdki-gruppy/": {
+      "hash": "0fa1634db3eb273a0a3a80a45cbe5a139a40bfffd8a3ef370a03afacab1935f0",
+      "route": "/ru/instrumenty/kategorii/puteshestviya/kalkulyator-razdela-rasxodov-poezdki-gruppy/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/puteshestviya/kalkulyator-ruchnoy-kladi-aviakompaniy/": {
+      "hash": "07fa1b20e7ec422dfedd088fb5d5eda2720b38c2244e1d3920563da326b91ec7",
+      "route": "/ru/instrumenty/kategorii/puteshestviya/kalkulyator-ruchnoy-kladi-aviakompaniy/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/puteshestviya/kalkulyator-schengen-90-180/": {
+      "hash": "ac66558d462c12a090f0537ccd68830b24b5bcc55162d2731ca64d1f8d4f59a3",
+      "route": "/ru/instrumenty/kategorii/puteshestviya/kalkulyator-schengen-90-180/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/puteshestviya/kalkulyator-stoimosti-topliva-poezdka/": {
+      "hash": "ff223708edf377ae8474347a17f38d274a43d37db7e1fbef2e4be65aa86379e1",
+      "route": "/ru/instrumenty/kategorii/puteshestviya/kalkulyator-stoimosti-topliva-poezdka/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/puteshestviya/mezhdunarodnyy-kalkulyator-chaevykh/": {
+      "hash": "c25303380023f94d080a6ab62ca3b54e33a85c15cc6ad826a9410e4f46b04f45",
+      "route": "/ru/instrumenty/kategorii/puteshestviya/mezhdunarodnyy-kalkulyator-chaevykh/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/resor/branslekostnad-kalkylator-bilresa/": {
+      "hash": "0eb9eebbc8ef1b23a6061856b7591b98797fcb5f87554a47223f3e33801bf678",
+      "route": "/sv/verktyg/kategorier/resor/branslekostnad-kalkylator-bilresa/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/resor/dela-reseutgifter-grupp-kalkylator/": {
+      "hash": "c37909ecbae95bfff56993464068baeb976eb0179ee404e9702993475381547f",
+      "route": "/sv/verktyg/kategorier/resor/dela-reseutgifter-grupp-kalkylator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/resor/generator-for-packlista/": {
+      "hash": "4a5f0efea77f37d15d6474724206bec93de038f5c276cebc6ad97d9bb47af93b",
+      "route": "/sv/verktyg/kategorier/resor/generator-for-packlista/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/resor/handbagage-kalkylator-flygbolag/": {
+      "hash": "bc62b1a064cf023b199bc71916c9700177dbd30c2b52cad7c8f575885016f42a",
+      "route": "/sv/verktyg/kategorier/resor/handbagage-kalkylator-flygbolag/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/resor/": {
+      "hash": "06131c60563b595885c7b6a26ffb213f4814561bc855b1e809381db74a7293b8",
+      "route": "/sv/verktyg/kategorier/resor/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/resor/internationell-drickskalkylator/": {
+      "hash": "e49ef5fec9c97a8005ef0d85188a018a5635ed4560c0b4ab4f47e9a7b57bfb8f",
+      "route": "/sv/verktyg/kategorier/resor/internationell-drickskalkylator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/resor/mini-aventyrs-generator-bryt-rutinen/": {
+      "hash": "e2a2680fe208a37c2a936dc491632c0f835314aa8e9531dd0f167002b9cae9e2",
+      "route": "/sv/verktyg/kategorier/resor/mini-aventyrs-generator-bryt-rutinen/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/resor/schengen-vistelsekalkylator-90-180/": {
+      "hash": "7f0d0a397c5bdb8a4b3083a23bf3a6e523c5394d16eb523f4f904d6fd3ddc38c",
+      "route": "/sv/verktyg/kategorier/resor/schengen-vistelsekalkylator-90-180/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/seyahat/grup-gezi-masraf-paylasimi-hesaplama/": {
+      "hash": "f1a0e5c59271782a2a7b19230f224d8a70f96b5339ad9d919fe9856b715d7a4b",
+      "route": "/tr/araclar/kategoriler/seyahat/grup-gezi-masraf-paylasimi-hesaplama/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/seyahat/hava-yolu-kabin-bagaji-hesaplama/": {
+      "hash": "9e05eb41a062a84bf339846c60958fb8f6f189a50bb3a03ef348ac2601bc177b",
+      "route": "/tr/araclar/kategoriler/seyahat/hava-yolu-kabin-bagaji-hesaplama/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/seyahat/": {
+      "hash": "27cf9e7a3d76413839388d1dac8e98268d73ad3186f3afab4bb668d27fdb1ce5",
+      "route": "/tr/araclar/kategoriler/seyahat/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/seyahat/mini-macera-tahmini-siradanliktan-kurtulun/": {
+      "hash": "23d2c650bf6d0547737d3334a4d1f4b091da4976df2ca695784d030b4c2042ba",
+      "route": "/tr/araclar/kategoriler/seyahat/mini-macera-tahmini-siradanliktan-kurtulun/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/seyahat/schengen-kalis-suresi-hesaplayici-90-180/": {
+      "hash": "1166d323ce1482549df8c29cda4d17f428011369e7906817c3a3ec52bc042a42",
+      "route": "/tr/araclar/kategoriler/seyahat/schengen-kalis-suresi-hesaplayici-90-180/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/seyahat/uluslararasi-bahsis-hesaplayici/": {
+      "hash": "7b685004cf312663220dfb345bb96e19906d8d57729ede99ac36d6e32ea6a048",
+      "route": "/tr/araclar/kategoriler/seyahat/uluslararasi-bahsis-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/seyahat/valiz-hazirlama-listesi-olusturucu/": {
+      "hash": "42c1c2075a42dfdc3fc5cb6fc1686f6b27a51c06c51c363fd8221dd361ec67cd",
+      "route": "/tr/araclar/kategoriler/seyahat/valiz-hazirlama-listesi-olusturucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/seyahat/yakit-maliyeti-hesaplama-yolculuk/": {
+      "hash": "5c5416e2f53212fe6a87b94df669e66c8f73d82a9d2f03b9613b8afb9f286ced",
+      "route": "/tr/araclar/kategoriler/seyahat/yakit-maliyeti-hesaplama-yolculuk/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-coste-combustible-viaje/": {
+      "hash": "e86642f43af25a8aca2bcd799c8568b022564510cf14d47c17ab5ca958a125fb",
+      "route": "/utilidades/calculadora-coste-combustible-viaje/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-dividir-gastos-viaje-grupo/": {
+      "hash": "1280df0f2e86b37be8605b00a7cf0273d0a89e915bb58cf2a0a94a293c397a2e",
+      "route": "/utilidades/calculadora-dividir-gastos-viaje-grupo/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-equipaje-aerolineas/": {
+      "hash": "352d5ddf13b5aa0a7720bed0808550f01eb77581f1ab2093e60e38c9ea0c6245",
+      "route": "/utilidades/calculadora-equipaje-aerolineas/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-propinas-internacional/": {
+      "hash": "39daebda25314ba6bef1c3f7c9e2d90b992480199721ecaf7eb58bd38621e0b1",
+      "route": "/utilidades/calculadora-propinas-internacional/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-schengen-90-180/": {
+      "hash": "258fee553f8597b286dfd975bb63ca35b2a02e9138549b6d904d90a48e7c5a64",
+      "route": "/utilidades/calculadora-schengen-90-180/"
+    },
+    "https://www.jjlmoya.es/utilidades/categorias/viajes/": {
+      "hash": "a170ec9c627a2badc77c7943fcea1fb6f8169e3e4ccc2245d994101c1bc3664a",
+      "route": "/utilidades/categorias/viajes/"
+    },
+    "https://www.jjlmoya.es/utilidades/generador-checklist-maleta/": {
+      "hash": "68fd9bbe941eb818516ed57222bcfbac497e9c5f23337f6c6bb35a0c01152565",
+      "route": "/utilidades/generador-checklist-maleta/"
+    },
+    "https://www.jjlmoya.es/utilidades/pronostico-mini-aventuras/": {
+      "hash": "e5c1f01f6d425e23c05f57797aa773a698ab61d1bf50d65441d5b4661e2ed71b",
+      "route": "/utilidades/pronostico-mini-aventuras/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/travel/airline-luggage-calculator/": {
+      "hash": "4e71d82655560e4c57f181c0f573c62775c8ece9b3d74d07a641d13aa771457d",
+      "route": "/zh/utilities/categories/travel/airline-luggage-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/travel/fuel-cost-calculator/": {
+      "hash": "4453a5f9b6f1c4d32cb7b5de0d44fec2608081569fed161e7857271d0b9e88d0",
+      "route": "/zh/utilities/categories/travel/fuel-cost-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/travel/": {
+      "hash": "dc1b8b8d556df07f1a80188218a33f9691bed1178ba21e3e3043696a9b48f150",
+      "route": "/zh/utilities/categories/travel/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/travel/international-tip-calculator/": {
+      "hash": "dfa22fa16f1dc2cad58ec824c252e9f7c532ebd9aab0d1d86d333ea6e090c5f1",
+      "route": "/zh/utilities/categories/travel/international-tip-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/travel/mini-adventure-forecast/": {
+      "hash": "9e181a952ff292938f37497748222e36628bc7fffe55790b2660647b71ef0bd6",
+      "route": "/zh/utilities/categories/travel/mini-adventure-forecast/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/travel/schengen-calculator/": {
+      "hash": "697a4bfdff0cab002a004583cc77a94812243128faaa915f1f6788698d89799f",
+      "route": "/zh/utilities/categories/travel/schengen-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/travel/suitcase-checklist-generator/": {
+      "hash": "e5010277c1f838af092a8345e486eba3c4c1ba2b89385a53cacc999b6ccf4c3a",
+      "route": "/zh/utilities/categories/travel/suitcase-checklist-generator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/travel/trip-expense-splitter/": {
+      "hash": "8a08cff6942ab552a667531c337b6c82d47348d3b82690b87c8d7c4f913cd3ad",
+      "route": "/zh/utilities/categories/travel/trip-expense-splitter/"
+    }
+  }
+}
