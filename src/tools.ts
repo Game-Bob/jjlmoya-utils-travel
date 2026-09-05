@@ -5,6 +5,7 @@ import { MINI_ADVENTURES_TOOL } from './tool/mini-adventures';
 import { SCHENGEN_CALCULATOR_TOOL } from './tool/schengen-calculator';
 import { FUEL_COST_CALCULATOR_TOOL } from './tool/fuel-cost-calculator';
 import { TRIP_EXPENSE_SPLITTER_TOOL } from './tool/trip-expense-splitter';
+import { JET_LAG_RECOVERY_PLANNER_TOOL } from './tool/jet-lag-recovery-planner';
 import type { ToolDefinition } from './types';
 
 export { ALL_ENTRIES } from './entries';
@@ -17,6 +18,7 @@ export const ALL_TOOLS: ToolDefinition[] = [
   SCHENGEN_CALCULATOR_TOOL,
   FUEL_COST_CALCULATOR_TOOL,
   TRIP_EXPENSE_SPLITTER_TOOL,
+  JET_LAG_RECOVERY_PLANNER_TOOL,
 ];
 
 export { luggageCalculator } from './tool/luggage-calculator/entry';
@@ -33,4 +35,6 @@ export { fuelCostCalculator } from './tool/fuel-cost-calculator/entry';
 export type { FuelCostCalculatorUI } from './tool/fuel-cost-calculator/entry';
 export { tripExpenseSplitter } from './tool/trip-expense-splitter/entry';
 export type { TripExpenseSplitterUI } from './tool/trip-expense-splitter/entry';
+export { jetLagRecoveryPlanner } from './tool/jet-lag-recovery-planner/entry';
+export type { JetLagRecoveryPlannerUI } from './tool/jet-lag-recovery-planner/entry';
 export { travelCategory } from './category';

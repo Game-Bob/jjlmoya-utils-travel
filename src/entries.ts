@@ -5,5 +5,6 @@ import { tipCalculator } from './tool/tip-calculator/entry';
 import { schengenCalculator } from './tool/schengen-calculator/entry';
 import { fuelCostCalculator } from './tool/fuel-cost-calculator/entry';
 import { tripExpenseSplitter } from './tool/trip-expense-splitter/entry';
+import { jetLagRecoveryPlanner } from './tool/jet-lag-recovery-planner/entry';
 
-export const ALL_ENTRIES = [luggageCalculator, miniAdventures, suitcaseChecklist, tipCalculator, schengenCalculator, fuelCostCalculator, tripExpenseSplitter];
+export const ALL_ENTRIES = [luggageCalculator, miniAdventures, suitcaseChecklist, tipCalculator, schengenCalculator, fuelCostCalculator, tripExpenseSplitter, jetLagRecoveryPlanner];

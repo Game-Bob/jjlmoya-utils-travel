@@ -1,0 +1,505 @@
+.jet-lag-planner {
+  --jl-ink: #17324d;
+  --jl-muted: #587086;
+  --jl-paper: #fffdf7;
+  --jl-line: #d8e1e4;
+  --jl-blue: #197c9c;
+  --jl-blue-soft: #e5f3f4;
+  --jl-sun: #e8a52e;
+  --jl-night: #294e78;
+
+  color: var(--jl-ink);
+}
+
+.theme-dark .jet-lag-planner {
+  --jl-ink: #edf7f6;
+  --jl-muted: #abc0c9;
+  --jl-paper: #172b3d;
+  --jl-line: #355066;
+  --jl-blue: #6ed1d2;
+  --jl-blue-soft: #1d4858;
+  --jl-sun: #f5bd51;
+  --jl-night: #9cc4e8;
+}
+
+.jl-card {
+  background: var(--jl-paper);
+  border: 1px solid var(--jl-line);
+  border-radius: 1.5rem;
+  box-shadow: 0 1rem 2.5rem rgba(18, 46, 69, 0.08);
+}
+
+.theme-dark .jl-card {
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.22);
+}
+
+.jl-workspace {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-areas:
+    "hero-copy journey"
+    "form result";
+  gap: 2rem;
+  align-items: center;
+  margin-top: 0;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 25%, rgba(232, 165, 46, 0.16), transparent 30%),
+    radial-gradient(circle at 8% 90%, rgba(25, 124, 156, 0.14), transparent 35%),
+    var(--jl-paper);
+}
+
+.jl-hero-copy {
+  grid-area: hero-copy;
+  position: relative;
+  z-index: 1;
+}
+
+.jl-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--jl-blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.jl-kicker svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.jl-hero-copy p {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--jl-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.jl-journey {
+  grid-area: journey;
+  position: relative;
+  min-height: 13rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 1rem;
+  border: 1px dashed var(--jl-line);
+  border-radius: 45% 55% 50% 40%;
+  transform: rotate(-2deg);
+}
+
+.jl-journey::before {
+  position: absolute;
+  inset: 0.6rem;
+  border: 2px solid color-mix(in srgb, var(--jl-blue) 35%, transparent);
+  border-radius: 50%;
+  content: "";
+  transform: rotate(8deg);
+}
+
+.jl-journey-node,
+.jl-journey-line {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jl-journey-node {
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.jl-journey-node svg {
+  width: 4rem;
+  height: 4rem;
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+
+.jl-night {
+  color: var(--jl-night);
+}
+
+.jl-night svg {
+  background: color-mix(in srgb, var(--jl-night) 16%, transparent);
+}
+
+.jl-day {
+  color: var(--jl-sun);
+}
+
+.jl-day svg {
+  background: color-mix(in srgb, var(--jl-sun) 18%, transparent);
+}
+
+.jl-journey-line {
+  color: var(--jl-blue);
+}
+
+.jl-journey-line svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.jl-form {
+  grid-area: form;
+  padding-right: 2rem;
+  border-right: 1px solid var(--jl-line);
+}
+
+.jl-form-heading,
+.jl-result-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.jl-result {
+  grid-area: result;
+}
+
+.jl-form-heading {
+  margin-bottom: 1.5rem;
+}
+
+.jl-step {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.55rem;
+  background: var(--jl-blue-soft);
+  color: var(--jl-blue);
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.jl-form h3,
+.jl-result h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.jl-form-heading p {
+  margin: 0.3rem 0 0;
+  color: var(--jl-muted);
+  font-size: 0.85rem;
+}
+
+.jl-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.jl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.jl-field span {
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.jl-field small {
+  color: var(--jl-muted);
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.jl-field input,
+.jl-field select {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 2.9rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--jl-line);
+  border-radius: 0.7rem;
+  background: color-mix(in srgb, var(--jl-paper) 88%, var(--jl-blue-soft));
+  color: var(--jl-ink);
+  font: inherit;
+}
+
+.jl-field input:focus,
+.jl-field select:focus,
+.jl-actions button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--jl-blue) 30%, transparent);
+  outline-offset: 2px;
+  border-color: var(--jl-blue);
+}
+
+.jl-days-field {
+  max-width: 9rem;
+}
+
+.jl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.jl-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.9rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+  font: inherit;
+  font-size: 0.87rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.jl-actions svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.jl-primary {
+  background: var(--jl-blue);
+  color: #fff;
+}
+
+.theme-dark .jl-primary {
+  color: #082433;
+}
+
+.jl-secondary {
+  border-color: var(--jl-line);
+  background: transparent;
+  color: var(--jl-ink);
+}
+
+.jl-result-top {
+  justify-content: space-between;
+}
+
+.jl-result-top > div {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.jl-direction {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 2rem;
+  background: var(--jl-blue-soft);
+  color: var(--jl-blue);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-align: right;
+}
+
+.jl-direction[data-direction="west"] {
+  background: color-mix(in srgb, var(--jl-sun) 18%, transparent);
+  color: #a36d11;
+}
+
+.theme-dark .jl-direction[data-direction="west"] {
+  color: #ffd27c;
+}
+
+.jl-result-intro {
+  margin: 1rem 0;
+  color: var(--jl-muted);
+  line-height: 1.55;
+}
+
+.jl-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.jl-metrics > div {
+  min-width: 0;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  background: var(--jl-blue-soft);
+}
+
+.jl-metrics span,
+.jl-metrics strong {
+  display: block;
+}
+
+.jl-metrics span {
+  color: var(--jl-muted);
+  font-size: 0.68rem;
+  line-height: 1.2;
+}
+
+.jl-metrics strong {
+  margin-top: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.jl-status {
+  margin: 1rem 0;
+  padding: 0.7rem 0.9rem;
+  border-left: 3px solid var(--jl-sun);
+  background: color-mix(in srgb, var(--jl-sun) 12%, transparent);
+  color: var(--jl-ink);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.jl-status[data-complete="true"] {
+  border-left-color: var(--jl-blue);
+  background: var(--jl-blue-soft);
+}
+
+.jl-days-list {
+  display: grid;
+  gap: 0.7rem;
+  max-height: 27rem;
+  padding-right: 0.25rem;
+  overflow-y: auto;
+}
+
+.jl-day-card {
+  padding: 0.9rem;
+  border: 1px solid var(--jl-line);
+  border-radius: 0.85rem;
+}
+
+.jl-day-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.8rem;
+}
+
+.jl-day-title strong {
+  color: var(--jl-blue);
+}
+
+.jl-schedule {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
+}
+
+.jl-schedule > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.jl-schedule span {
+  color: var(--jl-blue);
+  font-size: 1.1rem;
+}
+
+.jl-schedule small {
+  color: var(--jl-muted);
+  font-size: 0.62rem;
+  line-height: 1.1;
+}
+
+.jl-schedule b {
+  font-size: 0.83rem;
+}
+
+.jl-light,
+.jl-note,
+.jl-safety {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin: 0.75rem 0 0;
+  color: var(--jl-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.jl-light {
+  color: var(--jl-ink);
+  font-weight: 700;
+}
+
+.jl-light-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+  border-radius: 50%;
+  background: var(--jl-sun);
+}
+
+.jl-note {
+  margin-top: 1.2rem;
+}
+
+.jl-note svg,
+.jl-safety svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  color: var(--jl-blue);
+}
+
+.jl-safety {
+  color: var(--jl-ink);
+  font-weight: 700;
+}
+
+@media (max-width: 850px) {
+  .jl-workspace {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero-copy"
+      "journey"
+      "form"
+      "result";
+  }
+
+  .jl-form {
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--jl-line);
+  }
+}
+
+@media (max-width: 520px) {
+  .jl-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jl-days-field {
+    max-width: none;
+  }
+
+  .jl-schedule {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 0.7rem;
+  }
+
+  .jl-metrics {
+    grid-template-columns: 1fr;
+  }
+}

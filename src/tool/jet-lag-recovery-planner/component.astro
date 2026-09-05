@@ -1,0 +1,177 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { JetLagRecoveryPlannerUI } from './entry';
+
+interface Props {
+  ui: JetLagRecoveryPlannerUI;
+}
+
+const { ui } = Astro.props;
+const offsets = Array.from({ length: 27 }, (_, index) => index - 12);
+const uiJson = JSON.stringify(ui).replace(/</g, '\\u003c');
+---
+
+<div class="jet-lag-planner" data-ui={uiJson}>
+  <section class="jl-card jl-workspace" aria-label={ui.visualRail}>
+    <div class="jl-hero-copy">
+      <span class="jl-kicker"><Icon name="mdi:weather-night" /> {ui.visualRail}</span>
+      <p>{ui.intro}</p>
+    </div>
+    <div class="jl-journey" aria-hidden="true">
+      <div class="jl-journey-node jl-night"><Icon name="mdi:weather-night" /><span>{ui.visualSource}</span></div>
+      <div class="jl-journey-line"><Icon name="mdi:airplane" /></div>
+      <div class="jl-journey-node jl-day"><Icon name="mdi:white-balance-sunny" /><span>{ui.visualTarget}</span></div>
+    </div>
+    <form id="jl-form" class="jl-form">
+      <div class="jl-form-heading">
+        <span class="jl-step">01</span>
+        <p>{ui.timeFormatHint}</p>
+      </div>
+      <div class="jl-form-grid">
+        <label class="jl-field">
+          <span>{ui.originLabel}</span>
+          <select id="jl-origin" name="originOffset">
+            {offsets.map((offset) => <option value={offset} selected={offset === 1}>{ui.offsetOptions[String(offset)]}</option>)}
+          </select>
+          <small>{ui.offsetHint}</small>
+        </label>
+        <label class="jl-field">
+          <span>{ui.destinationLabel}</span>
+          <select id="jl-destination" name="destinationOffset">
+            {offsets.map((offset) => <option value={offset} selected={offset === 0}>{ui.offsetOptions[String(offset)]}</option>)}
+          </select>
+          <small>{ui.offsetHint}</small>
+        </label>
+        <label class="jl-field">
+          <span>{ui.departureLabel}</span>
+          <input id="jl-departure" name="departure" type="datetime-local" value={ui.defaultDeparture} required />
+        </label>
+        <label class="jl-field">
+          <span>{ui.arrivalLabel}</span>
+          <input id="jl-arrival" name="arrival" type="datetime-local" value={ui.defaultArrival} required />
+        </label>
+        <label class="jl-field">
+          <span>{ui.sleepLabel}</span>
+          <input id="jl-sleep" name="sleepTime" type="time" value="23:00" required />
+        </label>
+        <label class="jl-field">
+          <span>{ui.wakeLabel}</span>
+          <input id="jl-wake" name="wakeTime" type="time" value="07:00" required />
+        </label>
+        <label class="jl-field jl-days-field">
+          <span>{ui.daysLabel}</span>
+          <input id="jl-days" name="days" type="number" min="1" max="14" value="7" required />
+        </label>
+      </div>
+      <div class="jl-actions">
+        <button class="jl-primary" type="submit"><Icon name="mdi:calendar-check" /> {ui.calculate}</button>
+        <button class="jl-secondary" type="button" id="jl-reset"><Icon name="mdi:refresh" /> {ui.reset}</button>
+      </div>
+    </form>
+
+    <div class="jl-result" aria-live="polite" aria-atomic="true">
+      <div class="jl-result-top">
+        <div>
+          <span class="jl-step">02</span>
+          <h3>{ui.resultHeading}</h3>
+        </div>
+        <span id="jl-direction" class="jl-direction"></span>
+      </div>
+      <p id="jl-result-intro" class="jl-result-intro">{ui.resultIntro}</p>
+      <div class="jl-metrics">
+        <div><span>{ui.timeDifference}</span><strong id="jl-difference">—</strong></div>
+        <div><span>{ui.travelDuration}</span><strong id="jl-duration">—</strong></div>
+        <div><span>{ui.dailyShift}</span><strong id="jl-shift">—</strong></div>
+      </div>
+      <div id="jl-status" class="jl-status"></div>
+      <div id="jl-days-list" class="jl-days-list"></div>
+      <p class="jl-note"><Icon name="mdi:information-outline" /> {ui.daylightNote}</p>
+      <p class="jl-safety"><Icon name="mdi:shield-check-outline" /> {ui.safetyNote}</p>
+    </div>
+  </section>
+</div>
+
+<script>
+  import { calculateJetLagPlan } from './logic';
+
+  const escapeHtml = (value: string) => value.replace(/[&<>\"']/g, (character) => {
+    const replacements: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;', "'": '&#39;' };
+    return replacements[character] ?? character;
+  });
+
+  const getField = (root: HTMLElement, id: string) => root.querySelector<HTMLInputElement | HTMLSelectElement>('#' + id);
+
+  const readValue = (root: HTMLElement, id: string, fallback: string) => getField(root, id)?.value ?? fallback;
+
+  const readInputs = (root: HTMLElement) => ({
+    originOffset: Number(readValue(root, 'jl-origin', '0')),
+    destinationOffset: Number(readValue(root, 'jl-destination', '0')),
+    departure: readValue(root, 'jl-departure', ''),
+    arrival: readValue(root, 'jl-arrival', ''),
+    sleepTime: readValue(root, 'jl-sleep', '23:00'),
+    wakeTime: readValue(root, 'jl-wake', '07:00'),
+    days: Number(readValue(root, 'jl-days', '7')),
+  });
+
+  const getDirectionLabel = (ui: Record<string, string>, direction: string) => {
+    if (direction === 'east') return ui.eastLabel;
+    if (direction === 'west') return ui.westLabel;
+    return ui.sameLabel;
+  };
+
+  const getLightLabel = (ui: Record<string, string>, light: string) => {
+    if (light === 'morning') return ui.lightMorning;
+    if (light === 'afternoon') return ui.lightAfternoon;
+    return ui.lightNone;
+  };
+
+  const renderDays = (root: HTMLElement, ui: Record<string, string>, plan: ReturnType<typeof calculateJetLagPlan>) => {
+    const daysList = root.querySelector<HTMLElement>('#jl-days-list');
+    if (!daysList) return;
+    daysList.innerHTML = plan.days.map((day) => {
+      const light = getLightLabel(ui, day.light);
+      const labels = [ui.sleep, ui.wake, ui.breakfast, ui.lunch, ui.dinner];
+      const times = [day.sleep, day.wake, day.breakfast, day.lunch, day.dinner];
+      const icons = ['S', 'W', 'M', 'M', 'M'];
+      const schedule = times.map((time, index) => '<div><span>' + icons[index] + '</span><small>' + escapeHtml(labels[index]) + '</small><b>' + time + '</b></div>').join('');
+      return '<article class="jl-day-card"><div class="jl-day-title"><span>' + escapeHtml(ui.dayLabel) + ' ' + day.day + '</span><strong>' + day.shiftHours + ' h</strong></div><div class="jl-schedule">' + schedule + '</div><p class="jl-light"><span class="jl-light-dot"></span>' + escapeHtml(light) + '</p></article>';
+    }).join('');
+  };
+
+  const renderPlan = (root: HTMLElement, ui: Record<string, string>) => {
+    const plan = calculateJetLagPlan(readInputs(root));
+    const direction = root.querySelector<HTMLElement>('#jl-direction')!;
+    const difference = root.querySelector<HTMLElement>('#jl-difference')!;
+    const duration = root.querySelector<HTMLElement>('#jl-duration')!;
+    const shift = root.querySelector<HTMLElement>('#jl-shift')!;
+    const status = root.querySelector<HTMLElement>('#jl-status')!;
+    direction.textContent = getDirectionLabel(ui, plan.direction);
+    direction.dataset.direction = plan.direction;
+    difference.textContent = (plan.offsetDifference > 0 ? '+' : '') + plan.offsetDifference + ' h';
+    duration.textContent = plan.travelHours === null ? '—' : plan.travelHours + ' h';
+    shift.textContent = plan.dailyShift === 0 ? '0 h' : plan.dailyShift + ' h/day';
+    status.textContent = plan.targetReached ? ui.targetReached : ui.targetPending + ' ' + plan.remainingHours + ' h';
+    status.dataset.complete = String(plan.targetReached);
+    renderDays(root, ui, plan);
+  };
+
+  const setupPlanner = (root: HTMLElement) => {
+    const ui = JSON.parse(root.dataset.ui ?? '{}') as Record<string, string>;
+    const form = root.querySelector<HTMLFormElement>('#jl-form');
+    form?.addEventListener('submit', (event) => { event.preventDefault(); renderPlan(root, ui); });
+    form?.querySelectorAll('input, select').forEach((input) => input.addEventListener('change', () => renderPlan(root, ui)));
+    root.querySelector('#jl-reset')?.addEventListener('click', () => {
+      (getField(root, 'jl-origin') as HTMLSelectElement).value = '1';
+      (getField(root, 'jl-destination') as HTMLSelectElement).value = '0';
+      (getField(root, 'jl-departure') as HTMLInputElement).value = ui.defaultDeparture;
+      (getField(root, 'jl-arrival') as HTMLInputElement).value = ui.defaultArrival;
+      (getField(root, 'jl-sleep') as HTMLInputElement).value = '23:00';
+      (getField(root, 'jl-wake') as HTMLInputElement).value = '07:00';
+      (getField(root, 'jl-days') as HTMLInputElement).value = '7';
+      renderPlan(root, ui);
+    });
+    renderPlan(root, ui);
+  };
+
+  document.querySelectorAll<HTMLElement>('.jet-lag-planner').forEach(setupPlanner);
+</script>

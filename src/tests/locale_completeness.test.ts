@@ -22,7 +22,7 @@ describe('Locale Completeness Validation', () => {
     });
   });
 
-  it('all 7 tools registered', () => {
-    expect(ALL_TOOLS.length).toBe(7);
+  it('all 8 tools registered', () => {
+    expect(ALL_TOOLS.length).toBe(8);
   });
 });
