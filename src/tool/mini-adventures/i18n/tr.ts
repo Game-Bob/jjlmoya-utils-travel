@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Çok uzun zaman önce olan bir şey için bir arkadaşınıza teşekkür edin.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "Uyanış", categoryId: "global", icon: "mdi:footprint", description: "İlk mini maceranız tamamlandı." },
+    { id: "g1", milestone: 1, label: "Uyanış", categoryId: "global", icon: "mdi:footprints", description: "İlk mini maceranız tamamlandı." },
     { id: "g10", milestone: 10, label: "Merak Alışkanlığı", categoryId: "global", icon: "mdi:sparkles", description: "Rutini 10 kez kırdınız." },
     { id: "g50", milestone: 50, label: "Gün Koleksiyoncusu", categoryId: "global", icon: "mdi:calendar-star", description: "Sıradanı sıra dışı kıldığınız 50 gün." },
     { id: "g150", milestone: 150, label: "Şansın Efendisi", categoryId: "global", icon: "mdi:trophy-variant", description: "Macera kataloğunun yarısını tamamladınız." },

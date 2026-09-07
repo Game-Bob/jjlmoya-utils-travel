@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Поблагодари друга за то, что произошло давным-давно.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "Пробуждение", categoryId: "global", icon: "mdi:footprint", description: "Твое первое выполненное мини-приключение." },
+    { id: "g1", milestone: 1, label: "Пробуждение", categoryId: "global", icon: "mdi:footprints", description: "Твое первое выполненное мини-приключение." },
     { id: "g10", milestone: 10, label: "Привычка удивляться", categoryId: "global", icon: "mdi:sparkles", description: "Ты разорвал рутину 10 раз." },
     { id: "g50", milestone: 50, label: "Коллекционер дней", categoryId: "global", icon: "mdi:calendar-star", description: "50 дней превращения обыденного в необычайное." },
     { id: "g150", milestone: 150, label: "Мастер случая", categoryId: "global", icon: "mdi:trophy-variant", description: "Ты выполнил половину каталога приключений." },

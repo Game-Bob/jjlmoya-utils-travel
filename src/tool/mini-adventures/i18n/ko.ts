@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "오래전에 있었던 일에 대해 친구에게 고마움을 전해보세요.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "각성", categoryId: "global", icon: "mdi:footprint", description: "첫 번째 미니 어드벤처를 완료했습니다." },
+    { id: "g1", milestone: 1, label: "각성", categoryId: "global", icon: "mdi:footprints", description: "첫 번째 미니 어드벤처를 완료했습니다." },
     { id: "g10", milestone: 10, label: "경이로운 습관", categoryId: "global", icon: "mdi:sparkles", description: "일상의 틀을 10번 깨뜨렸습니다." },
     { id: "g50", milestone: 50, label: "하루 수집가", categoryId: "global", icon: "mdi:calendar-star", description: "평범함을 특별함으로 바꾼 지 50일째." },
     { id: "g150", milestone: 150, label: "우연의 마스터", categoryId: "global", icon: "mdi:trophy-variant", description: "어드벤처 카탈로그의 절반을 완료했습니다." },

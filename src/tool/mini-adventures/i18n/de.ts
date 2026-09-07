@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Bedanken Sie sich bei einem Freund für etwas, das schon lange zurückliegt.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "Das Erwachen", categoryId: "global", icon: "mdi:footprint", description: "Dein erstes Mini-Abenteuer abgeschlossen." },
+    { id: "g1", milestone: 1, label: "Das Erwachen", categoryId: "global", icon: "mdi:footprints", description: "Dein erstes Mini-Abenteuer abgeschlossen." },
     { id: "g10", milestone: 10, label: "Wunder-Gewohnheit", categoryId: "global", icon: "mdi:sparkles", description: "Du hast den Trott 10 Mal durchbrochen." },
     { id: "g50", milestone: 50, label: "Tagessammler", categoryId: "global", icon: "mdi:calendar-star", description: "50 Tage, an denen das Gewöhnliche außergewöhnlich wurde." },
     { id: "g150", milestone: 150, label: "Meister des Zufalls", categoryId: "global", icon: "mdi:trophy-variant", description: "Du hast die Hälfte des Abenteuerkatalogs abgeschlossen." },

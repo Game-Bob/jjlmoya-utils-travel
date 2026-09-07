@@ -37,7 +37,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Remerciez un ami pour quelque chose qui est arrivé il y a longtemps.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "L'Éveil", categoryId: "global", icon: "mdi:footprint", description: "Votre première mini aventure réussie." },
+    { id: "g1", milestone: 1, label: "L'Éveil", categoryId: "global", icon: "mdi:footprints", description: "Votre première mini aventure réussie." },
     { id: "g10", milestone: 10, label: "Habitude d'Émerveillement", categoryId: "global", icon: "mdi:sparkles", description: "Vous avez brisé la routine 10 fois." },
     { id: "g50", milestone: 50, label: "Collectionneur de Jours", categoryId: "global", icon: "mdi:calendar-star", description: "50 jours à rendre l'ordinaire extraordinaire." },
     { id: "g150", milestone: 150, label: "Maître du Hasard", categoryId: "global", icon: "mdi:trophy-variant", description: "Vous avez complété la moitié du catalogue d'aventures." },

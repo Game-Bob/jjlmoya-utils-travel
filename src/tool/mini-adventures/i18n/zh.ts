@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "为很久以前发生的一件事感谢一位朋友。", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "觉醒", categoryId: "global", icon: "mdi:footprint", description: "完成您的第一次微冒险。" },
+    { id: "g1", milestone: 1, label: "觉醒", categoryId: "global", icon: "mdi:footprints", description: "完成您的第一次微冒险。" },
     { id: "g10", milestone: 10, label: "奇迹习惯", categoryId: "global", icon: "mdi:sparkles", description: "您已经打破常规10次了。" },
     { id: "g50", milestone: 50, label: "日子收集者", categoryId: "global", icon: "mdi:calendar-star", description: "50天让平凡变得非凡。" },
     { id: "g150", milestone: 150, label: "机缘大师", categoryId: "global", icon: "mdi:trophy-variant", description: "您已经完成了冒险目录的一半。" },

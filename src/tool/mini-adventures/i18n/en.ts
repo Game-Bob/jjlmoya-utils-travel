@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Thank a friend for something that happened a long time ago.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "The Awakening", categoryId: "global", icon: "mdi:footprint", description: "Your first mini adventure completed." },
+    { id: "g1", milestone: 1, label: "The Awakening", categoryId: "global", icon: "mdi:footprints", description: "Your first mini adventure completed." },
     { id: "g10", milestone: 10, label: "Wonder Habit", categoryId: "global", icon: "mdi:sparkles", description: "You've broken the rut 10 times." },
     { id: "g50", milestone: 50, label: "Day Collector", categoryId: "global", icon: "mdi:calendar-star", description: "50 days making the ordinary extraordinary." },
     { id: "g150", milestone: 150, label: "Master of Chance", categoryId: "global", icon: "mdi:trophy-variant", description: "You've completed half of the adventure catalog." },

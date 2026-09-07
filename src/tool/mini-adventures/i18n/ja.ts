@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "ずっと前の出来事について、友人に感謝を伝えてみる。", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "目覚め", categoryId: "global", icon: "mdi:footprint", description: "最初のミニアドベンチャーを完了。" },
+    { id: "g1", milestone: 1, label: "目覚め", categoryId: "global", icon: "mdi:footprints", description: "最初のミニアドベンチャーを完了。" },
     { id: "g10", milestone: 10, label: "驚きの習慣", categoryId: "global", icon: "mdi:sparkles", description: "マンネリを10回打破しました。" },
     { id: "g50", milestone: 50, label: "日々のコレクター", categoryId: "global", icon: "mdi:calendar-star", description: "普通を特別に変えて50日が経過。" },
     { id: "g150", milestone: 150, label: "偶然のマスター", categoryId: "global", icon: "mdi:trophy-variant", description: "アドベンチャー・カタログの半分を達成。" },

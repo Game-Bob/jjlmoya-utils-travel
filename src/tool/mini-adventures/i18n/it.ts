@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Ringrazia un amico per qualcosa che è successo molto tempo fa.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "Il Risveglio", categoryId: "global", icon: "mdi:footprint", description: "La tua prima mini avventura completata." },
+    { id: "g1", milestone: 1, label: "Il Risveglio", categoryId: "global", icon: "mdi:footprints", description: "La tua prima mini avventura completata." },
     { id: "g10", milestone: 10, label: "Abitudine allo Stupore", categoryId: "global", icon: "mdi:sparkles", description: "Hai rotto la routine 10 volte." },
     { id: "g50", milestone: 50, label: "Collezionista di Giorni", categoryId: "global", icon: "mdi:calendar-star", description: "50 giorni passati a rendere lo straordinario ordinario." },
     { id: "g150", milestone: 150, label: "Maestro del Caso", categoryId: "global", icon: "mdi:trophy-variant", description: "Hai completato metà del catalogo delle avventure." },

@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Podziękuj przyjacielowi za coś, co wydarzyło się dawno temu.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "Przebudzenie", categoryId: "global", icon: "mdi:footprint", description: "Twoja pierwsza mini przygoda ukończona." },
+    { id: "g1", milestone: 1, label: "Przebudzenie", categoryId: "global", icon: "mdi:footprints", description: "Twoja pierwsza mini przygoda ukończona." },
     { id: "g10", milestone: 10, label: "Nawyk Zachwytu", categoryId: "global", icon: "mdi:sparkles", description: "Przełamałeś rutynę 10 razy." },
     { id: "g50", milestone: 50, label: "Kolekcjoner Dni", categoryId: "global", icon: "mdi:calendar-star", description: "50 dni sprawiania, że to, co zwyczajne, staje się niezwykłe." },
     { id: "g150", milestone: 150, label: "Mistrz Przypadku", categoryId: "global", icon: "mdi:trophy-variant", description: "Ukończyłeś połowę katalogu przygód." },

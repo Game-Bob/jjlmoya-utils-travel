@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Tacka en vän för något som hände för länge sedan.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "Uppvaknandet", categoryId: "global", icon: "mdi:footprint", description: "Ditt första mini-äventyr slutfört." },
+    { id: "g1", milestone: 1, label: "Uppvaknandet", categoryId: "global", icon: "mdi:footprints", description: "Ditt första mini-äventyr slutfört." },
     { id: "g10", milestone: 10, label: "Förundransvana", categoryId: "global", icon: "mdi:sparkles", description: "Du har brutit rutinen 10 gånger." },
     { id: "g50", milestone: 50, label: "Dagsamlare", categoryId: "global", icon: "mdi:calendar-star", description: "50 dagar av att göra det vardagliga extraordinärt." },
     { id: "g150", milestone: 150, label: "Slumpens mästare", categoryId: "global", icon: "mdi:trophy-variant", description: "Du har slutfört hälften av äventyrskatalogen." },

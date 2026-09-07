@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Bedank een vriend voor iets wat lang geleden is gebeurd.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "Het Ontwaken", categoryId: "global", icon: "mdi:footprint", description: "Je eerste mini avontuur voltooid." },
+    { id: "g1", milestone: 1, label: "Het Ontwaken", categoryId: "global", icon: "mdi:footprints", description: "Je eerste mini avontuur voltooid." },
     { id: "g10", milestone: 10, label: "Gewoonte van Verwondering", categoryId: "global", icon: "mdi:sparkles", description: "Je hebt de sleur 10 keer doorbroken." },
     { id: "g50", milestone: 50, label: "Dagenverzamelaar", categoryId: "global", icon: "mdi:calendar-star", description: "50 dagen waarin het gewone buitengewoon werd." },
     { id: "g150", milestone: 150, label: "Meester van het Toeval", categoryId: "global", icon: "mdi:trophy-variant", description: "Je hebt de helft van de avonturencatalogus voltooid." },

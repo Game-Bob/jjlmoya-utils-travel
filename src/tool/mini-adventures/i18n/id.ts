@@ -47,7 +47,7 @@ const ui: MiniAdventuresUI = {
     { id: 303, text: "Berterima kasih kepada seorang teman untuk sesuatu yang terjadi sudah lama sekali.", categoryId: "social" }
   ],
   achievements: [
-    { id: "g1", milestone: 1, label: "Kebangkitan", categoryId: "global", icon: "mdi:footprint", description: "Petualangan mini pertama Anda selesai." },
+    { id: "g1", milestone: 1, label: "Kebangkitan", categoryId: "global", icon: "mdi:footprints", description: "Petualangan mini pertama Anda selesai." },
     { id: "g10", milestone: 10, label: "Kebiasaan Menakjubkan", categoryId: "global", icon: "mdi:sparkles", description: "Anda telah memecah rutinitas sebanyak 10 kali." },
     { id: "g50", milestone: 50, label: "Kolektor Hari", categoryId: "global", icon: "mdi:calendar-star", description: "50 hari membuat yang biasa menjadi luar biasa." },
     { id: "g150", milestone: 150, label: "Master Peluang", categoryId: "global", icon: "mdi:trophy-variant", description: "Anda telah menyelesaikan setengah dari katalog petualangan." },
