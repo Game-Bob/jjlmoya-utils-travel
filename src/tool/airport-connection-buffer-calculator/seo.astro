@@ -1,0 +1,14 @@
+---
+import { SEORenderer } from '@jjlmoya/utils-shared';
+import { airportConnectionBuffer } from './entry';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props;
+const content = await (airportConnectionBuffer.i18n[locale] ?? airportConnectionBuffer.i18n.en)?.();
+---
+
+{content && <SEORenderer content={{ locale, sections: content.seo }} />}

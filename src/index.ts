@@ -22,3 +22,4 @@ export { suitcaseChecklist, SUITCASE_CHECKLIST_TOOL } from './tool/suitcase-chec
 export { miniAdventures, MINI_ADVENTURES_TOOL } from './tool/mini-adventures';
 export { schengenCalculator, SCHENGEN_CALCULATOR_TOOL } from './tool/schengen-calculator';
 export { fuelCostCalculator, FUEL_COST_CALCULATOR_TOOL } from './tool/fuel-cost-calculator';
+export { airportConnectionBuffer, AIRPORT_CONNECTION_BUFFER_TOOL } from './tool/airport-connection-buffer-calculator';

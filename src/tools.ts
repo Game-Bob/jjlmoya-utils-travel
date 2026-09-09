@@ -6,6 +6,7 @@ import { SCHENGEN_CALCULATOR_TOOL } from './tool/schengen-calculator';
 import { FUEL_COST_CALCULATOR_TOOL } from './tool/fuel-cost-calculator';
 import { TRIP_EXPENSE_SPLITTER_TOOL } from './tool/trip-expense-splitter';
 import { JET_LAG_RECOVERY_PLANNER_TOOL } from './tool/jet-lag-recovery-planner';
+import { AIRPORT_CONNECTION_BUFFER_TOOL } from './tool/airport-connection-buffer-calculator';
 import type { ToolDefinition } from './types';
 
 export { ALL_ENTRIES } from './entries';
@@ -19,6 +20,7 @@ export const ALL_TOOLS: ToolDefinition[] = [
   FUEL_COST_CALCULATOR_TOOL,
   TRIP_EXPENSE_SPLITTER_TOOL,
   JET_LAG_RECOVERY_PLANNER_TOOL,
+  AIRPORT_CONNECTION_BUFFER_TOOL,
 ];
 
 export { luggageCalculator } from './tool/luggage-calculator/entry';
@@ -37,4 +39,6 @@ export { tripExpenseSplitter } from './tool/trip-expense-splitter/entry';
 export type { TripExpenseSplitterUI } from './tool/trip-expense-splitter/entry';
 export { jetLagRecoveryPlanner } from './tool/jet-lag-recovery-planner/entry';
 export type { JetLagRecoveryPlannerUI } from './tool/jet-lag-recovery-planner/entry';
+export { airportConnectionBuffer } from './tool/airport-connection-buffer-calculator/entry';
+export type { AirportConnectionBufferUI, AirportConnectionBufferLocaleContent } from './tool/airport-connection-buffer-calculator/entry';
 export { travelCategory } from './category';

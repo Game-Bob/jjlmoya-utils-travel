@@ -1,0 +1,97 @@
+---
+import type { AirportConnectionBufferUI } from './ui';
+import { airportProfiles } from './airport-data';
+import './airport-connection-buffer-calculator.css';
+
+interface Props { ui: AirportConnectionBufferUI; locale: string; }
+const { ui, locale } = Astro.props;
+const defaultProfile = airportProfiles[0];
+---
+
+<div class="airport-connection-buffer" data-airport-connection-buffer data-locale={locale}>
+  <form class="acb-surface" novalidate>
+    <section class="acb-section acb-scanner-section">
+      <div class="acb-section-heading"><h2>{ui.flightDataHeading}</h2><p>{ui.flightNumberHint}</p></div>
+      <div class="acb-flight-tools">
+        <label class="acb-field acb-flight-number"><span class="acb-label">{ui.flightNumberLabel}</span><input data-input="flightNumber" type="text" inputmode="text" autocomplete="off" placeholder="IB3166" aria-label={ui.flightNumberLabel} /></label>
+        <label class="acb-field acb-flight-number"><span class="acb-label">{ui.connectionFlightLabel}</span><span class="acb-hint">{ui.connectionFlightHint}</span><input data-input="connectionFlightNumber" type="text" inputmode="text" autocomplete="off" placeholder="IB3167" aria-label={ui.connectionFlightLabel} /></label>
+        <input class="acb-file-input" data-scan-file type="file" accept="image/*,.pdf,application/pdf" aria-label={ui.scanFileButton} />
+        <button type="button" class="acb-secondary-button" data-action="scan-camera">{ui.scanCameraButton}</button>
+        <button type="button" class="acb-secondary-button" data-action="stop-camera">{ui.stopCameraButton}</button>
+      </div>
+      <p class="acb-inline-status" data-scanner-status>{ui.scannerStatus}</p>
+      <video class="acb-camera" data-camera hidden playsinline muted></video>
+    </section>
+
+    <section class="acb-section">
+      <div class="acb-section-heading"><h2>{ui.airportLabel}</h2><p>{ui.airportManualHint}</p></div>
+      <div class="acb-select-grid">
+        <div class="acb-select" data-select="airportCode" data-value="MAD">
+          <span class="acb-label">{ui.airportLabel}</span><button type="button" class="acb-select-trigger" data-select-trigger aria-expanded="false">MAD</button>
+          <div class="acb-select-options" data-select-options hidden role="listbox" aria-label={ui.airportLabel}>{airportProfiles.map((profile) => <button type="button" class="acb-select-option" data-option-value={profile.iata} role="option" aria-selected={profile.iata === 'MAD'}>{profile.iata} · {profile.name}</button>)}</div>
+        </div>
+        <div class="acb-select" data-select="arrivalTerminal" data-value="T1"><span class="acb-label">{ui.arrivalTerminalLabel}</span><button type="button" class="acb-select-trigger" data-select-trigger aria-expanded="false">T1</button><div class="acb-select-options" data-select-options hidden role="listbox" aria-label={ui.arrivalTerminalLabel}>{defaultProfile.terminals.map((terminal) => <button type="button" class="acb-select-option" data-option-value={terminal} role="option" aria-selected={terminal === 'T1'}>{terminal}</button>)}</div></div>
+        <div class="acb-select" data-select="departureTerminal" data-value="T2"><span class="acb-label">{ui.departureTerminalLabel}</span><button type="button" class="acb-select-trigger" data-select-trigger aria-expanded="false">T2</button><div class="acb-select-options" data-select-options hidden role="listbox" aria-label={ui.departureTerminalLabel}>{defaultProfile.terminals.map((terminal) => <button type="button" class="acb-select-option" data-option-value={terminal} role="option" aria-selected={terminal === 'T2'}>{terminal}</button>)}</div></div>
+      </div>
+      <p class="acb-inline-status"><span>{ui.localDataLabel}: </span><span data-local-data-status>{ui.localDataUnknown}</span> · <a data-source-link href={defaultProfile.sourceUrl} target="_blank" rel="noreferrer">{defaultProfile.source}</a></p>
+    </section>
+
+    <section class="acb-section acb-time-section">
+      <div class="acb-time-row">
+        <label class="acb-field acb-time-field"><span class="acb-label">{ui.arrivalLabel}</span><span class="acb-hint">{ui.arrivalHint}</span><input data-input="arrivalTime" type="time" value="10:00" aria-label={ui.arrivalLabel} /></label>
+        <div class="acb-flight-arrow" aria-hidden="true">→</div>
+        <label class="acb-field acb-time-field"><span class="acb-label">{ui.departureLabel}</span><span class="acb-hint">{ui.departureHint}</span><input data-input="departureTime" type="time" value="13:00" aria-label={ui.departureLabel} /></label>
+      </div>
+    </section>
+
+    <section class="acb-section">
+      <div class="acb-section-heading"><h2>{ui.baggageHeading}</h2></div>
+      <div class="acb-choice-row" role="group" aria-label={ui.baggageHeading}>
+        <button type="button" data-baggage="hand" aria-pressed="false">{ui.baggageHand}</button><button type="button" data-baggage="checked" aria-pressed="true">{ui.baggageChecked}</button><button type="button" data-baggage="self-transfer" aria-pressed="false">{ui.baggageSelfTransfer}</button>
+      </div>
+      <div class="acb-section-heading"><h2>{ui.routeRuleHeading}</h2></div>
+      <div class="acb-choice-row" role="group" aria-label={ui.routeRuleHeading}>
+        <button type="button" data-route="domestic" aria-pressed="false">{ui.routeDomestic}</button><button type="button" data-route="schengen" aria-pressed="false">{ui.routeSchengen}</button><button type="button" data-route="us-international" aria-pressed="false">{ui.routeUsInternational}</button><button type="button" data-route="custom" aria-pressed="true">{ui.routeCustom}</button>
+      </div>
+    </section>
+
+    <details class="acb-advanced">
+      <summary><span>{ui.advancedSettingsLabel}</span><small>{ui.advancedSettingsHint}</small></summary>
+      <section class="acb-section acb-checkpoints">
+      <label class="acb-field"><span class="acb-label">{ui.deplaningLabel}</span><span class="acb-hint">{ui.deplaningHint}</span><span class="acb-input-wrap"><input data-input="deplaningMinutes" type="number" min="0" max="720" step="5" value="15" aria-label={ui.deplaningLabel} /><span>{ui.minuteUnit}</span></span></label>
+      <label class="acb-field"><span class="acb-label">{ui.transferLabel}</span><span class="acb-hint">{ui.transferHint}</span><span class="acb-input-wrap"><input data-input="transferMinutes" type="number" min="0" max="720" step="5" value="20" aria-label={ui.transferLabel} /><span>{ui.minuteUnit}</span></span></label>
+      <label class="acb-field"><span class="acb-label">{ui.controlLabel}</span><span class="acb-hint">{ui.controlHint}</span><span class="acb-input-wrap"><input data-input="controlMinutes" type="number" min="0" max="720" step="5" value="35" aria-label={ui.controlLabel} /><span>{ui.minuteUnit}</span></span></label>
+      <label class="acb-field"><span class="acb-label">{ui.baggageLabel}</span><span class="acb-hint">{ui.baggageHint}</span><span class="acb-input-wrap"><input data-input="baggageMinutes" type="number" min="0" max="720" step="5" value="0" aria-label={ui.baggageLabel} /><span>{ui.minuteUnit}</span></span></label>
+      <label class="acb-field"><span class="acb-label">{ui.personalBufferLabel}</span><span class="acb-hint">{ui.personalBufferHint}</span><span class="acb-input-wrap"><input data-input="personalBufferMinutes" type="number" min="0" max="720" step="5" value="20" aria-label={ui.personalBufferLabel} /><span>{ui.minuteUnit}</span></span></label>
+      <label class="acb-field"><span class="acb-label">{ui.gateCloseLabel}</span><span class="acb-hint">{ui.gateCloseHint}</span><span class="acb-input-wrap"><input data-input="gateCloseMinutes" type="number" min="0" max="120" step="5" value="20" aria-label={ui.gateCloseLabel} /><span>{ui.minuteUnit}</span></span></label>
+      <label class="acb-field"><span class="acb-label">{ui.mctLabel}</span><span class="acb-hint">{ui.mctHint}</span><span class="acb-input-wrap"><input data-input="officialMctMinutes" type="number" min="0" max="720" step="5" value="90" aria-label={ui.mctLabel} /><span>{ui.minuteUnit}</span></span></label>
+      </section>
+    </details>
+
+    <section class="acb-section acb-delay-section">
+      <div class="acb-section-heading"><h2>{ui.delayHeading}</h2><p>{ui.delayHint}</p></div>
+      <label class="acb-range-label"><span>{ui.delayLabel}</span><output data-delay-output>30 {ui.minuteUnit}</output><input data-input="delayMinutes" type="range" min="0" max="120" step="5" value="30" aria-label={ui.delayLabel} /></label>
+      <div class="acb-choice-row acb-delay-choices"><button type="button" data-delay="0">{ui.delayZero}</button><button type="button" data-delay="15">{ui.delayFifteen}</button><button type="button" data-delay="30">{ui.delayThirty}</button><button type="button" data-delay="45">{ui.delayFortyFive}</button></div>
+    </section>
+
+    <fieldset class="acb-presets"><legend>{ui.presetsLabel}</legend><button type="button" data-preset="short" aria-pressed="false">{ui.presetShort}</button><button type="button" data-preset="standard" aria-pressed="true">{ui.presetStandard}</button><button type="button" data-preset="long" aria-pressed="false">{ui.presetLong}</button></fieldset>
+
+    <section class="acb-result" aria-live="polite">
+      <div class="acb-result-topline"><div><p class="acb-eyebrow">{ui.resultHeading}</p><strong data-result-margin>-</strong><span data-result-status data-tone="positive">{ui.statusComfortable}</span></div><div class="acb-verdict-side"><div class="acb-mct-badge" data-mct-badge data-tone="caution"><span>{ui.mctLabelResult}</span><strong data-mct-result>-</strong></div><p class="acb-result-statement" data-result-statement>{ui.invalidStatement}</p></div></div>
+      <div class="acb-timeline" data-connection-timeline data-state="comfortable" aria-label={ui.resultHeading}><div class="acb-track"></div><div class="acb-marker acb-marker-arrival"><span>{ui.timelineArrival}</span></div><div class="acb-marker acb-marker-exit"><span>{ui.timelineExit}</span><strong data-step="exit">-</strong></div><div class="acb-marker acb-marker-transfer"><span>{ui.timelineTransfer}</span><strong data-step="transfer">-</strong></div><div class="acb-marker acb-marker-control"><span>{ui.timelineControl}</span><strong data-step="control">-</strong></div><div class="acb-marker acb-marker-gate"><span>{ui.timelineGate}</span><strong data-step="gate">-</strong></div><div class="acb-marker acb-marker-departure"><span>{ui.timelineDeparture}</span></div></div>
+      <div class="acb-metrics"><div><span>{ui.windowLabel}</span><strong data-result-window>-</strong></div><div><span>{ui.gateWindowLabel}</span><strong data-result-gate-window>-</strong></div><div><span>{ui.plannedLabel}</span><strong data-result-planned>-</strong></div></div>
+      <div class="acb-stress"><div><span class="acb-stress-label">{ui.stressLabel}</span><strong data-result-stress>-</strong></div><div><span class="acb-stress-label">{ui.marginLabel}</span><strong data-stress-margin>-</strong></div><span data-stress-status data-tone="positive">{ui.statusComfortable}</span><p data-stress-statement>{ui.invalidStatement}</p></div>
+      <div class="acb-result-notes"><p><span data-mct-statement>{ui.mctUnknown}</span></p><p><strong>{ui.sourceLabel}:</strong> <span>{ui.sourceStatement}</span></p></div>
+    </section>
+    <div class="acb-actions"><button type="button" data-action="sample">{ui.sampleButton}</button><button type="button" data-action="reset">{ui.resetButton}</button></div>
+  </form>
+  <script is:inline type="application/json" data-airport-connection-config set:html={JSON.stringify({ ui, locale })}></script>
+</div>
+
+<script>
+  import { mountAirportConnectionBuffer } from './controller';
+  document.querySelectorAll<HTMLElement>('[data-airport-connection-buffer]').forEach((root) => {
+    const configNode = root.querySelector<HTMLScriptElement>('[data-airport-connection-config]');
+    if (configNode) mountAirportConnectionBuffer(root, JSON.parse(configNode.textContent ?? '{}'));
+  });
+</script>
